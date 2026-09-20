@@ -7,8 +7,16 @@ files:
   - out/**
   - package.json
 win:
-  target: nsis
+  target:
+    - nsis
+    - portable
   icon: resources/icon.png
+portable:
+  # nazwa musi się odróżniać od instalatora, oba pliki leżą w tym samym wydaniu
+  artifactName: Elektryk-Quiz-portable-${version}.exe
+  # stała nazwa katalogu rozpakowania: szybszy start i %TEMP% nie puchnie
+  # (dane użytkownika i tak leżą obok .exe, patrz src/main/index.ts)
+  unpackDirName: false
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true

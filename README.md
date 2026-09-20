@@ -57,9 +57,20 @@ Z Linuksa albo macOS budowanie instalatora wymaga wine. Prościej wziąć go z C
 `main` uruchamia workflow **Build**, który składa instalator na `windows-latest` i wrzuca go jako
 artefakt. Tag `vX.Y.Z` dokłada instalator do wydania na GitHubie.
 
-Instalator nie jest podpisany cyfrowo, więc przy pierwszym uruchomieniu SmartScreen pokaże
-ostrzeżenie: „Więcej informacji → Uruchom mimo to". Dane użytkownika leżą poza katalogiem
-instalacji, więc aktualizacja aplikacji ich nie rusza.
+Powstają dwa pliki:
+
+| Plik | Co robi |
+|---|---|
+| `Elektryk Quiz Setup x.y.z.exe` | Instalator NSIS. Dane w `%APPDATA%/elektryk-quiz`, więc aktualizacja aplikacji ich nie rusza |
+| `Elektryk-Quiz-portable-x.y.z.exe` | Jeden plik, bez instalacji. Dane w katalogu `elektryk-quiz-dane` **obok pliku .exe** — całość działa z pendrive'a |
+
+Żaden z nich nie jest podpisany cyfrowo, więc przy pierwszym uruchomieniu SmartScreen pokaże
+ostrzeżenie: „Więcej informacji → Uruchom mimo to".
+
+**Uwaga do wersji portable:** zestawy, postępy, wyniki egzaminów i ustawienia jadą razem
+z plikiem. Klucz API nie — jest szyfrowany mechanizmem DPAPI powiązanym z kontem Windows,
+więc po przeniesieniu na inny komputer trzeba go wpisać jeszcze raz. Nauka offline działa
+bez klucza, potrzebuje go dopiero import własnych list przez Claude.
 
 ## Pozostałe polecenia
 

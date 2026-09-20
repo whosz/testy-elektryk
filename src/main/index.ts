@@ -2,6 +2,14 @@ import { app, BrowserWindow, shell } from 'electron'
 import { join } from 'path'
 import { registerIpc } from './ipc'
 
+// Wersja portable: electron-builder podaje katalog, w którym leży .exe. Dane lądują
+// obok pliku, a nie w %APPDATA%, więc całość da się nosić na pendrivie.
+// Musi być przed app.whenReady, bo setPath po starcie nie przeniesie już cache'u.
+const portableDir = process.env.PORTABLE_EXECUTABLE_DIR
+if (portableDir) {
+  app.setPath('userData', join(portableDir, 'elektryk-quiz-dane'))
+}
+
 function createWindow(): void {
   const win = new BrowserWindow({
     width: 1200,

@@ -642,6 +642,7 @@ Cel: sprawdzić jakość przetwarzania przez Claude, zanim powstanie interfejs.
 - [ ] Test na czystym koncie Windows: instalacja, uruchomienie, import, nauka, odinstalowanie
       — do zrobienia przez Ciebie, instalator leży w artefaktach workflow **Build**
 - [x] Dane użytkownika leżą w `%APPDATA%`, poza katalogiem instalacji
+- [x] Wersja portable: jeden `.exe`, dane w katalogu obok pliku (działa z pendrive'a)
 - [x] Kopia zapasowa: eksport i import zipa z katalogu `data` (bez `secrets.bin`)
 
 Instalator nie będzie podpisany cyfrowo, więc Windows SmartScreen pokaże ostrzeżenie przy pierwszym uruchomieniu. Przy własnym użytku wystarczy „Więcej informacji → Uruchom mimo to".
