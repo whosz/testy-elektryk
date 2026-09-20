@@ -16,10 +16,27 @@ export default function HomePage(): React.JSX.Element {
 
   if (loading) return <p className="text-sm text-muted-foreground">Wczytywanie…</p>
 
+  // Baner musi być też na pustej bazie — wtedy aktualizacja materiałów jest
+  // jedynym sposobem, żeby w aplikacji w ogóle pojawiły się pytania.
+  const updateBanner = update.manifest ? (
+    <Alert>
+      <AlertDescription className="flex flex-wrap items-center justify-between gap-2">
+        <span>
+          Są nowe materiały do nauki (wersja {update.manifest.version}). Pobranie nie kasuje
+          postępów.
+        </span>
+        <Button asChild size="sm">
+          <Link to="/settings">Zobacz</Link>
+        </Button>
+      </AlertDescription>
+    </Alert>
+  ) : null
+
   if (questions.length === 0) {
     return (
       <div className="space-y-4">
         <h1 className="text-2xl font-semibold">Elektryk Quiz</h1>
+        {updateBanner}
         <Alert>
           <AlertDescription>
             Nie masz jeszcze żadnych pytań. Na ekranie <strong>Import</strong> wczytaj jednym
@@ -36,19 +53,7 @@ export default function HomePage(): React.JSX.Element {
 
   return (
     <div className="space-y-6">
-      {update.manifest && (
-        <Alert>
-          <AlertDescription className="flex flex-wrap items-center justify-between gap-2">
-            <span>
-              Są nowe materiały do nauki (wersja {update.manifest.version}). Pobranie nie kasuje
-              postępów.
-            </span>
-            <Button asChild size="sm">
-              <Link to="/settings">Zobacz</Link>
-            </Button>
-          </AlertDescription>
-        </Alert>
-      )}
+      {updateBanner}
 
       <div>
         <h1 className="text-2xl font-semibold">Start</h1>

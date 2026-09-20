@@ -67,7 +67,7 @@ export default function App(): React.JSX.Element {
         {/* Na telefonie menu boczne nie mieści się obok treści — schodzi na dół jako pasek zakładek */}
         <aside className="hidden w-56 shrink-0 border-r bg-sidebar p-3 md:block">
           <div className="px-2 pb-4 pt-2">
-            <p className="text-sm font-semibold">Elektryk Quiz</p>
+            <p className="text-sm font-semibold">⚡ Elektryk Quiz</p>
             <p className="text-xs text-muted-foreground">ELE.02 · ELE.05</p>
           </div>
           <nav className="space-y-0.5">
