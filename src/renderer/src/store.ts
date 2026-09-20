@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { api } from './api'
 import { DEFAULT_SETTINGS } from '@shared/schema'
 import { applyErrorPool, applyStats, newCard } from '@shared/errorPool'
 import { sm2, maxInterval, type Grade } from '@shared/sm2'
@@ -32,30 +33,30 @@ export const useStore = create<State>((set, get) => ({
 
   refresh: async () => {
     const [sets, progress, exams, settings] = await Promise.all([
-      window.api.sets.list(),
-      window.api.progress.getAll(),
-      window.api.exams.list(),
-      window.api.settings.get()
+      api.sets.list(),
+      api.progress.getAll(),
+      api.exams.list(),
+      api.settings.get()
     ])
-    const full = await Promise.all(sets.map((s) => window.api.sets.get(s.id)))
+    const full = await Promise.all(sets.map((s) => api.sets.get(s.id)))
     set({ sets, progress, exams, settings, questions: full.flatMap((s) => s.questions), loading: false })
   },
 
   saveSet: async (s) => {
-    await window.api.sets.merge(s)
+    await api.sets.merge(s)
     await get().refresh()
   },
   removeSet: async (id) => {
-    await window.api.sets.remove(id)
+    await api.sets.remove(id)
     await get().refresh()
   },
   resetSet: async (id) => {
-    await window.api.progress.resetForSet(id)
+    await api.progress.resetForSet(id)
     await get().refresh()
   },
-  setSettings: async (patch) => set({ settings: await window.api.settings.set(patch) }),
+  setSettings: async (patch) => set({ settings: await api.settings.set(patch) }),
   addExam: async (result) => {
-    await window.api.exams.add(result)
+    await api.exams.add(result)
     set({ exams: [...get().exams, result] })
   },
 
@@ -73,6 +74,6 @@ export const useStore = create<State>((set, get) => ({
     }
 
     set({ progress: { ...progress, [questionId]: card } })
-    await window.api.progress.upsert([card])
+    await api.progress.upsert([card])
   }
 }))

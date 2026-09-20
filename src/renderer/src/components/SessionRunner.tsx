@@ -95,7 +95,7 @@ export default function SessionRunner({ questions, schedule = true, onExit }: Pr
     <div className="space-y-4">
       <div className="space-y-2">
         <Progress value={((index + 1) / queue.length) * 100} />
-        <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-xs text-muted-foreground">
           <span>
             Dobrze {stats.correct} · Źle {stats.wrong}
             {retries.length > 0 && ` · do powtórzenia ${retries.length}`}

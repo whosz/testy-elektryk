@@ -63,6 +63,7 @@ Powstają dwa pliki:
 |---|---|
 | `Elektryk Quiz Setup x.y.z.exe` | Instalator NSIS. Dane w `%APPDATA%/elektryk-quiz`, więc aktualizacja aplikacji ich nie rusza |
 | `Elektryk-Quiz-portable-x.y.z.exe` | Jeden plik, bez instalacji. Dane w katalogu `elektryk-quiz-dane` **obok pliku .exe** — całość działa z pendrive'a |
+| `Elektryk-Quiz-x.y.z.apk` | Android, patrz niżej |
 
 Żaden z nich nie jest podpisany cyfrowo, więc przy pierwszym uruchomieniu SmartScreen pokaże
 ostrzeżenie: „Więcej informacji → Uruchom mimo to".
@@ -71,6 +72,25 @@ ostrzeżenie: „Więcej informacji → Uruchom mimo to".
 z plikiem. Klucz API nie — jest szyfrowany mechanizmem DPAPI powiązanym z kontem Windows,
 więc po przeniesieniu na inny komputer trzeba go wpisać jeszcze raz. Nauka offline działa
 bez klucza, potrzebuje go dopiero import własnych list przez Claude.
+
+## Android
+
+```bash
+npm run build:android    # wymaga Android SDK; w CI robi to job „android"
+```
+
+Ta sama aplikacja w WebView przez [Capacitor](https://capacitorjs.com/). Renderer jest ten sam
+co w Electronie — logika nauki, SM-2, egzamin, statystyki i zestaw CKE razem z rysunkami
+działają bez zmian, offline. Różni się warstwa pod spodem i układ ekranu:
+
+- dane w `Filesystem` telefonu, w plikach o tych samych nazwach co na komputerze, więc
+  kopia zapasowa przenosi się w obie strony (Ustawienia → Kopia zapasowa),
+- menu boczne schodzi na dolny pasek z pięcioma zakładkami, reszta ekranów wchodzi ze Startu,
+- **import własnej listy przez Claude jest wyłączony** — wymaga klucza API i dostępu do
+  plików. Na telefonie wczytasz gotowy zestaw CKE albo kopię z komputera.
+
+APK jest podpisany kluczem debugowym, więc Android poprosi o zgodę na instalację
+z nieznanego źródła. Do własnego użytku wystarczy; do sklepu trzeba własnego keystore'a.
 
 ## Pozostałe polecenia
 

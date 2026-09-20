@@ -24,7 +24,9 @@ Jeśli budujesz z asystentem AI w VSCode (Claude Code, Copilot itp.), dawaj mu j
 - statystyki według kategorii,
 - instalator `.exe` na Windows.
 
-**Nie robimy:** kont użytkowników, synchronizacji w chmurze, serwera, wersji mobilnej, generowania pytań z podręczników.
+**Nie robimy:** kont użytkowników, synchronizacji w chmurze, serwera, generowania pytań z podręczników.
+
+*Wersja mobilna doszła po fakcie:* Android przez Capacitor, ten sam renderer, bez importu przez Claude.
 
 **Zasada nadrzędna:** poprawna odpowiedź ze źródła jest nienaruszalna. Na egzaminie liczy się klucz komisji, więc Claude nigdy go nie poprawia — najwyżej oznacza pytanie do przejrzenia. Wszystko, co dopisało AI (błędne warianty, wyjaśnienia), jest w danych oznaczone jako pochodzące od AI.
 

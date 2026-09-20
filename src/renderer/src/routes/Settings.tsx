@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
+import { api, isDesktop } from '@/api'
 import { useStore } from '@/store'
 import { applyTheme, readTheme, type Theme } from '@/theme'
 
@@ -24,7 +25,7 @@ export default function SettingsPage(): React.JSX.Element {
   const [testing, setTesting] = useState(false)
 
   useEffect(() => {
-    void window.api.settings.hasApiKey().then(setHasKey)
+    void api.settings.hasApiKey().then(setHasKey)
   }, [])
 
   useEffect(() => {
@@ -64,6 +65,7 @@ export default function SettingsPage(): React.JSX.Element {
         </CardContent>
       </Card>
 
+      {isDesktop && (
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Klucz API Anthropic</CardTitle>
@@ -83,7 +85,7 @@ export default function SettingsPage(): React.JSX.Element {
             <Button
               disabled={!apiKey.trim()}
               onClick={async () => {
-                await window.api.settings.setApiKey(apiKey.trim())
+                await api.settings.setApiKey(apiKey.trim())
                 setApiKey('')
                 setHasKey(true)
                 toast.success('Klucz zapisany')
@@ -96,7 +98,7 @@ export default function SettingsPage(): React.JSX.Element {
               disabled={testing}
               onClick={async () => {
                 setTesting(true)
-                const res = await window.api.settings.testApiKey()
+                const res = await api.settings.testApiKey()
                 setTesting(false)
                 res.ok ? toast.success('Klucz działa') : toast.error(res.error ?? 'Błąd')
               }}
@@ -106,7 +108,9 @@ export default function SettingsPage(): React.JSX.Element {
           </div>
         </CardContent>
       </Card>
+      )}
 
+      {isDesktop && (
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Import</CardTitle>
@@ -136,7 +140,7 @@ export default function SettingsPage(): React.JSX.Element {
           <Button
             variant="outline"
             onClick={async () => {
-              await window.api.importer.clearCache()
+              await api.importer.clearCache()
               toast.success('Cache importu wyczyszczony')
             }}
           >
@@ -144,6 +148,7 @@ export default function SettingsPage(): React.JSX.Element {
           </Button>
         </CardContent>
       </Card>
+      )}
 
       <Card>
         <CardHeader>
@@ -222,7 +227,7 @@ export default function SettingsPage(): React.JSX.Element {
           <Button
             variant="secondary"
             onClick={async () => {
-              const path = await window.api.backup.exportAll()
+              const path = await api.backup.exportAll()
               if (path) toast.success(`Zapisano do ${path}`)
             }}
           >
@@ -232,7 +237,7 @@ export default function SettingsPage(): React.JSX.Element {
             variant="outline"
             onClick={async () => {
               if (!confirm('Import kopii nadpisze obecne dane. Kontynuować?')) return
-              if (await window.api.backup.importAll()) {
+              if (await api.backup.importAll()) {
                 await refresh()
                 toast.success('Kopia wczytana')
               }
@@ -240,9 +245,11 @@ export default function SettingsPage(): React.JSX.Element {
           >
             Importuj
           </Button>
-          <Button variant="ghost" onClick={() => void window.api.app.openDataDir()}>
-            Otwórz katalog danych
-          </Button>
+          {isDesktop && (
+            <Button variant="ghost" onClick={() => void api.app.openDataDir()}>
+              Otwórz katalog danych
+            </Button>
+          )}
         </CardContent>
       </Card>
     </div>

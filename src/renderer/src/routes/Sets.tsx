@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import QuestionEditor from '@/components/QuestionEditor'
 import FlagBadges from '@/components/FlagBadges'
+import { api } from '@/api'
 import { useStore } from '@/store'
 import { categoryName } from '@shared/categories'
 import type { Question } from '@shared/types'
@@ -18,8 +19,8 @@ export default function SetsPage(): React.JSX.Element {
   const [filter, setFilter] = useState('')
 
   const saveQuestion = async (q: Question): Promise<void> => {
-    const set = await window.api.sets.get(q.setId)
-    await window.api.sets.save({
+    const set = await api.sets.get(q.setId)
+    await api.sets.save({
       ...set,
       questions: set.questions.map((old) => (old.id === q.id ? q : old))
     })

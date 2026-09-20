@@ -43,3 +43,41 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: release/*.exe
+
+  android:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm ci
+      # ten sam zbudowany renderer co w Electronie trafia do WebView
+      - run: npx electron-vite build
+      - run: npx cap sync android
+      - name: Zbuduj APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+      - name: Nazwij plik wersją
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          mv android/app/build/outputs/apk/debug/app-debug.apk "Elektryk-Quiz-$VERSION.apk"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: elektryk-quiz-apk
+          path: '*.apk'
+      - name: Dołącz APK do wydania
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: '*.apk'

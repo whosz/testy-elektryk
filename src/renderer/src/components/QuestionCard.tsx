@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { categoryName } from '@shared/categories'
 import { isCorrect } from '@shared/exam'
-import { shuffle } from '@shared/session'
+import { optionsAreFixed, shuffle } from '@shared/session'
 import type { Grade } from '@shared/sm2'
 import type { Question } from '@shared/types'
 import FlagBadges from './FlagBadges'
@@ -57,7 +57,7 @@ export default function QuestionCard({
   // Tasowanie stałe dla danego pytania w sesji — inaczej warianty skakałyby przy każdym renderze.
   const options = useMemo(
     () =>
-      shuffleOptions && question.type !== 'true_false'
+      shuffleOptions && !optionsAreFixed(question)
         ? shuffle(question.options, hash(question.id + index))
         : question.options,
     [question, shuffleOptions, index]
@@ -220,7 +220,7 @@ export default function QuestionCard({
         )}
 
         <div className="flex items-center justify-between gap-2 pt-1">
-          <span className="text-xs text-muted-foreground">
+          <span className="hidden text-xs text-muted-foreground sm:inline">
             {open
               ? revealed
                 ? '1–4 — ocena · od „Nie wiedziałem" do „Łatwe"'

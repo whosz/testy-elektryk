@@ -24,16 +24,17 @@ import SetsPage from '@/routes/Sets'
 import ImportPage from '@/routes/Import'
 import SettingsPage from '@/routes/Settings'
 
+/** `mobile` wyznacza pięć zakładek dolnego paska; reszta jest dostępna z ekranu Start. */
 const NAV = [
-  { to: '/', label: 'Start', icon: HomeIcon },
-  { to: '/review', label: 'Powtórki', icon: RefreshCw },
-  { to: '/learn', label: 'Nauka', icon: BookOpen },
-  { to: '/exam', label: 'Egzamin', icon: GraduationCap },
-  { to: '/errors', label: 'Moje błędy', icon: TriangleAlert },
-  { to: '/stats', label: 'Statystyki', icon: BarChart3 },
-  { to: '/sets', label: 'Zestawy', icon: Layers },
-  { to: '/import', label: 'Import', icon: FileDown },
-  { to: '/settings', label: 'Ustawienia', icon: SettingsIcon }
+  { to: '/', label: 'Start', icon: HomeIcon, mobile: true },
+  { to: '/review', label: 'Powtórki', icon: RefreshCw, mobile: true },
+  { to: '/learn', label: 'Nauka', icon: BookOpen, mobile: true },
+  { to: '/exam', label: 'Egzamin', icon: GraduationCap, mobile: true },
+  { to: '/errors', label: 'Błędy', icon: TriangleAlert, mobile: true },
+  { to: '/stats', label: 'Statystyki', icon: BarChart3, mobile: false },
+  { to: '/sets', label: 'Zestawy', icon: Layers, mobile: false },
+  { to: '/import', label: 'Import', icon: FileDown, mobile: false },
+  { to: '/settings', label: 'Ustawienia', icon: SettingsIcon, mobile: false }
 ]
 
 export default function App(): React.JSX.Element {
@@ -44,8 +45,9 @@ export default function App(): React.JSX.Element {
 
   return (
     <HashRouter>
-      <div className="flex h-full">
-        <aside className="w-56 shrink-0 border-r bg-sidebar p-3">
+      <div className="flex h-full flex-col md:flex-row">
+        {/* Na telefonie menu boczne nie mieści się obok treści — schodzi na dół jako pasek zakładek */}
+        <aside className="hidden w-56 shrink-0 border-r bg-sidebar p-3 md:block">
           <div className="px-2 pb-4 pt-2">
             <p className="text-sm font-semibold">Elektryk Quiz</p>
             <p className="text-xs text-muted-foreground">ELE.02 · ELE.05</p>
@@ -72,7 +74,7 @@ export default function App(): React.JSX.Element {
           </nav>
         </aside>
         <main className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-4xl p-6">
+          <div className="mx-auto max-w-4xl p-4 pb-24 md:p-6 md:pb-6">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/learn" element={<LearnPage />} />
@@ -86,6 +88,24 @@ export default function App(): React.JSX.Element {
             </Routes>
           </div>
         </main>
+        <nav className="fixed inset-x-0 bottom-0 z-20 grid grid-cols-5 border-t bg-sidebar/95 backdrop-blur md:hidden">
+          {NAV.filter((n) => n.mobile).map(({ to, label, icon: Icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) =>
+                cn(
+                  'flex flex-col items-center gap-0.5 px-1 py-2 text-[11px] transition-colors',
+                  isActive ? 'font-medium text-primary' : 'text-muted-foreground'
+                )
+              }
+            >
+              <Icon className="size-5" />
+              {label}
+            </NavLink>
+          ))}
+        </nav>
       </div>
       <Toaster position="bottom-right" />
     </HashRouter>

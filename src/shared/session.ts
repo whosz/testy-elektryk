@@ -1,5 +1,14 @@
 import type { CardProgress, Question } from './types'
 
+/**
+ * Część wariantów odwołuje się do własnej litery — „Wariant C" ma sens tylko wtedy,
+ * gdy C na ekranie to C na rysunku. Takich pytań nie wolno tasować, bo etykieta
+ * rozjechałaby się z materiałem źródłowym. To samo dotyczy pytań prawda/fałsz.
+ */
+export function optionsAreFixed(q: Question): boolean {
+  return q.type === 'true_false' || q.options.some((o) => /^Wariant [A-D]\b/.test(o.text))
+}
+
 /** Deterministyczne tasowanie (seed) — ta sama sesja wygląda tak samo po odświeżeniu. */
 export function shuffle<T>(items: T[], seed = Date.now()): T[] {
   const out = [...items]

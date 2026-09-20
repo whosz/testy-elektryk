@@ -12,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea'
 import FlagBadges from '@/components/FlagBadges'
 import QuestionEditor from '@/components/QuestionEditor'
 import QuestionImage from '@/components/QuestionImage'
+import { api, isDesktop } from '@/api'
 import { useStore } from '@/store'
 import { categoryName } from '@shared/categories'
 import type { ImportDraft, Question, QuestionSet } from '@shared/types'
@@ -32,22 +33,22 @@ export default function ImportPage(): React.JSX.Element {
   const [editing, setEditing] = useState<Question | null>(null)
   const [filter, setFilter] = useState<Filter>('all')
 
-  useEffect(() => window.api.importer.onProgress(setProgress), [])
+  useEffect(() => api.importer.onProgress(setProgress), [])
 
   const pickFile = async (): Promise<void> => {
-    const file = await window.api.importer.pickFile()
+    const file = await api.importer.pickFile()
     if (!file) return
     if (file.name.endsWith('.json')) {
-      const set = await window.api.importer.loadJson(file.path)
+      const set = await api.importer.loadJson(file.path)
       await saveSet(set)
       toast.success(`Wczytano zestaw „${set.name}" (${set.questions.length} pytań)`)
       return
     }
-    const content = await window.api.importer.extract(file.path)
+    const content = await api.importer.extract(file.path)
     setText(content)
     setFileName(file.name)
     setSetName((n) => n || file.name.replace(/\.[^.]+$/, ''))
-    setEstimate(await window.api.importer.estimate(content))
+    setEstimate(await api.importer.estimate(content))
   }
 
   const run = async (): Promise<void> => {
@@ -55,7 +56,7 @@ export default function ImportPage(): React.JSX.Element {
     setProgress(null)
     try {
       const id = setName.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-') || `zestaw-${Date.now()}`
-      const result = await window.api.importer.run(text, id, fileName || 'wklejony tekst')
+      const result = await api.importer.run(text, id, fileName || 'wklejony tekst')
       setDraft(result)
       setRejected([])
       toast.success(`Przetworzono ${result.questions.length} pytań`)
@@ -77,7 +78,7 @@ export default function ImportPage(): React.JSX.Element {
       categories: draft.categories,
       questions: accepted
     }
-    const { added, updated } = await window.api.sets.merge(set)
+    const { added, updated } = await api.sets.merge(set)
     await useStore.getState().refresh()
     setDraft(null)
     setText('')
@@ -223,7 +224,37 @@ export default function ImportPage(): React.JSX.Element {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Źródło</CardTitle>
+          <CardTitle className="text-base">Gotowy zestaw</CardTitle>
+          <CardDescription>
+            Zadania z informatorów CKE są w aplikacji — wczytasz je bez klucza API i bez internetu.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button
+            onClick={async () => {
+              await saveSet(seedSet as QuestionSet)
+              toast.success(`Wczytano ${seedSet.questions.length} zadań z informatorów CKE`)
+            }}
+          >
+            Wczytaj zadania z informatorów CKE
+          </Button>
+        </CardContent>
+      </Card>
+
+      {!isDesktop && (
+        <Alert>
+          <AlertDescription>
+            Import własnej listy przez Claude działa tylko w wersji na Windows — wymaga klucza API
+            i dostępu do plików. Na telefonie wczytasz gotowy zestaw powyżej albo kopię zapasową
+            z komputera (Ustawienia → Kopia zapasowa).
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {isDesktop && (
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Własna lista pytań</CardTitle>
           <CardDescription>
             Plik TXT, MD, CSV lub DOCX — albo wklej tekst. Gotowy zestaw .json wczytuje się bez API.
           </CardDescription>
@@ -233,15 +264,6 @@ export default function ImportPage(): React.JSX.Element {
             <Button variant="secondary" onClick={pickFile}>
               Wybierz plik
             </Button>
-            <Button
-              variant="outline"
-              onClick={async () => {
-                await saveSet(seedSet as QuestionSet)
-                toast.success(`Wczytano ${seedSet.questions.length} zadań z informatorów CKE`)
-              }}
-            >
-              Wczytaj zadania z informatorów CKE
-            </Button>
             {fileName && <Badge variant="outline">{fileName}</Badge>}
           </div>
           <Textarea
@@ -250,7 +272,7 @@ export default function ImportPage(): React.JSX.Element {
             value={text}
             onChange={async (e) => {
               setText(e.target.value)
-              setEstimate(e.target.value ? await window.api.importer.estimate(e.target.value) : null)
+              setEstimate(e.target.value ? await api.importer.estimate(e.target.value) : null)
             }}
           />
           <div className="space-y-2">
@@ -259,6 +281,7 @@ export default function ImportPage(): React.JSX.Element {
           </div>
         </CardContent>
       </Card>
+      )}
 
       {estimate && (
         <Card>

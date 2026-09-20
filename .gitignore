@@ -1,8 +1,15 @@
 node_modules/
 out/
 dist/
-release/
 *.log
 .env
 *:Zone.Identifier
 release/
+
+# Android — generowane przy budowaniu
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+android/local.properties
+android/app/src/main/assets/public/

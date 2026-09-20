@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { questionId, normalize } from '@shared/ids'
 import { sm2, maxInterval } from '@shared/sm2'
 import { applyErrorPool, newCard } from '@shared/errorPool'
-import { buildDailyQueue, interleaveByCategory } from '@shared/session'
+import { buildDailyQueue, interleaveByCategory, optionsAreFixed } from '@shared/session'
 import { drawExamQuestions, gradeExam, isCorrect, examPool } from '@shared/exam'
 import { byCategory, cardCounts } from '@shared/stats'
 import { DEFAULT_SETTINGS } from '@shared/schema'
@@ -172,5 +172,30 @@ describe('stats', () => {
     }
     expect(byCategory(questions, progress)[0]).toMatchObject({ category: 'A', pct: 25 })
     expect(cardCounts(questions, progress)).toEqual({ fresh: 1, learning: 1, mastered: 1, errorPool: 0 })
+  })
+})
+
+describe('warianty odwołujące się do własnej litery', () => {
+  const pictorial = q('p', 'PE', {
+    image: 'p.png',
+    options: [
+      { id: 'a', text: 'Wariant A (patrz rysunek)', source: 'original' },
+      { id: 'b', text: 'Wariant B (patrz rysunek)', source: 'original' },
+      { id: 'c', text: 'Wariant C (patrz rysunek)', source: 'original' },
+      { id: 'd', text: 'Wariant D (patrz rysunek)', source: 'original' }
+    ],
+    correctOptionIds: ['c']
+  })
+
+  it('nie wolno ich tasować — litera na ekranie musi zgadzać się z rysunkiem', () => {
+    expect(optionsAreFixed(pictorial)).toBe(true)
+  })
+
+  it('prawda/fałsz też zostaje w kolejności', () => {
+    expect(optionsAreFixed(q('t', 'PE', { type: 'true_false' }))).toBe(true)
+  })
+
+  it('zwykłe warianty tekstowe można tasować', () => {
+    expect(optionsAreFixed(q('n'))).toBe(false)
   })
 })

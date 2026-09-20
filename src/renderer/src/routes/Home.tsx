@@ -51,6 +51,20 @@ export default function HomePage(): React.JSX.Element {
         <Stat title="Opanowane" value={counts.mastered} to="/stats" cta="Statystyki" />
       </div>
 
+      {/* na telefonie dolny pasek mieści pięć zakładek, reszta wchodzi stąd */}
+      <div className="flex flex-wrap gap-2 md:hidden">
+        {[
+          ['/stats', 'Statystyki'],
+          ['/sets', 'Zestawy'],
+          ['/import', 'Import'],
+          ['/settings', 'Ustawienia']
+        ].map(([to, label]) => (
+          <Button key={to} asChild variant="outline" size="sm">
+            <Link to={to}>{label}</Link>
+          </Button>
+        ))}
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         <Card>
           <CardHeader>

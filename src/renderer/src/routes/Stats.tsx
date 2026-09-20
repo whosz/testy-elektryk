@@ -82,6 +82,7 @@ export default function StatsPage(): React.JSX.Element {
           {history.length === 0 ? (
             <p className="text-sm text-muted-foreground">Brak egzaminów.</p>
           ) : (
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -108,6 +109,7 @@ export default function StatsPage(): React.JSX.Element {
                 ))}
               </TableBody>
             </Table>
+            </div>
           )}
         </CardContent>
       </Card>
