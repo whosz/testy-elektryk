@@ -26,6 +26,11 @@ const base = 'elektryk-quiz'
 /** Nazwa rysunku wchodzi do ścieżki pliku, więc zostaje tylko to, co bezpieczne. */
 const safe = (name: string): string => name.replace(/[^a-zA-Z0-9._-]/g, '_')
 
+const mimeOf = (name: string): string => {
+  const ext = name.split('.').pop()?.toLowerCase()
+  return ext === 'jpg' || ext === 'jpeg' ? 'image/jpeg' : ext === 'webp' ? 'image/webp' : 'image/png'
+}
+
 async function readFile<T>(name: string, fallback: T): Promise<T> {
   try {
     const { data } = await Filesystem.readFile({
@@ -90,10 +95,22 @@ function pickJson(): Promise<string | null> {
 const mobileApi: Api = {
   sets: {
     list: async () => {
-      const out: Array<{ id: string; name: string; createdAt: string; count: number }> = []
+      const out: Array<{
+        id: string
+        name: string
+        createdAt: string
+        count: number
+        sourceFileName: string
+      }> = []
       for (const file of await listSetFiles()) {
         const set = await loadSet(file.replace(/\.json$/, ''))
-        out.push({ id: set.id, name: set.name, createdAt: set.createdAt, count: set.questions.length })
+        out.push({
+          id: set.id,
+          name: set.name,
+          createdAt: set.createdAt,
+          count: set.questions.length,
+          sourceFileName: set.sourceFileName
+        })
       }
       return out
     },
@@ -191,7 +208,7 @@ const mobileApi: Api = {
           path: `${base}/images/${safe(name)}`,
           directory: DIR
         })
-        return `data:image/png;base64,${typeof data === 'string' ? data : ''}`
+        return `data:${mimeOf(name)};base64,${typeof data === 'string' ? data : ''}`
       } catch {
         return null
       }

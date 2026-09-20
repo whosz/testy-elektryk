@@ -13,3 +13,12 @@ android/app/build/
 android/capacitor-cordova-android-plugins/build/
 android/local.properties
 android/app/src/main/assets/public/
+
+# Zrzuty ekranu ze zawodowe.edu.pl — materiał roboczy, 197 MB.
+# Pytania pobiera scripts/import-zawodowe.ts prosto ze źródła, więc zrzuty
+# nie muszą wchodzić do historii repozytorium.
+database/egzaminy/ele02/zadowode-edu-pl/
+
+# Katalog roboczy importera — te same pliki są serwowane z content/,
+# więc nie trzymamy w repozytorium dwóch kopii.
+sample-data/images/

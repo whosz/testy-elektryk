@@ -10,7 +10,7 @@ import { Switch } from '@/components/ui/switch'
 import { api, isDesktop } from '@/api'
 import { useStore } from '@/store'
 import { applyTheme, readTheme, type Theme } from '@/theme'
-import { applyContent, type ApplyProgress } from '@/updates'
+import { applyContent, fetchManifest, prefetchAllImages, type ApplyProgress } from '@/updates'
 import { Progress } from '@/components/ui/progress'
 import { DEFAULT_CONTENT_BASE } from '@shared/content'
 
@@ -25,7 +25,9 @@ export default function SettingsPage(): React.JSX.Element {
   const [apiKey, setApiKey] = useState('')
   const [theme, setTheme] = useState<Theme>(readTheme)
   const [applying, setApplying] = useState<ApplyProgress | null>(null)
-  const { contentVersion, update, checkContent, refresh: reloadAll } = useStore()
+  const [prefetching, setPrefetching] = useState<ApplyProgress | null>(null)
+  const { contentVersion, update, checkContent, refresh: reloadAll, sets, videos } = useStore()
+  const channels = [...new Set(videos.map((v) => v.channel).filter(Boolean))]
   const [hasKey, setHasKey] = useState(false)
   const [testing, setTesting] = useState(false)
 
@@ -98,6 +100,42 @@ export default function SettingsPage(): React.JSX.Element {
               <p className="text-xs text-muted-foreground">{applying.label}</p>
             </div>
           )}
+
+          <div className="space-y-2 border-t pt-4">
+            <p className="text-sm font-medium">Rysunki do zadań</p>
+            <p className="text-xs text-muted-foreground">
+              Domyślnie rysunek pobiera się przy pierwszym wyświetleniu pytania i zostaje
+              na urządzeniu. Przed nauką bez internetu możesz ściągnąć wszystkie naraz —
+              to kilkadziesiąt megabajtów, więc lepiej po wi-fi.
+            </p>
+            <Button
+              variant="secondary"
+              disabled={prefetching !== null}
+              onClick={async () => {
+                setPrefetching({ label: 'Sprawdzam listę', done: 0, total: 1 })
+                try {
+                  const manifest = await fetchManifest(settings.contentUrl)
+                  const res = await prefetchAllImages(settings.contentUrl, manifest, setPrefetching)
+                  toast.success(
+                    `Pobrano ${res.pobrane}, było już ${res.pominiete}` +
+                      (res.bledy ? `, nie udało się ${res.bledy}` : '')
+                  )
+                } catch (err) {
+                  toast.error(err instanceof Error ? err.message : String(err))
+                } finally {
+                  setPrefetching(null)
+                }
+              }}
+            >
+              {prefetching ? 'Pobieram…' : 'Pobierz wszystkie rysunki'}
+            </Button>
+            {prefetching && (
+              <div className="space-y-1">
+                <Progress value={prefetching.total ? (prefetching.done / prefetching.total) * 100 : 0} />
+                <p className="text-xs text-muted-foreground">{prefetching.label}</p>
+              </div>
+            )}
+          </div>
 
           <div className="space-y-2">
             <Label htmlFor="contentUrl">Adres materiałów</Label>
@@ -308,6 +346,55 @@ export default function SettingsPage(): React.JSX.Element {
             checked={settings.excludeNeedsImageFromExam}
             onChange={(v) => void setSettings({ excludeNeedsImageFromExam: v })}
           />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Źródła materiałów</CardTitle>
+          <CardDescription>Skąd pochodzą pytania i nagrania w aplikacji.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3 text-sm">
+          <div className="space-y-2">
+            {sets.map((s) => (
+              <div key={s.id}>
+                <p className="font-medium">{s.name}</p>
+                <p className="text-xs text-muted-foreground">
+                  {s.count} pytań ·{' '}
+                  {s.sourceFileName.startsWith('http') ? (
+                    <a
+                      href={s.sourceFileName}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline underline-offset-2"
+                    >
+                      {s.sourceFileName}
+                    </a>
+                  ) : (
+                    s.sourceFileName
+                  )}
+                </p>
+              </div>
+            ))}
+            {sets.length === 0 && <p className="text-muted-foreground">Brak wczytanych zestawów.</p>}
+          </div>
+
+          <p className="text-xs text-muted-foreground">
+            Pytania z serwisu{' '}
+            <a
+              href="https://zawodowe.edu.pl/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-2"
+            >
+              zawodowe.edu.pl
+            </a>{' '}
+            wykorzystane za zgodą właściciela serwisu. Zadania z informatorów CKE pochodzą
+            z dokumentów urzędowych Centralnej Komisji Egzaminacyjnej.
+            {channels.length > 0 && (
+              <> Nagrania odtwarzane są z YouTube z kanałów: {channels.join(', ')}.</>
+            )}
+          </p>
         </CardContent>
       </Card>
 

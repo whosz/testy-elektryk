@@ -26,6 +26,11 @@ const settingsFile = (): string => pathIn('settings.json')
 const contentFile = (): string => pathIn('content.json')
 const imageFile = (name: string): string => pathIn('images', name.replace(/[^a-zA-Z0-9._/-]/g, '_'))
 
+const mimeOf = (name: string): string => {
+  const ext = name.split('.').pop()?.toLowerCase()
+  return ext === 'jpg' || ext === 'jpeg' ? 'image/jpeg' : ext === 'webp' ? 'image/webp' : 'image/png'
+}
+
 function loadSet(id: string): QuestionSet {
   const set = readJson(setFile(id), QuestionSetSchema, null as unknown as QuestionSet)
   if (!set) throw new Error(`Nie znaleziono zestawu ${id}`)
@@ -52,7 +57,13 @@ export function registerIpc(): void {
   handle('sets:list', Empty, () =>
     listFiles('sets').map((f) => {
       const set = loadSet(f.replace(/\.json$/, ''))
-      return { id: set.id, name: set.name, createdAt: set.createdAt, count: set.questions.length }
+      return {
+        id: set.id,
+        name: set.name,
+        createdAt: set.createdAt,
+        count: set.questions.length,
+        sourceFileName: set.sourceFileName
+      }
     })
   )
   handle('sets:get', Id, ({ id }) => loadSet(id))
@@ -195,7 +206,7 @@ export function registerIpc(): void {
   handle('images:get', z.object({ name: z.string().min(1) }), ({ name }) => {
     const file = imageFile(name)
     if (!existsSync(file)) return null
-    return `data:image/png;base64,${readFileSync(file).toString('base64')}`
+    return `data:${mimeOf(name)};base64,${readFileSync(file).toString('base64')}`
   })
   handle(
     'images:put',

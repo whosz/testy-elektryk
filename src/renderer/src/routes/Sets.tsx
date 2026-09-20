@@ -49,6 +49,23 @@ export default function SetsPage(): React.JSX.Element {
                 <CardDescription>
                   {s.count} pytań · dodany {new Date(s.createdAt).toLocaleDateString('pl-PL')}
                 </CardDescription>
+                {s.sourceFileName && (
+                  <p className="text-xs text-muted-foreground">
+                    Źródło:{' '}
+                    {s.sourceFileName.startsWith('http') ? (
+                      <a
+                        href={s.sourceFileName}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline underline-offset-2"
+                      >
+                        {s.sourceFileName}
+                      </a>
+                    ) : (
+                      s.sourceFileName
+                    )}
+                  </p>
+                )}
               </div>
               <div className="flex gap-2">
                 <Button size="sm" variant="secondary" onClick={() => setOpenSet(openSet === s.id ? null : s.id)}>

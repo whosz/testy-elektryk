@@ -17,7 +17,13 @@ import { QuestionSetSchema } from '../src/shared/schema'
 
 const ROOT = resolve(__dirname, '..')
 const OUT = resolve(ROOT, 'content')
-const SETS = [{ id: 'cke-informatory', source: 'sample-data/cke-informatory.json', images: 'src/renderer/public/images/cke' }]
+const SETS = [
+  // wbudowany w aplikację: rysunki leżą w zasobach renderera
+  { id: 'cke-informatory', source: 'sample-data/cke-informatory.json', images: 'src/renderer/public/images/cke' },
+  // dostarczane wyłącznie aktualizacją materiałów
+  { id: 'zawodowe-ele02', source: 'sample-data/zawodowe-ele02.json', images: 'sample-data/images/zawodowe-ele02' },
+  { id: 'zawodowe-ele05', source: 'sample-data/zawodowe-ele05.json', images: 'sample-data/images/zawodowe-ele05' }
+]
 
 function main(): void {
   const previous: ContentManifest | null = existsSync(resolve(OUT, 'manifest.json'))
@@ -38,7 +44,13 @@ function main(): void {
     hash.update(raw)
 
     const imageDir = resolve(ROOT, entry.images)
-    const images = existsSync(imageDir) ? readdirSync(imageDir).filter((f) => f.endsWith('.png')) : []
+    if (!existsSync(resolve(ROOT, entry.source))) {
+      console.log(`  pomijam ${entry.id}: brak ${entry.source}`)
+      continue
+    }
+    // serwis podaje rysunki w kilku formatach; filtr na samo .png gubił po cichu pliki webp
+    const IMAGE_EXT = /\.(png|jpe?g|webp)$/i
+    const images = existsSync(imageDir) ? readdirSync(imageDir).filter((f) => IMAGE_EXT.test(f)) : []
     if (images.length) {
       mkdirSync(resolve(OUT, 'images', entry.id), { recursive: true })
       for (const img of images.sort()) {

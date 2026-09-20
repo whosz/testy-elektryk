@@ -10,7 +10,7 @@ import { today } from '@shared/dates'
 import type { CardProgress, ExamResult, Question, QuestionSet, Settings } from '@shared/types'
 
 interface State {
-  sets: Array<{ id: string; name: string; createdAt: string; count: number }>
+  sets: Array<{ id: string; name: string; createdAt: string; count: number; sourceFileName: string }>
   questions: Question[]
   progress: Record<string, CardProgress>
   exams: ExamResult[]

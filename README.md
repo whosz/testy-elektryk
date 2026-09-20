@@ -27,6 +27,17 @@ Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](dat
 - **Aktualizacje materiałów** — nowe pytania, rysunki i nagrania dochodzą bez instalowania
   aplikacji od nowa.
 
+## Źródła materiałów
+
+| Źródło | Co stąd pochodzi |
+|---|---|
+| Informatory CKE | 52 zadania z kluczem odpowiedzi, dokumenty urzędowe Centralnej Komisji Egzaminacyjnej |
+| [zawodowe.edu.pl](https://zawodowe.edu.pl/) | Pytania ELE.02 i ELE.05 wraz z ilustracjami i wyjaśnieniami — **wykorzystane za zgodą właściciela serwisu** |
+| YouTube | Nagrania wykładów, odtwarzane z kanałów autorów; aplikacja trzyma wyłącznie odnośniki |
+
+Źródło każdego zestawu jest widoczne w aplikacji na ekranie **Zestawy** oraz w **Ustawieniach**
+w sekcji „Źródła materiałów".
+
 ## Zasada nadrzędna
 
 Poprawna odpowiedź ze źródła jest nienaruszalna. Claude nigdy jej nie zmienia — jeśli uważa,

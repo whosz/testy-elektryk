@@ -6,7 +6,10 @@ const invoke = <T>(channel: string, arg?: unknown): Promise<T> => ipcRenderer.in
 
 export const api = {
   sets: {
-    list: () => invoke<Array<{ id: string; name: string; createdAt: string; count: number }>>('sets:list'),
+    list: () =>
+      invoke<
+        Array<{ id: string; name: string; createdAt: string; count: number; sourceFileName: string }>
+      >('sets:list'),
     get: (id: string) => invoke<QuestionSet>('sets:get', { id }),
     save: (set: QuestionSet) => invoke<void>('sets:save', set),
     merge: (set: QuestionSet) => invoke<{ added: number; updated: number }>('sets:merge', set),

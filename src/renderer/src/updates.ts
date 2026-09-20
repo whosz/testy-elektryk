@@ -35,6 +35,17 @@ async function toBase64(url: string): Promise<string> {
   return btoa(binary)
 }
 
+/** Pobiera rysunek z serwera materiałów i zapisuje go w pamięci urządzenia. */
+export async function fetchImage(base: string, setId: string, name: string): Promise<string | null> {
+  try {
+    const b64 = await toBase64(joinUrl(base, `images/${setId}/${name}`))
+    await api.images.put(`${setId}/${name}`, b64)
+    return b64
+  } catch {
+    return null
+  }
+}
+
 export interface ApplyProgress {
   label: string
   done: number
@@ -60,28 +71,17 @@ export async function applyContent(
   let updated = 0
   let images = 0
 
-  for (const ref of manifest.sets) {
-    onProgress?.({ label: `Pobieram ${ref.name}`, done: 0, total: ref.images.length + 1 })
+  // Same pytania; rysunki dochodzą przy pierwszym wyświetleniu albo hurtem
+  // z Ustawień. Przy zestawach liczących setki ilustracji ciągnięcie wszystkiego
+  // przy aktualizacji zajmowałoby na telefonie kilkadziesiąt megabajtów.
+  for (let i = 0; i < manifest.sets.length; i++) {
+    const ref = manifest.sets[i]
+    onProgress?.({ label: `Pobieram ${ref.name}`, done: i, total: manifest.sets.length })
     const set = QuestionSetSchema.parse(await fetchJson(joinUrl(base, ref.file)))
     const merged = await api.sets.merge(set)
     added += merged.added
     updated += merged.updated
-
-    let done = 1
-    for (const name of ref.images) {
-      const key = `${ref.id}/${name}`
-      const have = (await api.images.has(key)) || (await isBundled(ref.id, name))
-      if (!have) {
-        try {
-          await api.images.put(key, await toBase64(joinUrl(base, `images/${ref.id}/${name}`)))
-          images++
-        } catch {
-          // brak jednego rysunku nie może wywracać całej aktualizacji
-        }
-      }
-      done++
-      onProgress?.({ label: `Rysunki: ${ref.name}`, done, total: ref.images.length + 1 })
-    }
+    onProgress?.({ label: ref.name, done: i + 1, total: manifest.sets.length })
   }
 
   await api.content.set({
@@ -91,4 +91,44 @@ export async function applyContent(
   })
 
   return { added, updated, images }
+}
+
+export interface PrefetchResult {
+  pobrane: number
+  pominiete: number
+  bledy: number
+}
+
+/**
+ * Pobiera z góry wszystkie brakujące rysunki — na wypadek nauki bez internetu.
+ * Wbudowane w aplikację i już zapisane pomija, więc powtórne uruchomienie jest tanie.
+ */
+export async function prefetchAllImages(
+  base: string,
+  manifest: ContentManifest,
+  onProgress?: (p: ApplyProgress) => void
+): Promise<PrefetchResult> {
+  const total = manifest.sets.reduce((n, s) => n + s.images.length, 0)
+  let done = 0
+  let pobrane = 0
+  let pominiete = 0
+  let bledy = 0
+
+  for (const ref of manifest.sets) {
+    for (const name of ref.images) {
+      const key = `${ref.id}/${name}`
+      if ((await api.images.has(key)) || (await isBundled(ref.id, name))) {
+        pominiete++
+      } else if (await fetchImage(base, ref.id, name)) {
+        pobrane++
+      } else {
+        bledy++
+      }
+      done++
+      if (done % 5 === 0 || done === total) {
+        onProgress?.({ label: `${ref.name}: ${done} z ${total}`, done, total })
+      }
+    }
+  }
+  return { pobrane, pominiete, bledy }
 }
