@@ -23,6 +23,9 @@ jobs:
   windows:
     needs: test
     runs-on: windows-latest
+    # domyślny token jest tylko do odczytu, a krok wydania musi utworzyć release
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
