@@ -4158,7 +4158,7 @@
       "unit": "",
       "difficulty": 2,
       "flags": [],
-      "reviewNote": "",
+      "reviewNote": "Audyt merytoryczny: klucz nie budzi zastrzeżeń (wynik liczbowy poprawny), ale uzasadnienie błędnie przyjmuje prąd znamionowy silnika w układzie gwiazda jako 3,2 A — to wartość dla układu trójkąt; w gwieździe powinno być ok. 1,8 A. Sama odpowiedź nie jest tym dotknięta.",
       "image": null,
       "createdAt": "2026-09-20T17:43:00.178Z"
     },
@@ -4743,7 +4743,7 @@
       "unit": "",
       "difficulty": 2,
       "flags": [],
-      "reviewNote": "",
+      "reviewNote": "Audyt merytoryczny: klucz nie budzi zastrzeżeń, ale tekst uzasadnienia jest wewnętrznie niespójny — oblicza wartość 900 MΩ, po czym bez wyjaśnienia podaje 100 MΩ jako wynik. Do poprawienia przy najbliższej edycji zestawu.",
       "image": "b3c04e0f2e9b.png",
       "createdAt": "2026-09-20T17:43:00.178Z"
     },

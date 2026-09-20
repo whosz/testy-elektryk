@@ -5957,8 +5957,10 @@
       "category": "POM",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz c) \"≥0,5 MΩ\" jest sprzeczny z PN-HD 60364-6 dla obwodów do 500 V (w tym FELV) — wymagany próg to ≥1,0 MΩ przy napięciu probierczym 500 V. Próg 0,5 MΩ dotyczy obwodów SELV/PELV (250 V probiercze), nie tego przypadku. Ten sam zestaw ma dwa inne pytania o ten sam parametr z poprawnym progiem 1,0 MΩ (e5dc2c1e8ece, 80e5812ae943), a warianty w tym pytaniu w ogóle nie zawierają 1,0 MΩ jako opcji — sugeruje to pomylenie progów przy tworzeniu pytania w źródle.",
       "image": null,
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
@@ -18917,8 +18919,10 @@
       "category": "INST",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "ambiguous"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz d) \"sposób E, 95 mm²\" (238 A ≥ 220 A) jest poprawny, ale opcja a) \"sposób C, 95 mm²\" (225 A ≥ 220 A) również spełnia wymóg obciążalności — treść pytania nie podaje warunku rozstrzygającego sposób ułożenia przewodu, więc matematycznie poprawne są dwie kombinacje. Możliwe, że w źródle był dodatkowy warunek (sposób ułożenia), który zginął przy imporcie.",
       "image": null,
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
@@ -35432,8 +35436,10 @@
       "category": "POM",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "ambiguous"
+      ],
+      "reviewNote": "Audyt merytoryczny (zweryfikowane na dołączonym rysunku): pytanie dotyczy pomiaru między zaciskami W2 i PE, ale wszystkie cztery warianty odpowiedzi mówią o izolacji uzwojenia \"W1–W2\" — niespójność terminologiczna w źródle, prawdopodobnie warianty skopiowane z innego pytania w tej samej serii bez zmiany opisu zacisków. Klucz a) \"dobry stan izolacji\" pozostaje poprawny merytorycznie: odczyt >5 GΩ na mierniku oznacza bardzo dobrą izolację niezależnie od tego, którą parę zacisków się mierzy.",
       "image": "ac4321ebe4f7.png",
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
