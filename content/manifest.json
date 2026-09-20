@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-20T16:13:39.328Z",
+  "sets": [
+    {
+      "id": "cke-informatory",
+      "name": "Informatory CKE — przykładowe zadania",
+      "file": "sets/cke-informatory.json",
+      "questions": 52,
+      "images": [
+        "0e09eba3fa9e.png",
+        "0ffa45f2ce9e.png",
+        "18797367997b.png",
+        "199fb7c9d912.png",
+        "1d0fbe2217f5.png",
+        "239d5e448bc2.png",
+        "2401f91b1c49.png",
+        "293c62f2abc8.png",
+        "2afa40b1d24b.png",
+        "300f91bf69bc.png",
+        "30df2705858b.png",
+        "34cb32f1f700.png",
+        "4c207794e998.png",
+        "556940d79423.png",
+        "559fff72de2e.png",
+        "5a24a1c9bb32.png",
+        "5dba226609de.png",
+        "678291bcffbd.png",
+        "86befc9a54e0.png",
+        "8820c09cb466.png",
+        "9bb85e2321d9.png",
+        "9d77a88926df.png",
+        "9f542fa8a068.png",
+        "a2d461c8d330.png",
+        "bc034e7a3d6e.png",
+        "bdccd1d52098.png",
+        "c0e393522180.png",
+        "c41d674752ad.png",
+        "c7bc841f6653.png",
+        "d317e72bcb55.png",
+        "d385a2544060.png",
+        "db5adc7e994a.png",
+        "edc64bb01ecb.png",
+        "f0ae656a50ac.png",
+        "fc2c604bcbcb.png"
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": "StUFl7Ktkik",
+      "title": "WE.1. Wprowadzenie do elektrotechniki, część 1.",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=StUFl7Ktkik",
+      "category": "PE",
+      "note": ""
+    },
+    {
+      "id": "edskCSCBXHM",
+      "title": "WE.2. Wprowadzenie do elektrotechniki, część 2.",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=edskCSCBXHM",
+      "category": "PE",
+      "note": ""
+    }
+  ]
+}

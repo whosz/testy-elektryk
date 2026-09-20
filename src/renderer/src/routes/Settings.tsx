@@ -10,6 +10,9 @@ import { Switch } from '@/components/ui/switch'
 import { api, isDesktop } from '@/api'
 import { useStore } from '@/store'
 import { applyTheme, readTheme, type Theme } from '@/theme'
+import { applyContent, type ApplyProgress } from '@/updates'
+import { Progress } from '@/components/ui/progress'
+import { DEFAULT_CONTENT_BASE } from '@shared/content'
 
 const MODELS = [
   { id: 'claude-sonnet-5', label: 'Claude Sonnet 5 — tańszy, wystarcza do importu' },
@@ -21,6 +24,8 @@ export default function SettingsPage(): React.JSX.Element {
   const { settings, setSettings, refresh } = useStore()
   const [apiKey, setApiKey] = useState('')
   const [theme, setTheme] = useState<Theme>(readTheme)
+  const [applying, setApplying] = useState<ApplyProgress | null>(null)
+  const { contentVersion, update, checkContent, refresh: reloadAll } = useStore()
   const [hasKey, setHasKey] = useState(false)
   const [testing, setTesting] = useState(false)
 
@@ -39,6 +44,94 @@ export default function SettingsPage(): React.JSX.Element {
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Ustawienia</h1>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Materiały do nauki</CardTitle>
+          <CardDescription>
+            Pytania, rysunki i lista nagrań pobierają się z serwera. Nowe materiały nie wymagają
+            instalowania aplikacji od nowa.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-sm text-muted-foreground">
+            Masz wersję materiałów <strong>{contentVersion}</strong>.
+            {update.manifest
+              ? ` Dostępna jest wersja ${update.manifest.version}.`
+              : ' To najnowsza wersja.'}
+          </p>
+
+          {update.error && <p className="text-sm text-destructive">{update.error}</p>}
+
+          <div className="flex flex-wrap gap-2">
+            <Button variant="secondary" disabled={update.checking} onClick={() => void checkContent()}>
+              {update.checking ? 'Sprawdzam…' : 'Sprawdź aktualizacje'}
+            </Button>
+            {update.manifest && (
+              <Button
+                disabled={applying !== null}
+                onClick={async () => {
+                  const manifest = update.manifest!
+                  setApplying({ label: 'Start', done: 0, total: 1 })
+                  try {
+                    const res = await applyContent(settings.contentUrl, manifest, setApplying)
+                    await reloadAll()
+                    await checkContent(true)
+                    toast.success(
+                      `Nowych pytań: ${res.added}, zaktualizowanych: ${res.updated}, rysunków: ${res.images}`
+                    )
+                  } catch (err) {
+                    toast.error(err instanceof Error ? err.message : String(err))
+                  } finally {
+                    setApplying(null)
+                  }
+                }}
+              >
+                Pobierz i zainstaluj wersję {update.manifest.version}
+              </Button>
+            )}
+          </div>
+
+          {applying && (
+            <div className="space-y-1">
+              <Progress value={applying.total ? (applying.done / applying.total) * 100 : 0} />
+              <p className="text-xs text-muted-foreground">{applying.label}</p>
+            </div>
+          )}
+
+          <div className="space-y-2">
+            <Label htmlFor="contentUrl">Adres materiałów</Label>
+            <Input
+              id="contentUrl"
+              value={settings.contentUrl}
+              onChange={(e) => void setSettings({ contentUrl: e.target.value })}
+            />
+            <p className="text-xs text-muted-foreground">
+              Domyślnie repozytorium projektu. Może wskazywać dowolny serwer, który wystawia po
+              HTTPS plik <code>manifest.json</code> razem z katalogami <code>sets/</code> i{' '}
+              <code>images/</code>.
+              {settings.contentUrl !== DEFAULT_CONTENT_BASE && (
+                <>
+                  {' '}
+                  <button
+                    className="underline underline-offset-2"
+                    onClick={() => void setSettings({ contentUrl: DEFAULT_CONTENT_BASE })}
+                  >
+                    Przywróć domyślny
+                  </button>
+                </>
+              )}
+            </p>
+          </div>
+
+          <Toggle
+            id="autoContent"
+            label="Sprawdzaj aktualizacje przy uruchomieniu"
+            checked={settings.autoCheckContent}
+            onChange={(v) => void setSettings({ autoCheckContent: v })}
+          />
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>

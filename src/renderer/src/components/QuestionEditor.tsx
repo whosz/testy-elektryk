@@ -52,7 +52,7 @@ export default function QuestionEditor({ question, open, onOpenChange, onSave }:
             />
           </div>
 
-          {draft.image && <QuestionImage name={draft.image} />}
+          {draft.image && <QuestionImage setId={draft.setId} name={draft.image} />}
 
           {draft.options.length > 0 && (
             <div className="space-y-2">

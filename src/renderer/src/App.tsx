@@ -7,6 +7,7 @@ import {
   GraduationCap,
   Home as HomeIcon,
   Layers,
+  Video,
   RefreshCw,
   Settings as SettingsIcon,
   TriangleAlert
@@ -22,6 +23,7 @@ import ReviewPage from '@/routes/Review'
 import StatsPage from '@/routes/Stats'
 import SetsPage from '@/routes/Sets'
 import ImportPage from '@/routes/Import'
+import MaterialyPage from '@/routes/Materialy'
 import SettingsPage from '@/routes/Settings'
 
 /** `mobile` wyznacza pięć zakładek dolnego paska; reszta jest dostępna z ekranu Start. */
@@ -31,6 +33,7 @@ const NAV = [
   { to: '/learn', label: 'Nauka', icon: BookOpen, mobile: true },
   { to: '/exam', label: 'Egzamin', icon: GraduationCap, mobile: true },
   { to: '/errors', label: 'Błędy', icon: TriangleAlert, mobile: true },
+  { to: '/materialy', label: 'Materiały', icon: Video, mobile: false },
   { to: '/stats', label: 'Statystyki', icon: BarChart3, mobile: false },
   { to: '/sets', label: 'Zestawy', icon: Layers, mobile: false },
   { to: '/import', label: 'Import', icon: FileDown, mobile: false },
@@ -39,8 +42,14 @@ const NAV = [
 
 export default function App(): React.JSX.Element {
   const refresh = useStore((s) => s.refresh)
+
   useEffect(() => {
-    void refresh()
+    void (async () => {
+      await refresh()
+      // ciche sprawdzenie przy starcie; brak sieci nie może niczego blokować
+      const { settings, checkContent } = useStore.getState()
+      if (settings.autoCheckContent) void checkContent(true)
+    })()
   }, [refresh])
 
   return (
@@ -81,6 +90,7 @@ export default function App(): React.JSX.Element {
               <Route path="/exam" element={<ExamPage />} />
               <Route path="/errors" element={<ErrorsPage />} />
               <Route path="/review" element={<ReviewPage />} />
+              <Route path="/materialy" element={<MaterialyPage />} />
               <Route path="/stats" element={<StatsPage />} />
               <Route path="/sets" element={<SetsPage />} />
               <Route path="/import" element={<ImportPage />} />

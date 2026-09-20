@@ -22,6 +22,10 @@ Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](dat
 - **Statystyki** — skuteczność według kategorii, najsłabsze pytania, historia egzaminów.
 - **Import przez Claude** — TXT/MD/CSV/DOCX lub wklejony tekst, szacunek kosztu przed startem,
   raport rozbieżności, ekran przeglądu z edytorem, cache po hashu.
+- **Materiały wideo** — lista nagrań z YouTube, odtwarzanie oficjalnym odtwarzaczem.
+  Aplikacja trzyma wyłącznie odnośniki, nie kopiuje cudzych nagrań.
+- **Aktualizacje materiałów** — nowe pytania, rysunki i nagrania dochodzą bez instalowania
+  aplikacji od nowa.
 
 ## Zasada nadrzędna
 
@@ -72,6 +76,34 @@ ostrzeżenie: „Więcej informacji → Uruchom mimo to".
 z plikiem. Klucz API nie — jest szyfrowany mechanizmem DPAPI powiązanym z kontem Windows,
 więc po przeniesieniu na inny komputer trzeba go wpisać jeszcze raz. Nauka offline działa
 bez klucza, potrzebuje go dopiero import własnych list przez Claude.
+
+## Aktualizacje materiałów
+
+Pytania, rysunki i lista nagrań są pobierane z serwera jako zwykłe pliki statyczne.
+Aplikacja sprawdza przy starcie, czy jest nowsza wersja, i pokazuje powiadomienie
+z przyciskiem do pobrania. Nauka działa dalej offline — pobrane materiały lądują lokalnie.
+
+Nowe pytania **dochodzą**, a nie nadpisują: ID liczone jest z treści pytania, więc ponowne
+wgranie tego samego zestawu nie kasuje postępów ani puli błędów.
+
+Struktura po stronie serwera (`content/` w tym repozytorium):
+
+```
+manifest.json          # wersja, lista zestawów i nagrań
+sets/<id>.json         # QuestionSet
+images/<id>/*.png      # rysunki do pytań
+```
+
+```bash
+npm run content        # składa paczkę; wersja rośnie tylko gdy zawartość się zmieniła
+```
+
+Domyślnie aplikacja czyta z gałęzi `main` tego repozytorium. W Ustawieniach można wskazać
+**dowolny inny serwer** — wystarczy, że wystawia te trzy rzeczy po HTTPS z nagłówkiem CORS.
+Żadnego kodu po stronie serwera nie trzeba: to pliki statyczne.
+
+Postępy, wyniki egzaminów i ustawienia zostają na urządzeniu. Przeniesienie ich na serwer
+wymagałoby kont i synchronizacji, a tego plan świadomie nie przewiduje.
 
 ## Android
 

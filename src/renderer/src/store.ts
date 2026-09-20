@@ -1,5 +1,8 @@
 import { create } from 'zustand'
 import { api } from './api'
+import { fetchManifest } from './updates'
+import { BUNDLED_CONTENT_VERSION, type ContentManifest, type ContentVideo } from '@shared/content'
+import { BUNDLED_VIDEOS } from '@shared/videos'
 import { DEFAULT_SETTINGS } from '@shared/schema'
 import { applyErrorPool, applyStats, newCard } from '@shared/errorPool'
 import { sm2, maxInterval, type Grade } from '@shared/sm2'
@@ -13,6 +16,11 @@ interface State {
   exams: ExamResult[]
   settings: Settings
   loading: boolean
+  /** Materiały pobrane z serwera; przed pierwszą aktualizacją to wersja wbudowana. */
+  contentVersion: number
+  videos: ContentVideo[]
+  update: { manifest: ContentManifest | null; checking: boolean; error: string | null }
+  checkContent: (quiet?: boolean) => Promise<void>
   refresh: () => Promise<void>
   saveSet: (set: QuestionSet) => Promise<void>
   removeSet: (id: string) => Promise<void>
@@ -30,16 +38,55 @@ export const useStore = create<State>((set, get) => ({
   exams: [],
   settings: DEFAULT_SETTINGS,
   loading: true,
+  contentVersion: BUNDLED_CONTENT_VERSION,
+  videos: BUNDLED_VIDEOS,
+  update: { manifest: null, checking: false, error: null },
 
   refresh: async () => {
-    const [sets, progress, exams, settings] = await Promise.all([
+    const [sets, progress, exams, settings, content] = await Promise.all([
       api.sets.list(),
       api.progress.getAll(),
       api.exams.list(),
-      api.settings.get()
+      api.settings.get(),
+      api.content.get()
     ])
     const full = await Promise.all(sets.map((s) => api.sets.get(s.id)))
-    set({ sets, progress, exams, settings, questions: full.flatMap((s) => s.questions), loading: false })
+    set({
+      sets,
+      progress,
+      exams,
+      settings,
+      questions: full.flatMap((s) => s.questions),
+      loading: false,
+      contentVersion: Math.max(content.version, BUNDLED_CONTENT_VERSION),
+      videos: content.videos.length ? content.videos : BUNDLED_VIDEOS
+    })
+  },
+
+  checkContent: async (quiet = false) => {
+    const { settings, contentVersion } = get()
+    set({ update: { manifest: null, checking: true, error: null } })
+    try {
+      const manifest = await fetchManifest(settings.contentUrl)
+      const newer = manifest.version > contentVersion
+      set({ update: { manifest: newer ? manifest : null, checking: false, error: null } })
+      if (!newer) {
+        await api.content.set({
+          version: contentVersion,
+          checkedAt: new Date().toISOString(),
+          videos: get().videos
+        })
+      }
+    } catch (err) {
+      // przy cichym sprawdzaniu brak sieci nie jest błędem, o którym trzeba krzyczeć
+      set({
+        update: {
+          manifest: null,
+          checking: false,
+          error: quiet ? null : err instanceof Error ? err.message : String(err)
+        }
+      })
+    }
   },
 
   saveSet: async (s) => {

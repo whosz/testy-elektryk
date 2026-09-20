@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron'
+import type { LocalContent } from '../shared/content'
 import type { CardProgress, ExamResult, ImportDraft, QuestionSet, Settings } from '../shared/types'
 
 const invoke = <T>(channel: string, arg?: unknown): Promise<T> => ipcRenderer.invoke(channel, arg)
@@ -43,6 +44,15 @@ export const api = {
     hasApiKey: () => invoke<boolean>('settings:hasApiKey'),
     setApiKey: (key: string) => invoke<void>('settings:setApiKey', { key }),
     testApiKey: () => invoke<{ ok: boolean; error?: string }>('settings:testApiKey')
+  },
+  images: {
+    has: (name: string) => invoke<boolean>('images:has', { name }),
+    get: (name: string) => invoke<string | null>('images:get', { name }),
+    put: (name: string, base64: string) => invoke<void>('images:put', { name, base64 })
+  },
+  content: {
+    get: () => invoke<LocalContent>('content:get'),
+    set: (value: LocalContent) => invoke<void>('content:set', value)
   },
   backup: {
     exportAll: () => invoke<string | null>('backup:export'),

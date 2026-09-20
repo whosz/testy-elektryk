@@ -139,7 +139,7 @@ export default function QuestionCard({
       </CardHeader>
 
       <CardContent className="space-y-4">
-        {question.image && <QuestionImage name={question.image} />}
+        {question.image && <QuestionImage setId={question.setId} name={question.image} />}
         {open ? (
           <div className="space-y-3">
             {revealed ? (

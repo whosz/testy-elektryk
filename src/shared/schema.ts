@@ -85,7 +85,12 @@ export const SettingsSchema = z.object({
   newCardsPerDay: z.number().int().positive().default(20),
   errorPoolExitStreak: z.number().int().positive().default(3),
   shuffleOptions: z.boolean().default(true),
-  excludeNeedsImageFromExam: z.boolean().default(true)
+  excludeNeedsImageFromExam: z.boolean().default(true),
+  /** Skąd aplikacja bierze materiały. Może wskazywać dowolny serwer ze statycznymi plikami. */
+  contentUrl: z
+    .string()
+    .default('https://raw.githubusercontent.com/whosz/testy-elektryk/main/content/'),
+  autoCheckContent: z.boolean().default(true)
 })
 
 export const DEFAULT_SETTINGS = SettingsSchema.parse({})

@@ -78,6 +78,8 @@ export interface Settings {
   errorPoolExitStreak: number
   shuffleOptions: boolean
   excludeNeedsImageFromExam: boolean
+  contentUrl: string
+  autoCheckContent: boolean
 }
 
 export interface ImportReport {

@@ -1,7 +1,8 @@
 import { dialog, ipcMain, shell } from 'electron'
-import { readFileSync, writeFileSync } from 'fs'
-import { basename } from 'path'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
+import { basename, dirname } from 'path'
 import { z } from 'zod'
+import { LocalContentSchema } from '../shared/content'
 import {
   DEFAULT_SETTINGS,
   ExamResultSchema,
@@ -22,6 +23,8 @@ const setFile = (id: string): string => pathIn('sets', `${id}.json`)
 const progressFile = (): string => pathIn('progress.json')
 const examsFile = (): string => pathIn('exams.json')
 const settingsFile = (): string => pathIn('settings.json')
+const contentFile = (): string => pathIn('content.json')
+const imageFile = (name: string): string => pathIn('images', name.replace(/[^a-zA-Z0-9._/-]/g, '_'))
 
 function loadSet(id: string): QuestionSet {
   const set = readJson(setFile(id), QuestionSetSchema, null as unknown as QuestionSet)
@@ -185,6 +188,30 @@ export function registerIpc(): void {
     writeJson(examsFile(), data.exams)
     writeJson(settingsFile(), data.settings)
     return true
+  })
+
+  /** Rysunki dosypane wraz z materiałami; wbudowane w aplikację leżą w zasobach renderera. */
+  handle('images:has', z.object({ name: z.string().min(1) }), ({ name }) => existsSync(imageFile(name)))
+  handle('images:get', z.object({ name: z.string().min(1) }), ({ name }) => {
+    const file = imageFile(name)
+    if (!existsSync(file)) return null
+    return `data:image/png;base64,${readFileSync(file).toString('base64')}`
+  })
+  handle(
+    'images:put',
+    z.object({ name: z.string().min(1), base64: z.string().min(1) }),
+    ({ name, base64 }) => {
+      const file = imageFile(name)
+      mkdirSync(dirname(file), { recursive: true })
+      writeFileSync(file, Buffer.from(base64, 'base64'))
+    }
+  )
+
+  handle('content:get', Empty, () =>
+    readJson(contentFile(), LocalContentSchema, LocalContentSchema.parse({}))
+  )
+  handle('content:set', LocalContentSchema, (value) => {
+    writeJson(contentFile(), value)
   })
 
   handle('app:openDataDir', Empty, () => shell.openPath(pathIn('.')))

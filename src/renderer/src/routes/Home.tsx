@@ -7,7 +7,7 @@ import { cardCounts, dueToday, examHistory } from '@shared/stats'
 import { daysBetween, today } from '@shared/dates'
 
 export default function HomePage(): React.JSX.Element {
-  const { questions, progress, exams, settings, loading } = useStore()
+  const { questions, progress, exams, settings, loading, update } = useStore()
   const day = today()
   const due = dueToday(questions, progress, day)
   const counts = cardCounts(questions, progress)
@@ -36,6 +36,20 @@ export default function HomePage(): React.JSX.Element {
 
   return (
     <div className="space-y-6">
+      {update.manifest && (
+        <Alert>
+          <AlertDescription className="flex flex-wrap items-center justify-between gap-2">
+            <span>
+              Są nowe materiały do nauki (wersja {update.manifest.version}). Pobranie nie kasuje
+              postępów.
+            </span>
+            <Button asChild size="sm">
+              <Link to="/settings">Zobacz</Link>
+            </Button>
+          </AlertDescription>
+        </Alert>
+      )}
+
       <div>
         <h1 className="text-2xl font-semibold">Start</h1>
         <p className="text-sm text-muted-foreground">
@@ -54,6 +68,7 @@ export default function HomePage(): React.JSX.Element {
       {/* na telefonie dolny pasek mieści pięć zakładek, reszta wchodzi stąd */}
       <div className="flex flex-wrap gap-2 md:hidden">
         {[
+          ['/materialy', 'Materiały'],
           ['/stats', 'Statystyki'],
           ['/sets', 'Zestawy'],
           ['/import', 'Import'],

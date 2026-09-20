@@ -1,4 +1,5 @@
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem'
+import { LocalContentSchema } from '@shared/content'
 import {
   DEFAULT_SETTINGS,
   ExamsFileSchema,
@@ -21,6 +22,9 @@ const BRAK_IMPORTU =
  */
 const DIR = Directory.Data
 const base = 'elektryk-quiz'
+
+/** Nazwa rysunku wchodzi do ścieżki pliku, więc zostaje tylko to, co bezpieczne. */
+const safe = (name: string): string => name.replace(/[^a-zA-Z0-9._-]/g, '_')
 
 async function readFile<T>(name: string, fallback: T): Promise<T> {
   try {
@@ -170,6 +174,43 @@ const mobileApi: Api = {
     },
     clearCache: async () => undefined,
     onProgress: () => () => undefined
+  },
+
+  images: {
+    has: async (name) => {
+      try {
+        await Filesystem.stat({ path: `${base}/images/${safe(name)}`, directory: DIR })
+        return true
+      } catch {
+        return false
+      }
+    },
+    get: async (name) => {
+      try {
+        const { data } = await Filesystem.readFile({
+          path: `${base}/images/${safe(name)}`,
+          directory: DIR
+        })
+        return `data:image/png;base64,${typeof data === 'string' ? data : ''}`
+      } catch {
+        return null
+      }
+    },
+    put: async (name, base64) => {
+      await Filesystem.mkdir({ path: `${base}/images`, directory: DIR, recursive: true }).catch(
+        () => undefined
+      )
+      await Filesystem.writeFile({
+        path: `${base}/images/${safe(name)}`,
+        directory: DIR,
+        data: base64
+      })
+    }
+  },
+
+  content: {
+    get: async () => LocalContentSchema.parse(await readFile('content.json', {})),
+    set: async (value) => writeFile('content.json', value)
   },
 
   backup: {

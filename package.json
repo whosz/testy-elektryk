@@ -12,6 +12,7 @@
     "import": "tsx scripts/import-cli.ts",
     "seed": "tsx scripts/extract-informator.ts",
     "seed:verify": "tsx scripts/verify-informator.ts",
+    "content": "tsx scripts/build-content.ts",
     "build:android": "electron-vite build && cap sync android && cd android && ./gradlew assembleDebug"
   },
   "dependencies": {

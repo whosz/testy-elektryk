@@ -157,7 +157,7 @@ export default function ImportPage(): React.JSX.Element {
                 <CardContent className="flex items-start gap-3 py-4">
                   <div className="flex-1 space-y-2">
                     <p className="text-sm font-medium">{q.question}</p>
-                    {q.image && <QuestionImage name={q.image} />}
+                    {q.image && <QuestionImage setId={q.setId} name={q.image} />}
                     <div className="space-y-1 text-sm">
                       {q.options.map((o) => (
                         <div key={o.id} className="flex items-center gap-2">
