@@ -68,7 +68,6 @@ export default function HomePage(): React.JSX.Element {
       {/* na telefonie dolny pasek mieści pięć zakładek, reszta wchodzi stąd */}
       <div className="flex flex-wrap gap-2 md:hidden">
         {[
-          ['/materialy', 'Materiały'],
           ['/stats', 'Statystyki'],
           ['/sets', 'Zestawy'],
           ['/import', 'Import'],

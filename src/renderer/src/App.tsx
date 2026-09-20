@@ -26,14 +26,23 @@ import ImportPage from '@/routes/Import'
 import MaterialyPage from '@/routes/Materialy'
 import SettingsPage from '@/routes/Settings'
 
-/** `mobile` wyznacza pięć zakładek dolnego paska; reszta jest dostępna z ekranu Start. */
-const NAV = [
+/**
+ * `mobile` wyznacza zakładki dolnego paska, `short` skraca podpis, gdy pełna nazwa
+ * nie mieści się w kolumnie. Reszta ekranów jest dostępna z ekranu Start.
+ */
+const NAV: Array<{
+  to: string
+  label: string
+  icon: typeof HomeIcon
+  mobile: boolean
+  short?: string
+}> = [
   { to: '/', label: 'Start', icon: HomeIcon, mobile: true },
   { to: '/review', label: 'Powtórki', icon: RefreshCw, mobile: true },
   { to: '/learn', label: 'Nauka', icon: BookOpen, mobile: true },
   { to: '/exam', label: 'Egzamin', icon: GraduationCap, mobile: true },
   { to: '/errors', label: 'Błędy', icon: TriangleAlert, mobile: true },
-  { to: '/materialy', label: 'Materiały', icon: Video, mobile: false },
+  { to: '/materialy', label: 'Materiały', icon: Video, mobile: true, short: 'Wideo' },
   { to: '/stats', label: 'Statystyki', icon: BarChart3, mobile: false },
   { to: '/sets', label: 'Zestawy', icon: Layers, mobile: false },
   { to: '/import', label: 'Import', icon: FileDown, mobile: false },
@@ -98,21 +107,21 @@ export default function App(): React.JSX.Element {
             </Routes>
           </div>
         </main>
-        <nav className="fixed inset-x-0 bottom-0 z-20 grid grid-cols-5 border-t bg-sidebar/95 backdrop-blur md:hidden">
-          {NAV.filter((n) => n.mobile).map(({ to, label, icon: Icon }) => (
+        <nav className="fixed inset-x-0 bottom-0 z-20 grid grid-cols-6 border-t bg-sidebar/95 backdrop-blur md:hidden">
+          {NAV.filter((n) => n.mobile).map(({ to, label, icon: Icon, short }) => (
             <NavLink
               key={to}
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
                 cn(
-                  'flex flex-col items-center gap-0.5 px-1 py-2 text-[11px] transition-colors',
+                  'flex flex-col items-center gap-0.5 px-0.5 py-2 text-[10px] leading-tight transition-colors',
                   isActive ? 'font-medium text-primary' : 'text-muted-foreground'
                 )
               }
             >
               <Icon className="size-5" />
-              {label}
+              {short ?? label}
             </NavLink>
           ))}
         </nav>

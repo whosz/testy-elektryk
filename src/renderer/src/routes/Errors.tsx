@@ -39,14 +39,14 @@ export default function ErrorsPage(): React.JSX.Element {
           </CardHeader>
           <CardContent className="space-y-2">
             {queue.map((q) => (
-              <div key={q.id} className="flex items-start gap-3 border-b pb-2 text-sm last:border-0">
-                <Badge variant="outline" className="shrink-0">
-                  {categoryName(q.category)}
-                </Badge>
-                <span className="flex-1">{q.question.split('\n')[0]}</span>
-                <span className="shrink-0 text-xs text-muted-foreground">
-                  seria {progress[q.id]?.correctStreak ?? 0}/{settings.errorPoolExitStreak}
-                </span>
+              <div key={q.id} className="space-y-1.5 border-b pb-3 text-sm last:border-0 last:pb-0">
+                <p>{q.question.split('\n')[0]}</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="outline">{categoryName(q.category)}</Badge>
+                  <span className="text-xs text-muted-foreground">
+                    seria {progress[q.id]?.correctStreak ?? 0}/{settings.errorPoolExitStreak}
+                  </span>
+                </div>
               </div>
             ))}
           </CardContent>
