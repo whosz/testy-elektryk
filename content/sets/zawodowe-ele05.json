@@ -1907,8 +1907,10 @@
       "category": "ZAB",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz a) \"11 A\" błędny. In = Pn/(√3·Un·cosφ·η) = 4000/(1,732·400·0,8·0,72) ≈ 10,02 A. Zweryfikowane też na dołączonym rysunku: pokazany wyłącznik silnikowy (Hager MM511N) ma zakres nastaw 10...16 A — 10 A to nie tylko wynik rachunku, ale i dolna granica skali tego konkretnego urządzenia, co potwierdza, że poprawną odpowiedzią jest d) \"10 A\", nie a) \"11 A\".",
       "image": "ac79e06e1f61.png",
       "createdAt": "2026-09-20T17:43:00.178Z"
     },
@@ -2762,8 +2764,10 @@
       "category": "MASZ",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz b) \"1-4, 2-5, 3-6\" błędny. Przy standardowym oznaczeniu zacisków silnika (1=U1, 2=V1, 3=W1, 4=U2, 5=V2, 6=W2) zwarcie 1-4/2-5/3-6 zwiera każde uzwojenie samo ze sobą (początek z końcem tego samego uzwojenia) — to zwarcie uzwojenia, nie połączenie w trójkąt. Prawidłowe skojarzenie w trójkąt wymaga skrzyżowania końców sąsiednich uzwojeń: d) \"1-6, 2-4, 3-5\". Ten sam błąd występuje w niemal identycznym pytaniu 5314635bbba0 w tym zestawie.",
       "image": "9116d76f0a31.png",
       "createdAt": "2026-09-20T17:43:00.178Z"
     },
@@ -4472,8 +4476,10 @@
       "category": "MASZ",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz d) \"1-4, 2-5, 3-6\" błędny — ten sam problem co w pytaniu 9116d76f0a31 w tym zestawie. Zwarcie 1-4/2-5/3-6 zwiera każde uzwojenie samo ze sobą, nie łączy ich w trójkąt. Prawidłowe skojarzenie w trójkąt to skrzyżowanie końców sąsiednich uzwojeń: c) \"1-6, 2-4, 3-5\".",
       "image": "5314635bbba0.png",
       "createdAt": "2026-09-20T17:43:00.178Z"
     },

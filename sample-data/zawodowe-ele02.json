@@ -287,8 +287,10 @@
       "category": "INST",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz d) \"poluzowany N w rozdzielnicy mieszkaniowej\" wątpliwy fizycznie. Asymetria napięcia widoczna tylko u jednego lokatora (podczas gdy sąsiedzi mają normalne napięcie) wymaga wspólnego punktu awarii neutralnego dzielonego między odbiory na różnych fazach — czyli awarii w głównym złączu budynku (opcja b), a nie w odosobnionej, jednofazowej rozdzielnicy jednego mieszkania, gdzie luźny N zwykle powoduje zanik zasilania, nie przesunięcie punktu zerowego względem sąsiadów.",
       "image": null,
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
@@ -1592,8 +1594,10 @@
       "category": "ZAB",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "ambiguous"
+      ],
+      "reviewNote": "Audyt merytoryczny: opis w pytaniu (transformator 230/230 V rozdzielczy zasilający pojedynczy odbiornik) to podręcznikowy opis separacji elektrycznej jako środka ochrony dodatkowej, ale żadna z opcji nie nazywa się wprost \"separacja elektryczna\" — klucz \"izolacja odbiornika\" nie jest standardową nazwą tego środka ochrony. Możliwe przeformułowanie wariantów przy tworzeniu pytania w źródle.",
       "image": null,
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
@@ -4067,8 +4071,10 @@
       "category": "OSW",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz b) \"świetlówka tradycyjna\" wątpliwy terminologicznie. \"Zapłonnik\" (igniter, impuls wysokiego napięcia do zapłonu łuku) dotyczy lamp wyładowczych wysokoprężnych (sodowe, rtęciowe, metalohalogenkowe) — świetlówka tradycyjna ze statecznikiem elektromagnetycznym używa \"startera\" (rozrusznika jarzeniowego), innego elementu o innej zasadzie działania.",
       "image": null,
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
@@ -4697,8 +4703,10 @@
       "category": "POZ",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz a) \"I\" wątpliwy. Oprawy oświetlenia miejscowego (np. na obrabiarkach) zasilane są zwykle napięciem bezpiecznym SELV (24 V) i wykonuje się je w klasie ochronności III — nie wymagają uziemienia. Dodatkowo opcja b) \"IV\" nie istnieje jako klasa ochronności (są tylko 0, I, II, III), co sugeruje błąd w konstrukcji pytania w źródle.",
       "image": null,
       "createdAt": "2026-09-20T17:21:42.990Z"
     },
