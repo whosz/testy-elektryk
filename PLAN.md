@@ -36,11 +36,11 @@ Plan działa przy wartościach domyślnych. Zmień je, zanim zaczniesz Etap 2.
 
 | Pytanie | Domyślnie | Na co wpływa |
 |---|---|---|
-| Czy lista ma gotowe warianty A/B/C/D? | Nie wiadomo — import obsługuje oba przypadki | Czy Claude generuje błędne warianty (`generate_distractors`) |
-| Egzamin pisemny (test wyboru) czy ustny? | Pisemny | Przy ustnym głównym trybem są fiszki z samooceną (typ `open`), a test ABCD dodatkiem |
-| Parametry egzaminu: liczba pytań, czas, próg | 20 pytań / 30 min / 75% — ustaw jak na swoim egzaminie | Tryb Egzamin |
-| Data egzaminu | Brak | Skracanie odstępów powtórek (7.2) |
-| Czy pytania odwołują się do rysunków/schematów? | Możliwe | Flaga `needs_image`, ręczne dołączanie obrazków (Etap 6) |
+| Czy lista ma gotowe warianty A/B/C/D? | Import obsługuje oba przypadki; `generateDistractors` w Ustawieniach | Czy Claude generuje błędne warianty |
+| Egzamin pisemny (test wyboru) czy ustny? | **Pisemny**, test jednokrotnego wyboru z czterema wariantami (`database/05-egzamin.md`) | `single_choice` jest typem domyślnym |
+| Parametry egzaminu: liczba pytań, czas, próg | **40 pytań / 60 min / 50%** — z informatora CKE | Tryb Egzamin |
+| Data egzaminu | Brak — ustaw w Ustawieniach | Skracanie odstępów powtórek (7.2) |
+| Czy pytania odwołują się do rysunków/schematów? | **Tak, regularnie** — część zadań opiera się na filmach i zdjęciach | Flaga `needs_image`; takie pytania są domyślnie poza trybem Egzamin |
 
 ---
 
@@ -569,12 +569,13 @@ Każdy handler IPC waliduje argumenty przez zod.
 
 ### Etap 0 — Przygotowanie
 
-- [ ] Node LTS i git zainstalowane
-- [ ] Projekt utworzony poleceniem z rozdziału 3, `npm run dev` otwiera okno
-- [ ] vitest skonfigurowany, `npm test` przechodzi na pustym teście
-- [ ] Struktura katalogów z rozdziału 4 (puste pliki wystarczą)
-- [ ] `sample-data/probka.txt` — 30–50 prawdziwych pytań z Twojej listy, w oryginalnym formacie
-- [ ] Decyzje z rozdziału 2 uzupełnione
+- [x] Node LTS i git zainstalowane
+- [x] Projekt utworzony poleceniem z rozdziału 3, `npm run dev` otwiera okno
+- [x] vitest skonfigurowany, `npm test` przechodzi na pustym teście
+- [x] Struktura katalogów z rozdziału 4 (puste pliki wystarczą)
+- [~] `sample-data/cke-informatory.json` — 38 zadań z informatorów CKE z kluczem ze źródła
+      (`npm run seed`). Twojej własnej listy pytań jeszcze nie ma — wrzuć ją do importu.
+- [x] Decyzje z rozdziału 2 uzupełnione
 
 **Gotowe, gdy:** okno aplikacji się otwiera, testy działają, próbka jest w repozytorium.
 
@@ -582,63 +583,65 @@ Każdy handler IPC waliduje argumenty przez zod.
 
 Cel: sprawdzić jakość przetwarzania przez Claude, zanim powstanie interfejs.
 
-- [ ] `src/shared/types.ts`, `schema.ts` (zod), `ids.ts`
-- [ ] `src/main/import/chunk.ts` + testy: numeracja, brak numeracji, cięcie na pustej linii
-- [ ] `src/main/import/prompt.ts`: prompt systemowy i schemat JSON z rozdziału 6
-- [ ] `src/main/import/claude.ts`: wywołanie, obsługa `max_tokens`, ponawianie, cache na dysku
-- [ ] `src/main/import/pipeline.ts`: `incomplete_tail`, mapowanie na `Question`, deduplikacja, raport
-- [ ] `scripts/import-cli.ts`: `npx tsx scripts/import-cli.ts sample-data/probka.txt` → `out/probka.json` i raport w konsoli; klucz z `ANTHROPIC_API_KEY`
-- [ ] Testy pipeline'u z zamockowanym klientem API
+- [x] `src/shared/types.ts`, `schema.ts` (zod), `ids.ts`
+- [x] `src/main/import/chunk.ts` + testy: numeracja, brak numeracji, cięcie na pustej linii
+- [x] `src/main/import/prompt.ts`: prompt systemowy i schemat JSON z rozdziału 6
+- [x] `src/main/import/claude.ts`: wywołanie, obsługa `max_tokens`, ponawianie, cache na dysku
+- [x] `src/main/import/pipeline.ts`: `incomplete_tail`, mapowanie na `Question`, deduplikacja, raport
+- [x] `scripts/import-cli.ts`: `npx tsx scripts/import-cli.ts sample-data/probka.txt` → `out/probka.json` i raport w konsoli; klucz z `ANTHROPIC_API_KEY`
+- [x] Testy pipeline'u z zamockowanym klientem API
 
 **Gotowe, gdy:** próbka daje poprawny JSON, liczba pytań się zgadza, a ręczne porównanie 10 losowych pytań ze źródłem nie wykazuje żadnej zmienionej poprawnej odpowiedzi. Jeśli jakość wariantów lub wyjaśnień jest słaba — popraw prompt teraz.
 
 ### Etap 2 — Rdzeń nauki
 
-- [ ] `storage.ts` z zapisem atomowym i kopiami `.bak` + testy
-- [ ] IPC: `sets`, `progress`, `exams`, `settings` (bez klucza API)
-- [ ] Tymczasowy import zestawu: wczytanie `out/probka.json` z Etapu 1 przez okno wyboru pliku
-- [ ] `errorPool.ts`, `exam.ts` + testy
-- [ ] Komponenty `QuestionCard`, `OptionList`, tasowanie wariantów, skróty klawiszowe
-- [ ] Tryb Nauka z informacją zwrotną i powrotem błędnych pytań na końcu sesji
-- [ ] Tryb Egzamin: losowanie, licznik, „wrócę później", ekran wyniku, zapis do `exams.json`
-- [ ] Tryb Moje błędy
-- [ ] Tryb fiszek dla pytań `open` z samooceną
-- [ ] Etykieta „AI" przy niezweryfikowanych wyjaśnieniach i wygenerowanych wariantach
+- [x] `storage.ts` z zapisem atomowym i kopiami `.bak` + testy
+- [x] IPC: `sets`, `progress`, `exams`, `settings` (bez klucza API)
+- [x] Wczytanie gotowego JSON-a przez okno wyboru pliku (zostaje na stałe — tak wchodzi zestaw CKE)
+- [x] `errorPool.ts`, `exam.ts` + testy
+- [x] Komponenty `QuestionCard`, `OptionList`, tasowanie wariantów, skróty klawiszowe
+- [x] Tryb Nauka z informacją zwrotną i powrotem błędnych pytań na końcu sesji
+- [x] Tryb Egzamin: losowanie, licznik, „wrócę później", ekran wyniku, zapis do `exams.json`
+- [x] Tryb Moje błędy
+- [x] Tryb fiszek dla pytań `open` z samooceną
+- [x] Etykieta „AI" przy niezweryfikowanych wyjaśnieniach i wygenerowanych wariantach
 
 **Gotowe, gdy:** da się przejść pełną sesję każdego trybu, zamknąć aplikację i po ponownym uruchomieniu zobaczyć zachowane postępy i pulę błędów.
 
 ### Etap 3 — Powtórki i statystyki
 
-- [ ] `sm2.ts` + testy: sekwencja 1 → 6 → interwał × EF, reset przy q < 3, dolna granica EF 1.3, limit `maxIntervalDays`
-- [ ] `session.ts`: kolejka dzienna, limit nowych kart, przeplatanie kategorii + testy
-- [ ] Tryb Powtórki na dziś
-- [ ] Data egzaminu w ustawieniach i skracanie interwałów
-- [ ] `stats.ts` + ekran Statystyki
-- [ ] Ekran Start z licznikami
+- [x] `sm2.ts` + testy: sekwencja 1 → 6 → interwał × EF, reset przy q < 3, dolna granica EF 1.3, limit `maxIntervalDays`
+- [x] `session.ts`: kolejka dzienna, limit nowych kart, przeplatanie kategorii + testy
+- [x] Tryb Powtórki na dziś
+- [x] Data egzaminu w ustawieniach i skracanie interwałów
+- [x] `stats.ts` + ekran Statystyki
+- [x] Ekran Start z licznikami
 
 **Gotowe, gdy:** po przestawieniu daty systemowej o kilka dni kolejka pokazuje właściwe karty, a statystyki zgadzają się z historią odpowiedzi.
 
 ### Etap 4 — Import w aplikacji
 
-- [ ] `secrets.ts` (safeStorage) + ustawienia klucza z przyciskiem „Testuj"
-- [ ] `extract.ts`: TXT/MD, CSV (`papaparse`), DOCX (`mammoth`); wklejanie tekstu
-- [ ] IPC `importer.*` ze zdarzeniami postępu
-- [ ] Ekran Import: źródło → szacunek i potwierdzenie → postęp → raport
-- [ ] Ekran przeglądu z filtrami, edytorem, akceptacją i odrzucaniem (6.7)
-- [ ] Ponawianie pojedynczej nieudanej paczki
-- [ ] Ponowny import istniejącego zestawu: nowe pytania dochodzą, postępy zostają (dzięki stabilnym ID)
-- [ ] Edytor pytań dostępny z ekranu Zestawy; przełącznik „zweryfikowane" przy wyjaśnieniu
-- [ ] Usunięcie tymczasowego importu z Etapu 2
+- [x] `secrets.ts` (safeStorage) + ustawienia klucza z przyciskiem „Testuj"
+- [x] `extract.ts`: TXT/MD, CSV (`papaparse`), DOCX (`mammoth`); wklejanie tekstu
+- [x] IPC `importer.*` ze zdarzeniami postępu
+- [x] Ekran Import: źródło → szacunek i potwierdzenie → postęp → raport
+- [x] Ekran przeglądu z filtrami, edytorem, akceptacją i odrzucaniem (6.7)
+- [x] Ponowienie importu: udane paczki idą z cache, płacisz tylko za nieudane
+      (prostsze niż osobny `retryChunk`, ten sam efekt)
+- [x] Ponowny import istniejącego zestawu: nowe pytania dochodzą, postępy zostają (dzięki stabilnym ID)
+- [x] Edytor pytań dostępny z ekranu Zestawy; przełącznik „zweryfikowane" przy wyjaśnieniu
+- [x] Nie dotyczy — wczytywanie JSON-a zostaje jako zwykła funkcja
 
 **Gotowe, gdy:** pełna lista pytań przechodzi od pliku do zapisanego zestawu bez użycia linii komend, a przerwany import da się dokończyć bez ponownego płacenia za gotowe paczki.
 
 ### Etap 5 — Pakowanie na Windows
 
-- [ ] `electron-builder.yml`: `appId`, nazwa produktu, ikona `.ico`, target `nsis`
-- [ ] `npm run build:win` tworzy instalator
+- [x] `electron-builder.yml`: `appId`, nazwa produktu, ikona `.ico`, target `nsis`
+- [x] `npm run build:win` tworzy instalator (na Windows; z Linuksa robi to CI)
 - [ ] Test na czystym koncie Windows: instalacja, uruchomienie, import, nauka, odinstalowanie
-- [ ] Dane użytkownika zostają po aktualizacji aplikacji
-- [ ] Kopia zapasowa: eksport i import zipa z katalogu `data` (bez `secrets.bin`)
+      — do zrobienia przez Ciebie, instalator leży w artefaktach workflow **Build**
+- [x] Dane użytkownika leżą w `%APPDATA%`, poza katalogiem instalacji
+- [x] Kopia zapasowa: eksport i import zipa z katalogu `data` (bez `secrets.bin`)
 
 Instalator nie będzie podpisany cyfrowo, więc Windows SmartScreen pokaże ostrzeżenie przy pierwszym uruchomieniu. Przy własnym użytku wystarczy „Więcej informacji → Uruchom mimo to".
 

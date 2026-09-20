@@ -1,4 +1,4 @@
-import { BrowserWindow, dialog, ipcMain, shell } from 'electron'
+import { dialog, ipcMain, shell } from 'electron'
 import { readFileSync, writeFileSync } from 'fs'
 import { basename } from 'path'
 import { z } from 'zod'
@@ -194,8 +194,4 @@ export function registerIpc(): void {
     writeFileSync(res.filePath, text, 'utf8')
     return res.filePath
   })
-}
-
-export function focusedWindow(): BrowserWindow | null {
-  return BrowserWindow.getFocusedWindow()
 }

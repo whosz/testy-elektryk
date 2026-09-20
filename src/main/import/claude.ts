@@ -1,7 +1,8 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { createHash } from 'crypto'
-import { existsSync, readFileSync, writeFileSync } from 'fs'
+import { existsSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs'
 import { ImportChunkSchema, type ImportChunkResult } from '../../shared/schema'
+import { join } from 'path'
 import { pathIn } from '../storage'
 import { IMPORT_OUTPUT_SCHEMA, IMPORT_SYSTEM_PROMPT, buildUserMessage } from './prompt'
 
@@ -15,9 +16,8 @@ function cacheFile(key: string): string {
 
 export function clearCache(): void {
   const dir = pathIn('import-cache')
-  for (const f of existsSync(dir) ? require('fs').readdirSync(dir) : []) {
-    require('fs').unlinkSync(`${dir}/${f}`)
-  }
+  if (!existsSync(dir)) return
+  for (const f of readdirSync(dir)) unlinkSync(join(dir, f))
 }
 
 export interface RunChunkOptions {
