@@ -12533,8 +12533,10 @@
       "category": "MASZ",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz c) \"taka sama średnica, więcej zwojów\" wątpliwy. Prąd pierwotny I1=S/U1=200/230≈0,87A, prąd wtórny I2=S/U2=200/14,6≈13,7A (ok. 16× więcej) — przy tak dużej różnicy prądów przekrój drutu pierwotnego powinien być mniejszy, nie taki sam. Uzasadnienie w źródle jest wewnętrznie sprzeczne z własnym kluczem: zaczyna się od słów \"mniejszej średnicy [...] niż uzwojenie wtórne\", co pasuje do innej opcji niż wybrany klucz. Żadna z 4 opcji nie opisuje poprawnie kombinacji \"mniejsza średnica + więcej zwojów\", więc samo pytanie może być wadliwie skonstruowane.",
       "image": null,
       "createdAt": "2026-09-20T17:43:00.178Z"
     },
@@ -19015,8 +19017,10 @@
       "category": "INST",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "answer_suspect"
+      ],
+      "reviewNote": "Audyt merytoryczny: klucz d) \"osłony chroniące przed zamierzonym dotykiem\" sprzeczny z definicją normową. Wg PN-HD 60364-4-41 przegrody/obudowy (IP2X/IPXXB) chronią przed dotykiem PRZYPADKOWYM w warunkach normalnej eksploatacji — norma wprost dopuszcza, by dostęp za przegrodę wymagał tylko narzędzia lub odłączenia zasilania, więc z założenia nie chronią przed dotykiem zamierzonym. Poprawna odpowiedź to c) \"bariery chroniące przed przypadkowym kontaktem\".",
       "image": null,
       "createdAt": "2026-09-20T17:43:00.178Z"
     },
@@ -28019,8 +28023,10 @@
       "category": "MASZ",
       "unit": "",
       "difficulty": 2,
-      "flags": [],
-      "reviewNote": "",
+      "flags": [
+        "ambiguous"
+      ],
+      "reviewNote": "Audyt merytoryczny: kryterium \"jednoczesne zasilanie wszystkich faz\" nie odróżnia układu gwiazda-trójkąt (klucz a) od trójkąt-gwiazda (opcja d) — obie kombinacje, jak i każde standardowe połączenie transformatora 3-fazowego, spełniają ten warunek identycznie. Pytanie nie ma jednoznacznie poprawnej odpowiedzi wśród podanych wariantów.",
       "image": null,
       "createdAt": "2026-09-20T17:43:00.178Z"
     },
