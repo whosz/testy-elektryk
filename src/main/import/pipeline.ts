@@ -87,7 +87,7 @@ export async function runImport(text: string, opts: PipelineOptions): Promise<Im
   const run = opts.runner ?? runChunk
   const chunks = chunkText(text)
   const now = new Date().toISOString()
-  const categories = [...CATEGORY_NAMES]
+  const categories: string[] = [...CATEGORY_NAMES]
   const questions: Question[] = []
   const seen = new Map<string, Question>()
   const duplicates: string[] = []

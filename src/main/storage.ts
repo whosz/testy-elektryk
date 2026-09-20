@@ -1,7 +1,7 @@
 import { app } from 'electron'
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync, copyFileSync, unlinkSync, readdirSync } from 'fs'
 import { join } from 'path'
-import type { ZodType } from 'zod'
+import type { ZodTypeAny, infer as ZodInfer } from 'zod'
 
 let root = ''
 
@@ -32,7 +32,7 @@ export function writeJson(file: string, value: unknown): void {
 }
 
 /** Uszkodzony plik → próba z .bak. Gdy i to padnie, zwraca fallback. */
-export function readJson<T>(file: string, schema: ZodType<T>, fallback: T): T {
+export function readJson<S extends ZodTypeAny>(file: string, schema: S, fallback: ZodInfer<S>): ZodInfer<S> {
   for (const candidate of [file, `${file}.bak`]) {
     if (!existsSync(candidate)) continue
     try {

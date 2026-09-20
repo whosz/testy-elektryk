@@ -1,0 +1,71 @@
+# Elektryk Quiz
+
+Aplikacja desktopowa do nauki do egzaminu zawodowego **ELE.02** i **ELE.05** (część pisemna).
+Działa offline na Windows. Pytania wczytujesz z gotowego zestawu albo importujesz własną listę,
+którą Claude zamienia na ustrukturyzowaną bazę.
+
+Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](database/).
+
+## Co potrafi
+
+- **Powtórki na dziś** — SM-2 z limitem nowych kart i przeplataniem kategorii.
+  Po ustawieniu daty egzaminu odstępy skracają się, żeby nic nie wypadło za termin.
+- **Nauka** — wybrane zestawy i kategorie, informacja zwrotna od razu, błędne pytania
+  wracają na końcu sesji.
+- **Egzamin** — 40 zadań / 60 minut / próg 50%, jak w informatorze CKE. Losowanie
+  proporcjonalne do wielkości kategorii, licznik czasu, „wrócę później", wynik według kategorii.
+- **Moje błędy** — pula błędów; pytanie wypada po trzech poprawnych odpowiedziach z rzędu.
+- **Fiszki** — pytania otwarte z samooceną (cztery przyciski).
+- **Statystyki** — skuteczność według kategorii, najsłabsze pytania, historia egzaminów.
+- **Import przez Claude** — TXT/MD/CSV/DOCX lub wklejony tekst, szacunek kosztu przed startem,
+  raport rozbieżności, ekran przeglądu z edytorem, cache po hashu.
+
+## Zasada nadrzędna
+
+Poprawna odpowiedź ze źródła jest nienaruszalna. Claude nigdy jej nie zmienia — jeśli uważa,
+że klucz jest błędny, zostawia go i dodaje flagę `answer_suspect` z uzasadnieniem.
+Wszystko, co dopisała AI (błędne warianty, wyjaśnienia), jest oznaczone etykietą **AI**
+i widoczne jako takie w trakcie nauki.
+
+## Start
+
+```bash
+npm install
+npm run dev
+```
+
+Na ekranie **Import** kliknij „Wczytaj zadania z informatorów CKE" — 38 zadań z kluczem
+odpowiedzi prosto z informatorów, bez udziału AI i bez klucza API.
+
+Import własnej listy wymaga klucza API Anthropic (Ustawienia → Klucz API). Klucz jest szyfrowany
+przez Windows DPAPI (`safeStorage`), nie trafia do pliku ustawień, logów ani kopii zapasowej,
+a renderer nigdy go nie widzi.
+
+## Instalator Windows
+
+```bash
+npm run build:win     # release/Elektryk Quiz Setup x.y.z.exe
+```
+
+Instalator nie jest podpisany cyfrowo, więc przy pierwszym uruchomieniu SmartScreen pokaże
+ostrzeżenie: „Więcej informacji → Uruchom mimo to".
+
+## Pozostałe polecenia
+
+```bash
+npm test              # vitest — logika nauki, import, storage
+npm run seed          # ponowne wyciągnięcie zadań z database/info/*.pdf (wymaga pdftotext)
+npm run import -- sample-data/probka.txt    # import z linii komend, ANTHROPIC_API_KEY w środowisku
+```
+
+## Dane
+
+`%APPDATA%/elektryk-quiz/data/` — zestawy, postępy, egzaminy, ustawienia, cache importu.
+Zapis jest atomowy (`.tmp` → `rename`), przed nadpisaniem zostaje kopia `.bak`, a każdy odczyt
+przechodzi przez zod; przy uszkodzonym pliku aplikacja wraca do `.bak`.
+Kopia zapasowa: Ustawienia → Eksportuj.
+
+## Stos
+
+Electron + electron-vite · React + TypeScript · Tailwind v4 + [shadcn/ui](https://ui.shadcn.com/docs/installation)
+· zustand · zod · vitest · `@anthropic-ai/sdk` (tylko w procesie głównym, structured outputs)

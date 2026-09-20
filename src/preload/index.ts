@@ -32,7 +32,9 @@ export const api = {
     onProgress: (cb: (p: { done: number; total: number }) => void) => {
       const listener = (_e: unknown, p: { done: number; total: number }): void => cb(p)
       ipcRenderer.on('importer:progress', listener)
-      return () => ipcRenderer.removeListener('importer:progress', listener)
+      return () => {
+        ipcRenderer.removeListener('importer:progress', listener)
+      }
     }
   },
   settings: {
