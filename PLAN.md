@@ -603,7 +603,8 @@ Cel: sprawdzić jakość przetwarzania przez Claude, zanim powstanie interfejs.
 - [x] Tryb Nauka z informacją zwrotną i powrotem błędnych pytań na końcu sesji
 - [x] Tryb Egzamin: losowanie, licznik, „wrócę później", ekran wyniku, zapis do `exams.json`
 - [x] Tryb Moje błędy
-- [x] Tryb fiszek dla pytań `open` z samooceną
+- [x] Tryb fiszek z samooceną — przełącznik w sesji działa dla każdego pytania,
+      nie tylko `open` (nauka przez czytanie, bez wariantów ABCD)
 - [x] Etykieta „AI" przy niezweryfikowanych wyjaśnieniach i wygenerowanych wariantach
 
 **Gotowe, gdy:** da się przejść pełną sesję każdego trybu, zamknąć aplikację i po ponownym uruchomieniu zobaczyć zachowane postępy i pulę błędów.

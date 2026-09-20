@@ -15,7 +15,10 @@ Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](dat
 - **Egzamin** — 40 zadań / 60 minut / próg 50%, jak w informatorze CKE. Losowanie
   proporcjonalne do wielkości kategorii, licznik czasu, „wrócę później", wynik według kategorii.
 - **Moje błędy** — pula błędów; pytanie wypada po trzech poprawnych odpowiedziach z rzędu.
-- **Fiszki** — pytania otwarte z samooceną (cztery przyciski).
+- **Fiszki** — przełącznik w sesji chowa warianty A–D: czytasz pytanie, przypominasz sobie
+  odpowiedź, odsłaniasz ją i oceniasz się czterema przyciskami. Działa dla każdego pytania,
+  nie tylko otwartego, i liczy się do powtórek i puli błędów. Trudniejsze niż test wyboru,
+  bo nie ma z czego zgadywać.
 - **Statystyki** — skuteczność według kategorii, najsłabsze pytania, historia egzaminów.
 - **Import przez Claude** — TXT/MD/CSV/DOCX lub wklejony tekst, szacunek kosztu przed startem,
   raport rozbieżności, ekran przeglądu z edytorem, cache po hashu.

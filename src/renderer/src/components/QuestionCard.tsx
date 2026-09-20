@@ -20,6 +20,8 @@ interface Props {
   mode: 'feedback' | 'silent'
   shuffleOptions: boolean
   initialAnswer?: string[]
+  /** Fiszka z pytania wyboru: warianty schowane, odpowiedź na żądanie, samoocena. */
+  flashcard?: boolean
   onAnswer: (chosen: string[], correct: boolean) => void
   onNext: () => void
   onGrade?: (grade: Grade) => void
@@ -40,6 +42,7 @@ export default function QuestionCard({
   mode,
   shuffleOptions,
   initialAnswer,
+  flashcard = false,
   onAnswer,
   onNext,
   onGrade,
@@ -49,7 +52,7 @@ export default function QuestionCard({
   const [submitted, setSubmitted] = useState(false)
   const [revealed, setRevealed] = useState(false)
   const multi = question.type === 'multi_choice'
-  const open = question.type === 'open'
+  const open = question.type === 'open' || flashcard
 
   // Tasowanie stałe dla danego pytania w sesji — inaczej warianty skakałyby przy każdym renderze.
   const options = useMemo(
@@ -84,9 +87,17 @@ export default function QuestionCard({
     const onKey = (e: KeyboardEvent): void => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
       if (open) {
-        if (e.key === ' ') {
+        if (e.key === ' ' && !revealed) {
           e.preventDefault()
           setRevealed(true)
+          return
+        }
+        if (revealed && onGrade) {
+          const pick = '1234'.indexOf(e.key)
+          if (pick >= 0) {
+            e.preventDefault()
+            onGrade(FLASHCARD_GRADES[pick].grade)
+          }
         }
         return
       }
@@ -133,7 +144,10 @@ export default function QuestionCard({
           <div className="space-y-3">
             {revealed ? (
               <>
-                <div className="rounded-md border bg-muted/40 p-3 text-sm">{question.answerText}</div>
+                <div className="rounded-md border bg-success/10 p-3 text-sm">
+                  <span className="text-xs font-medium text-muted-foreground">Poprawna odpowiedź</span>
+                  <p className="mt-1 whitespace-pre-line">{question.answerText}</p>
+                </div>
                 {onGrade && (
                   <div className="flex flex-wrap gap-2">
                     {FLASHCARD_GRADES.map((g) => (
@@ -207,7 +221,11 @@ export default function QuestionCard({
 
         <div className="flex items-center justify-between gap-2 pt-1">
           <span className="text-xs text-muted-foreground">
-            {open ? 'Spacja — pokaż odpowiedź' : 'A–D lub 1–4 — wybór · Enter — zatwierdź · Spacja — dalej'}
+            {open
+              ? revealed
+                ? '1–4 — ocena · od „Nie wiedziałem" do „Łatwe"'
+                : 'Spacja — pokaż odpowiedź'
+              : 'A–D lub 1–4 — wybór · Enter — zatwierdź · Spacja — dalej'}
           </span>
           <div className="flex gap-2">
             {footer}

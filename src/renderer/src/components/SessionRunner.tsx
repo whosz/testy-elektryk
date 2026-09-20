@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { useStore } from '@/store'
@@ -23,6 +25,22 @@ export default function SessionRunner({ questions, schedule = true, onExit }: Pr
   const [retries, setRetries] = useState<Question[]>([])
   const [stats, setStats] = useState({ correct: 0, wrong: 0 })
   const [done, setDone] = useState(false)
+  const [flashcard, setFlashcard] = useState(() => {
+    try {
+      return localStorage.getItem('elektryk-quiz-flashcard') === '1'
+    } catch {
+      return false
+    }
+  })
+
+  const toggleFlashcard = (on: boolean): void => {
+    setFlashcard(on)
+    try {
+      localStorage.setItem('elektryk-quiz-flashcard', on ? '1' : '0')
+    } catch {
+      /* zablokowane dane przeglądarki — przełącznik zadziała do końca sesji */
+    }
+  }
 
   const current = queue[index]
 
@@ -77,14 +95,22 @@ export default function SessionRunner({ questions, schedule = true, onExit }: Pr
     <div className="space-y-4">
       <div className="space-y-2">
         <Progress value={((index + 1) / queue.length) * 100} />
-        <div className="flex justify-between text-xs text-muted-foreground">
+        <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
           <span>
             Dobrze {stats.correct} · Źle {stats.wrong}
             {retries.length > 0 && ` · do powtórzenia ${retries.length}`}
           </span>
-          <button className="underline-offset-2 hover:underline" onClick={onExit}>
-            Przerwij
-          </button>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <Switch id="flashcard" checked={flashcard} onCheckedChange={toggleFlashcard} />
+              <Label htmlFor="flashcard" className="cursor-pointer text-xs font-normal">
+                Fiszki (bez wariantów)
+              </Label>
+            </div>
+            <button className="underline-offset-2 hover:underline" onClick={onExit}>
+              Przerwij
+            </button>
+          </div>
         </div>
       </div>
       <QuestionCard
@@ -94,6 +120,7 @@ export default function SessionRunner({ questions, schedule = true, onExit }: Pr
         total={queue.length}
         mode="feedback"
         shuffleOptions={shuffleOptions}
+        flashcard={flashcard}
         onAnswer={handleAnswer}
         onNext={next}
         onGrade={handleGrade}
