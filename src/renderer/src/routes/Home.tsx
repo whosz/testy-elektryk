@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom'
+import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
 import { useStore } from '@/store'
 import { cardCounts, dueToday, examHistory } from '@shared/stats'
 import { daysBetween, today } from '@shared/dates'
@@ -55,12 +62,36 @@ export default function HomePage(): React.JSX.Element {
     <div className="space-y-6">
       {updateBanner}
 
-      <div>
-        <h1 className="text-2xl font-semibold">Start</h1>
-        <p className="text-sm text-muted-foreground">
-          {questions.length} pytań w bazie
-          {daysLeft !== null && ` · do egzaminu ${daysLeft} dni`}
-        </p>
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <h1 className="text-2xl font-semibold">Start</h1>
+          <p className="text-sm text-muted-foreground">
+            {questions.length} pytań w bazie
+            {daysLeft !== null && ` · do egzaminu ${daysLeft} dni`}
+          </p>
+        </div>
+        {/* Na telefonie dolny pasek mieści pięć zakładek — reszta ekranów wchodzi stąd. */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="icon" className="shrink-0 md:hidden" aria-label="Więcej">
+              <Menu className="size-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem asChild>
+              <Link to="/stats">Statystyki</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/sets">Zestawy</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/import">Import</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/settings">Ustawienia</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -68,20 +99,6 @@ export default function HomePage(): React.JSX.Element {
         <Stat title="Pula błędów" value={counts.errorPool} to="/errors" cta="Pracuj nad błędami" />
         <Stat title="Nowe pytania" value={counts.fresh} to="/learn" cta="Ucz się" />
         <Stat title="Opanowane" value={counts.mastered} to="/stats" cta="Statystyki" />
-      </div>
-
-      {/* na telefonie dolny pasek mieści pięć zakładek, reszta wchodzi stąd */}
-      <div className="flex flex-wrap gap-2 md:hidden">
-        {[
-          ['/stats', 'Statystyki'],
-          ['/sets', 'Zestawy'],
-          ['/import', 'Import'],
-          ['/settings', 'Ustawienia']
-        ].map(([to, label]) => (
-          <Button key={to} asChild variant="outline" size="sm">
-            <Link to={to}>{label}</Link>
-          </Button>
-        ))}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">

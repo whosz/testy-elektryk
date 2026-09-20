@@ -94,7 +94,7 @@ public class AppUpdatePlugin extends Plugin {
 
     @PluginMethod
     public void getDownloadStatus(PluginCall call) {
-        long id = call.getLong("downloadId", -1);
+        long id = call.getLong("downloadId", -1L);
         if (id < 0) {
             call.reject("Brak downloadId");
             return;
@@ -137,7 +137,7 @@ public class AppUpdatePlugin extends Plugin {
 
     @PluginMethod
     public void installApk(PluginCall call) {
-        long id = call.getLong("downloadId", -1);
+        long id = call.getLong("downloadId", -1L);
         if (id < 0) {
             call.reject("Brak downloadId");
             return;
