@@ -132,8 +132,16 @@ działają bez zmian, offline. Różni się warstwa pod spodem i układ ekranu:
 - **import własnej listy przez Claude jest wyłączony** — wymaga klucza API i dostępu do
   plików. Na telefonie wczytasz gotowy zestaw CKE albo kopię z komputera.
 
-APK jest podpisany kluczem debugowym, więc Android poprosi o zgodę na instalację
-z nieznanego źródła. Do własnego użytku wystarczy; do sklepu trzeba własnego keystore'a.
+APK jest podpisany kluczem debugowym z `android/debug.keystore` — stałym, trzymanym
+w repozytorium, żeby kolejne wydania miały ten sam podpis. Bez tego każdy build w CI
+dostawałby nowy losowy klucz i Android odmawiałby instalacji "na wierzch" starej wersji,
+wymuszając ręczne odinstalowanie. Do sklepu Play trzeba by własnego keystore'a produkcyjnego.
+
+**Aktualizacja w aplikacji.** Ekran Ustawienia sprawdza najnowsze wydanie na GitHubie
+i pozwala pobrać oraz zainstalować nowy APK bez wychodzenia do przeglądarki czy
+menedżera plików — systemowy `DownloadManager` ściąga plik, a instalator otwiera się
+automatycznie po pobraniu. Android przy pierwszym razie zapyta o zgodę na instalację
+z tego źródła (ekran systemowy, nie dialog w aplikacji).
 
 ## Pozostałe polecenia
 

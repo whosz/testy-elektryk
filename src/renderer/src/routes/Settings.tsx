@@ -11,7 +11,9 @@ import { api, isDesktop } from '@/api'
 import { useStore } from '@/store'
 import { applyTheme, readTheme, type Theme } from '@/theme'
 import { applyContent, fetchManifest, prefetchAllImages, type ApplyProgress } from '@/updates'
+import { checkForUpdate, downloadAndInstall, isAndroid, type AvailableUpdate, type DownloadProgress } from '@/appUpdate'
 import { Progress } from '@/components/ui/progress'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import { DEFAULT_CONTENT_BASE } from '@shared/content'
 
 const MODELS = [
@@ -26,6 +28,9 @@ export default function SettingsPage(): React.JSX.Element {
   const [theme, setTheme] = useState<Theme>(readTheme)
   const [applying, setApplying] = useState<ApplyProgress | null>(null)
   const [prefetching, setPrefetching] = useState<ApplyProgress | null>(null)
+  const [appUpdate, setAppUpdate] = useState<AvailableUpdate | null>(null)
+  const [appUpdateProgress, setAppUpdateProgress] = useState<DownloadProgress | null>(null)
+  const [appUpdateNeedsPermission, setAppUpdateNeedsPermission] = useState(false)
   const { contentVersion, update, checkContent, refresh: reloadAll, sets, videos } = useStore()
   const channels = [...new Set(videos.map((v) => v.channel).filter(Boolean))]
   const [hasKey, setHasKey] = useState(false)
@@ -43,9 +48,57 @@ export default function SettingsPage(): React.JSX.Element {
     return () => mq.removeEventListener('change', sync)
   }, [theme])
 
+  useEffect(() => {
+    if (!isAndroid) return
+    void checkForUpdate().then(setAppUpdate)
+  }, [])
+
+  const startAppUpdate = async (): Promise<void> => {
+    if (!appUpdate) return
+    setAppUpdateNeedsPermission(false)
+    try {
+      const result = await downloadAndInstall(appUpdate, setAppUpdateProgress)
+      setAppUpdateProgress(null)
+      // system otwiera ekran zgody; po powrocie użytkownik klika ponownie
+      if (result === 'needs-permission') setAppUpdateNeedsPermission(true)
+    } catch (err) {
+      setAppUpdateProgress(null)
+      toast.error(err instanceof Error ? err.message : String(err))
+    }
+  }
+
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Ustawienia</h1>
+
+      {isAndroid && appUpdate && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Aktualizacja aplikacji</CardTitle>
+            <CardDescription>
+              Dostępna wersja {appUpdate.version} ({Math.round(appUpdate.size / 1048576)} MB).
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {appUpdateNeedsPermission && (
+              <Alert>
+                <AlertDescription>
+                  Android wymaga zgody na instalację spoza Sklepu Play dla tej aplikacji.
+                  Otworzyliśmy ustawienia — po włączeniu zgody wróć i kliknij jeszcze raz.
+                </AlertDescription>
+              </Alert>
+            )}
+            <Button disabled={appUpdateProgress !== null} onClick={() => void startAppUpdate()}>
+              {appUpdateProgress
+                ? appUpdateProgress.status === 'downloading'
+                  ? `Pobieram… ${appUpdateProgress.pct}%`
+                  : 'Otwieram instalator…'
+                : `Pobierz i zainstaluj wersję ${appUpdate.version}`}
+            </Button>
+            {appUpdateProgress?.status === 'downloading' && <Progress value={appUpdateProgress.pct} />}
+          </CardContent>
+        </Card>
+      )}
 
       <Card>
         <CardHeader>
