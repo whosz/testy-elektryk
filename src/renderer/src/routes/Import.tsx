@@ -11,6 +11,7 @@ import { Progress } from '@/components/ui/progress'
 import { Textarea } from '@/components/ui/textarea'
 import FlagBadges from '@/components/FlagBadges'
 import QuestionEditor from '@/components/QuestionEditor'
+import QuestionImage from '@/components/QuestionImage'
 import { useStore } from '@/store'
 import { categoryName } from '@shared/categories'
 import type { ImportDraft, Question, QuestionSet } from '@shared/types'
@@ -155,6 +156,7 @@ export default function ImportPage(): React.JSX.Element {
                 <CardContent className="flex items-start gap-3 py-4">
                   <div className="flex-1 space-y-2">
                     <p className="text-sm font-medium">{q.question}</p>
+                    {q.image && <QuestionImage name={q.image} />}
                     <div className="space-y-1 text-sm">
                       {q.options.map((o) => (
                         <div key={o.id} className="flex items-center gap-2">

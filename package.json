@@ -10,12 +10,12 @@
     "build:win": "npm run build && electron-builder --win --publish never --config electron-builder.yml",
     "test": "vitest run",
     "import": "tsx scripts/import-cli.ts",
-    "seed": "tsx scripts/extract-informator.ts"
+    "seed": "tsx scripts/extract-informator.ts",
+    "seed:verify": "tsx scripts/verify-informator.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",
     "cn": "^0.3.0",
-    "next-themes": "^0.4.6",
     "radix-ui": "^1.6.7",
     "sonner": "^2.0.8"
   },

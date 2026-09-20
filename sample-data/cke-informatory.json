@@ -1,7 +1,7 @@
 {
   "id": "cke-informatory",
   "name": "Informatory CKE — przykładowe zadania",
-  "createdAt": "2026-09-20T10:16:04.130Z",
+  "createdAt": "2026-09-20T11:30:31.470Z",
   "sourceFileName": "database/info/*.pdf",
   "categories": [
     "BHP",
@@ -58,12 +58,10 @@
       "category": "BHP",
       "unit": "ELE.02.1",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "f0ae656a50ac.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "953f145a9829",
@@ -104,7 +102,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "9685e0b602af",
@@ -145,7 +143,48 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "1d0fbe2217f5",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Jaką moc pobiera trójfazowy grzejnik rezystancyjny, którego schemat połączeń przedstawiono na rysunku, jeżeli wartość napięcia fazowego w sieci wynosi 230 V?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 150 W",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "3 450 W",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "√3 ⋅ 1 150 W",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "√3 ⋅ 3 450 W",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "3 450 W",
+      "explanation": null,
+      "category": "PE",
+      "unit": "ELE.02.2",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "1d0fbe2217f5.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "9d77a88926df",
@@ -183,12 +222,10 @@
       "category": "OSW",
       "unit": "ELE.02.2",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "9d77a88926df.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "84191c42ea10",
@@ -229,7 +266,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "86befc9a54e0",
@@ -267,12 +304,10 @@
       "category": "POM",
       "unit": "ELE.02.2",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "86befc9a54e0.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "f7fa2e49fa4d",
@@ -313,7 +348,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "a58431bdfb95",
@@ -354,7 +389,48 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "4c207794e998",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Na którym rysunku przedstawiono kabel elektroenergetyczny stosowany do wykonywania przyłączy napowietrznych budynków mieszkalnych?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Wariant C (patrz rysunek)",
+      "explanation": null,
+      "category": "INST",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "4c207794e998.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "c0e393522180",
@@ -392,12 +468,133 @@
       "category": "INST",
       "unit": "ELE.02.3",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
+      "flags": [],
+      "reviewNote": "",
+      "image": "c0e393522180.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "fc2c604bcbcb",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którą z przedstawionych na rysunkach opraw oświetleniowych należy zamontować w pralni chemicznej?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
       ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Wariant B (patrz rysunek)",
+      "explanation": null,
+      "category": "OSW",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "fc2c604bcbcb.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "30df2705858b",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którym symbolem graficznym oznacza się instalację prowadzoną na drabinkach kablowych?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Wariant B (patrz rysunek)",
+      "explanation": null,
+      "category": "SCH",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "30df2705858b.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "300f91bf69bc",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Które z przedstawionych narzędzi należy użyć do ściągania powłoki przewodów wielożyłowych?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Wariant B (patrz rysunek)",
+      "explanation": null,
+      "category": "OSPRZ",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "300f91bf69bc.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "678291bcffbd",
@@ -435,12 +632,10 @@
       "category": "POM",
       "unit": "ELE.02.3",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "678291bcffbd.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "d317e72bcb55",
@@ -478,12 +673,10 @@
       "category": "POZ",
       "unit": "ELE.02.3",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "d317e72bcb55.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "565d20aee6a6",
@@ -524,48 +717,89 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
-      "id": "7ad0886e193a",
+      "id": "2401f91b1c49",
       "setId": "cke-informatory",
       "sourceNumber": "",
       "type": "single_choice",
-      "question": "Z którego wzoru należy skorzystać obliczając wartość znamionowego natężenia prądu jednofazowego silnika prądu przemiennego? Pn\n\nU n  n U n   n  cos  n 3  U n  n  cos n",
+      "question": "Na którym rysunku przedstawiono łożysko toczne przeznaczone do zamontowania na wale remontowanego silnika indukcyjnego klatkowego o mocy 7,5 kW?",
       "options": [
         {
           "id": "a",
-          "text": "In =",
+          "text": "Wariant A (patrz rysunek)",
           "source": "original"
         },
         {
           "id": "b",
-          "text": "In =",
+          "text": "Wariant B (patrz rysunek)",
           "source": "original"
         },
         {
           "id": "c",
-          "text": "In =",
+          "text": "Wariant C (patrz rysunek)",
           "source": "original"
         },
         {
           "id": "d",
-          "text": "In =",
+          "text": "Wariant D (patrz rysunek)",
           "source": "original"
         }
       ],
       "correctOptionIds": [
-        "c"
+        "b"
       ],
-      "answerText": "In =",
+      "answerText": "Wariant B (patrz rysunek)",
       "explanation": null,
       "category": "MASZ",
       "unit": "ELE.02.4",
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "image": "2401f91b1c49.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "293c62f2abc8",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Z którego wzoru należy skorzystać obliczając wartość znamionowego natężenia prądu jednofazowego silnika prądu przemiennego?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Wariant C (patrz rysunek)",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.02.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "293c62f2abc8.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "c41d674752ad",
@@ -603,12 +837,51 @@
       "category": "URZ",
       "unit": "ELE.02.4",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
+      "flags": [],
+      "reviewNote": "",
+      "image": "c41d674752ad.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "5a24a1c9bb32",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Do których zacisków należy podłączyć kondensator rozruchowy w silniku indukcyjnym jednofazowym, którego schemat przedstawiono na rysunku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "X2, R1",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "X2, R2",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "X2, U1",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "X2, U2",
+          "source": "original"
+        }
       ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "X2, U2",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.02.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "5a24a1c9bb32.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "0e09eba3fa9e",
@@ -648,8 +921,8 @@
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "image": "0e09eba3fa9e.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "18797367997b",
@@ -684,46 +957,87 @@
       ],
       "answerText": "Przeciążenie w obwodzie.",
       "explanation": null,
-      "category": "INST",
+      "category": "JOZ",
       "unit": "ELE.02.5",
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "image": "18797367997b.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "559fff72de2e",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Który element rozdzielnicy przedstawiono na rysunku?\n\nA. Zeitrelais. B. Phasenausfall sensor. C. Temperaturregler. D. Dreiphasen Signallampe.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Time relay.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Phase decay sensor.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Temperature controller.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Three-phase signal lamp.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "Three-phase signal lamp.",
+      "explanation": null,
+      "category": "JOZ",
+      "unit": "ELE.02.5",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "559fff72de2e.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "6a4e5b6c9c33",
       "setId": "cke-informatory",
       "sourceNumber": "",
       "type": "single_choice",
-      "question": "Przed dopuszczeniem do pracy kierujący zespołem pracowników powinien bezwzględnie omówić:\n\nbezpośrednim sąsiedztwie, warunki i metody bezpiecznego wykonania pracy. sąsiedztwie, warunki i metody bezpiecznej likwidacji strefy pracy. czynności zawodowych na stanowisku pracy. wykonania pracy.",
+      "question": "Przed dopuszczeniem do pracy kierujący zespołem pracowników powinien bezwzględnie omówić:",
       "options": [
         {
           "id": "a",
-          "text": "zakres prac do wykonania, sposób przygotowania strefy pracy, występujące zagrożenia w strefie pracy i jej",
+          "text": "zakres prac do wykonania, sposób przygotowania strefy pracy, występujące zagrożenia w strefie pracy i jej bezpośrednim sąsiedztwie, warunki i metody bezpiecznego wykonania pracy.",
           "source": "original"
         },
         {
           "id": "b",
-          "text": "otrzymane polecenie pracy, zakres prac do wykonania, występujące zagrożenia w strefie pracy i jej bezpośrednim",
+          "text": "otrzymane polecenie pracy, zakres prac do wykonania, występujące zagrożenia w strefie pracy i jej bezpośrednim sąsiedztwie, warunki i metody bezpiecznej likwidacji strefy pracy.",
           "source": "original"
         },
         {
           "id": "c",
-          "text": "występujące zagrożenia w strefie pracy i jej bezpośrednim sąsiedztwie, konsekwencje niewłaściwego wykonania",
+          "text": "występujące zagrożenia w strefie pracy i jej bezpośrednim sąsiedztwie, konsekwencje niewłaściwego wykonania czynności zawodowych na stanowisku pracy.",
           "source": "original"
         },
         {
           "id": "d",
-          "text": "zakres prac do wykonania, sposób przygotowania strefy pracy, czas na wykonanie pracy, warunki i metody bezpiecznego",
+          "text": "zakres prac do wykonania, sposób przygotowania strefy pracy, czas na wykonanie pracy, warunki i metody bezpiecznego wykonania pracy.",
           "source": "original"
         }
       ],
       "correctOptionIds": [
         "a"
       ],
-      "answerText": "zakres prac do wykonania, sposób przygotowania strefy pracy, występujące zagrożenia w strefie pracy i jej",
+      "answerText": "zakres prac do wykonania, sposób przygotowania strefy pracy, występujące zagrożenia w strefie pracy i jej bezpośrednim sąsiedztwie, warunki i metody bezpiecznego wykonania pracy.",
       "explanation": null,
       "category": "ORG",
       "unit": "ELE.02.6",
@@ -731,14 +1045,14 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "6b19dec12183",
       "setId": "cke-informatory",
       "sourceNumber": "",
       "type": "single_choice",
-      "question": "Które z wymienionych zadań nie należy do obowiązków członka zespołu pracowników?\n\nzgodnie z wymogami instrukcji pracy lub pojawieniem się nieprzewidzianego zagrożenia.",
+      "question": "Które z wymienionych zadań nie należy do obowiązków członka zespołu pracowników?",
       "options": [
         {
           "id": "a",
@@ -757,7 +1071,7 @@
         },
         {
           "id": "d",
-          "text": "Powiadomienie kierującego zespołem o konieczności przerwania pracy w przypadku braku możliwości jej wykonania",
+          "text": "Powiadomienie kierującego zespołem o konieczności przerwania pracy w przypadku braku możliwości jej wykonania zgodnie z wymogami instrukcji pracy lub pojawieniem się nieprzewidzianego zagrożenia.",
           "source": "original"
         }
       ],
@@ -766,13 +1080,13 @@
       ],
       "answerText": "Wydawanie poleceń innym członkom zespołu w sytuacji, gdy nie ma kontaktu z kierującym zespołem.",
       "explanation": null,
-      "category": "OSPRZ",
+      "category": "ORG",
       "unit": "ELE.02.6",
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "031c5bb79487",
@@ -813,7 +1127,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "7731d0be2777",
@@ -854,7 +1168,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "c7bc841f6653",
@@ -889,15 +1203,13 @@
       ],
       "answerText": "5,0 V",
       "explanation": null,
-      "category": "PE",
+      "category": "POM",
       "unit": "ELE.05.2",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "c7bc841f6653.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "db5adc7e994a",
@@ -935,12 +1247,10 @@
       "category": "ELN",
       "unit": "ELE.05.2",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "db5adc7e994a.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "239d5e448bc2",
@@ -978,12 +1288,51 @@
       "category": "POM",
       "unit": "ELE.05.2",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
+      "flags": [],
+      "reviewNote": "",
+      "image": "239d5e448bc2.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "0ffa45f2ce9e",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Na którym rysunku przedstawiono symbol graficzny diody Zenera?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
       ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Wariant B (patrz rysunek)",
+      "explanation": null,
+      "category": "SCH",
+      "unit": "ELE.05.2",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "0ffa45f2ce9e.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "d385a2544060",
@@ -1021,12 +1370,10 @@
       "category": "INST",
       "unit": "ELE.05.3",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "d385a2544060.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "d034e70bbf2e",
@@ -1067,7 +1414,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "34cb32f1f700",
@@ -1105,19 +1452,58 @@
       "category": "POZ",
       "unit": "ELE.05.3",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
+      "flags": [],
+      "reviewNote": "",
+      "image": "34cb32f1f700.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "8820c09cb466",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którego przyrządu należy użyć do pomiarów rezystancji izolacji w instalacji elektrycznej?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
       ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "Wariant D (patrz rysunek)",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "8820c09cb466.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "5dba226609de",
       "setId": "cke-informatory",
       "sourceNumber": "",
       "type": "single_choice",
-      "question": "Określ przyczynę uszkodzenia w puszce instalacyjnej przedstawionej na rysunku.\n\nzasilania.",
+      "question": "Określ przyczynę uszkodzenia w puszce instalacyjnej przedstawionej na rysunku.",
       "options": [
         {
           "id": "a",
@@ -1136,7 +1522,7 @@
         },
         {
           "id": "d",
-          "text": "Przerwa w przewodzie neutralno-ochronnym od strony",
+          "text": "Przerwa w przewodzie neutralno-ochronnym od strony zasilania.",
           "source": "original"
         }
       ],
@@ -1148,12 +1534,51 @@
       "category": "POZ",
       "unit": "ELE.05.3",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
+      "flags": [],
+      "reviewNote": "",
+      "image": "5dba226609de.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "199fb7c9d912",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którym z przedstawionych na rysunkach aparatów należy zabezpieczyć obwód piekarnika elektrycznego jednofazowego o mocy 3 kW zasilanego napięciem 230 V?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
       ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Wariant B (patrz rysunek)",
+      "explanation": null,
+      "category": "ZAB",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "199fb7c9d912.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "e0da5d6e7bac",
@@ -1194,7 +1619,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "581028da6ea4",
@@ -1235,7 +1660,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "9f542fa8a068",
@@ -1273,12 +1698,10 @@
       "category": "MASZ",
       "unit": "ELE.05.4",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "9f542fa8a068.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "ddb98f57e476",
@@ -1319,7 +1742,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "556940d79423",
@@ -1357,12 +1780,10 @@
       "category": "POM",
       "unit": "ELE.05.4",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "556940d79423.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "edc64bb01ecb",
@@ -1400,12 +1821,10 @@
       "category": "POM",
       "unit": "ELE.05.4",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "edc64bb01ecb.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "a2d461c8d330",
@@ -1443,12 +1862,10 @@
       "category": "MASZ",
       "unit": "ELE.05.4",
       "difficulty": 2,
-      "flags": [
-        "needs_image"
-      ],
-      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "flags": [],
+      "reviewNote": "",
+      "image": "a2d461c8d330.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "c417c22965b0",
@@ -1489,7 +1906,7 @@
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "2afa40b1d24b",
@@ -1529,8 +1946,49 @@
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
-      "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "image": "2afa40b1d24b.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "bc034e7a3d6e",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Który z wymienionych napisów powinien znajdować się na prostokątnym polu przedstawionej na rysunku tablicy nakazu, stosowanej do zabezpieczenia osób pracujących przy urządzeniach elektrycznych?\n\nA. Warnung! Hochspannung. B. Vor Arbeitsbeginn ausschalten. C. Nicht berühren! Elektrisches Gerät. D. Nicht anhängen - Menschen arbeiten.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Warning! High voltage.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Turn off before starting work.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Do not touch! Electric device.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Do not turn on - people at work.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Turn off before starting work.",
+      "explanation": null,
+      "category": "JOZ",
+      "unit": "ELE.05.5",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "bc034e7a3d6e.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "d5b0559131de",
@@ -1565,13 +2023,54 @@
       ],
       "answerText": "Pomiar temperatury powierzchni obudów silników.",
       "explanation": null,
-      "category": "POM",
+      "category": "ORG",
       "unit": "ELE.05.6",
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "9bb85e2321d9",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którą postawę cechuje dominacja, pewność siebie oraz poczucie kontroli sytuacji?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Wariant C (patrz rysunek)",
+      "explanation": null,
+      "category": "ORG",
+      "unit": "ELE.05.6",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "9bb85e2321d9.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     },
     {
       "id": "0e71e63383ab",
@@ -1606,13 +2105,54 @@
       ],
       "answerText": "Uruchamianie i zatrzymywanie.",
       "explanation": null,
-      "category": "EKSP",
+      "category": "ORG",
       "unit": "ELE.05.7",
       "difficulty": 2,
       "flags": [],
       "reviewNote": "",
       "image": null,
-      "createdAt": "2026-09-20T10:16:04.130Z"
+      "createdAt": "2026-09-20T11:30:31.470Z"
+    },
+    {
+      "id": "bdccd1d52098",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Zespół elektryków ma wykonać na polecenie pisemne prace konserwacyjne przy urządzeniu elektrycznym. Jak powinien postąpić kierujący zespołem w przypadku stwierdzenia niedostatecznego oświetlenia w miejscu pracy? Wykonać zleconą pracę Powiadomić przełożonego o niedostatecznym oświetleniu",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wariant A (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wariant B (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wariant C (patrz rysunek)",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wariant D (patrz rysunek)",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Wariant C (patrz rysunek)",
+      "explanation": null,
+      "category": "ORG",
+      "unit": "ELE.05.7",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": "bdccd1d52098.png",
+      "createdAt": "2026-09-20T11:30:31.470Z"
     }
   ]
 }

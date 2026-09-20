@@ -573,7 +573,7 @@ Każdy handler IPC waliduje argumenty przez zod.
 - [x] Projekt utworzony poleceniem z rozdziału 3, `npm run dev` otwiera okno
 - [x] vitest skonfigurowany, `npm test` przechodzi na pustym teście
 - [x] Struktura katalogów z rozdziału 4 (puste pliki wystarczą)
-- [~] `sample-data/cke-informatory.json` — 38 zadań z informatorów CKE z kluczem ze źródła
+- [~] `sample-data/cke-informatory.json` — 52 zadania z informatorów CKE z kluczem ze źródła, 35 z rysunkiem
       (`npm run seed`). Twojej własnej listy pytań jeszcze nie ma — wrzuć ją do importu.
 - [x] Decyzje z rozdziału 2 uzupełnione
 
@@ -651,7 +651,8 @@ Instalator nie będzie podpisany cyfrowo, więc Windows SmartScreen pokaże ostr
 
 - [ ] „Wyjaśnij mi to": po błędnej odpowiedzi przycisk wysyła do Claude pytanie, poprawną odpowiedź i Twój wybór; odpowiedź pokazuje się z etykietą „AI" i nie jest zapisywana jako zweryfikowane wyjaśnienie
 - [ ] Parafrazy pytań ze słabych kategorii, żeby sprawdzić rozumienie zamiast pamiętania brzmienia; trzymane osobno od oryginałów, nigdy w trybie Egzamin
-- [ ] Obrazki: ręczne dołączanie pliku do pytania z flagą `needs_image`
+- [x] Obrazki: automatycznie wycinane z informatorów CKE (`scripts/extract-informator.ts`).
+      Ręczne dołączanie własnego pliku do pytania — nadal do zrobienia
 - [ ] PDF: `pdfjs-dist` dla plików tekstowych; skany wymagają OCR i są poza zakresem
 - [ ] Eksport zestawu do CSV
 

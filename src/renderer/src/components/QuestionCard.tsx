@@ -10,6 +10,7 @@ import { shuffle } from '@shared/session'
 import type { Grade } from '@shared/sm2'
 import type { Question } from '@shared/types'
 import FlagBadges from './FlagBadges'
+import QuestionImage from './QuestionImage'
 
 interface Props {
   question: Question
@@ -127,6 +128,7 @@ export default function QuestionCard({
       </CardHeader>
 
       <CardContent className="space-y-4">
+        {question.image && <QuestionImage name={question.image} />}
         {open ? (
           <div className="space-y-3">
             {revealed ? (

@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Switch } from '@/components/ui/switch'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { CATEGORIES } from '@shared/categories'
+import QuestionImage from './QuestionImage'
 import type { Question } from '@shared/types'
 
 interface Props {
@@ -50,6 +51,8 @@ export default function QuestionEditor({ question, open, onOpenChange, onSave }:
               onChange={(e) => setDraft({ ...draft, question: e.target.value })}
             />
           </div>
+
+          {draft.image && <QuestionImage name={draft.image} />}
 
           {draft.options.length > 0 && (
             <div className="space-y-2">

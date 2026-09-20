@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Monitor, Moon, Sun } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -7,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { useStore } from '@/store'
+import { applyTheme, readTheme, type Theme } from '@/theme'
 
 const MODELS = [
   { id: 'claude-sonnet-5', label: 'Claude Sonnet 5 — tańszy, wystarcza do importu' },
@@ -17,6 +19,7 @@ const MODELS = [
 export default function SettingsPage(): React.JSX.Element {
   const { settings, setSettings, refresh } = useStore()
   const [apiKey, setApiKey] = useState('')
+  const [theme, setTheme] = useState<Theme>(readTheme)
   const [hasKey, setHasKey] = useState(false)
   const [testing, setTesting] = useState(false)
 
@@ -24,9 +27,42 @@ export default function SettingsPage(): React.JSX.Element {
     void window.api.settings.hasApiKey().then(setHasKey)
   }, [])
 
+  useEffect(() => {
+    // „Systemowy" ma nadążać za zmianą motywu w Windows bez restartu aplikacji
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    const sync = (): void => applyTheme(theme)
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [theme])
+
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Ustawienia</h1>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Wygląd</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-wrap gap-2">
+          {([
+            ['light', 'Jasny', Sun],
+            ['dark', 'Ciemny', Moon],
+            ['system', 'Jak w systemie', Monitor]
+          ] as Array<[Theme, string, typeof Sun]>).map(([value, label, Icon]) => (
+            <Button
+              key={value}
+              variant={theme === value ? 'default' : 'outline'}
+              onClick={() => {
+                setTheme(value)
+                applyTheme(value)
+              }}
+            >
+              <Icon className="size-4" />
+              {label}
+            </Button>
+          ))}
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>

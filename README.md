@@ -34,8 +34,9 @@ npm install
 npm run dev
 ```
 
-Na ekranie **Import** kliknij „Wczytaj zadania z informatorów CKE" — 38 zadań z kluczem
-odpowiedzi prosto z informatorów, bez udziału AI i bez klucza API.
+Na ekranie **Import** kliknij „Wczytaj zadania z informatorów CKE" — 52 zadania z kluczem
+odpowiedzi prosto z informatorów, bez udziału AI i bez klucza API. 35 z nich ma dołączony
+rysunek, schemat albo zdjęcie wycięte z oryginalnego PDF-a.
 
 Import własnej listy wymaga klucza API Anthropic (Ustawienia → Klucz API). Klucz jest szyfrowany
 przez Windows DPAPI (`safeStorage`), nie trafia do pliku ustawień, logów ani kopii zapasowej,
@@ -61,9 +62,32 @@ instalacji, więc aktualizacja aplikacji ich nie rusza.
 
 ```bash
 npm test              # vitest — logika nauki, import, storage
-npm run seed          # ponowne wyciągnięcie zadań z database/info/*.pdf (wymaga pdftotext)
+npm run seed          # ponowne wyciągnięcie zadań i rysunków z database/info/*.pdf
+npm run seed:verify   # kontrola zestawu wobec PDF-ów: klucze, warianty, kompletność
 npm run import -- sample-data/probka.txt    # import z linii komend, ANTHROPIC_API_KEY w środowisku
 ```
+
+`seed` i `seed:verify` wymagają `poppler-utils` (`pdftotext`, `pdftoppm`).
+
+## Rysunki z PDF-ów
+
+Zadania na tym egzaminie regularnie odsyłają do rysunku, schematu albo tabeli, więc
+`scripts/extract-informator.ts` wycina je z informatora. Rysunek to największy prostokąt
+w obrębie zadania, którego nie zajmuje tekst; kandydaci są renderowani i wygrywa ten
+z największą zawartością. Kadr kończy się nad linią „Odpowiedź prawidłowa", więc klucz
+nigdy nie wchodzi w obraz. Tam, gdzie warianty są rysunkami, wzorami piętrowymi albo
+wierszami tabeli, wycinany jest cały blok zadania razem z podpisami A–D.
+
+## Agenci
+
+`.claude/agents/` zawiera dwóch agentów do pracy z materiałami:
+
+- **`weryfikator-pytan`** — sprawdza wyekstrahowane pytania wobec pliku źródłowego:
+  klucz odpowiedzi porównywany po treści wariantu, halucynacje, zgubione zadania.
+  Uruchamiaj po każdym imporcie, zanim zestaw trafi do nauki.
+- **`import-materialow`** — wciąga nowy PDF, prezentację albo arkusz do bazy wiedzy.
+  Najpierw klasyfikuje materiał, bo arkusz egzaminu praktycznego nie jest testem ABCD
+  i nie wolno robić z niego pytań.
 
 ## Dane
 
