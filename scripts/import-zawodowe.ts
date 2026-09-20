@@ -76,7 +76,7 @@ const KEYWORDS: Array<[string, RegExp]> = [
 
 const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms))
 
-async function fetchCached(url: string, binary = false): Promise<Buffer> {
+export async function fetchCached(url: string, binary = false): Promise<Buffer> {
   mkdirSync(CACHE, { recursive: true })
   const file = resolve(CACHE, createHash('sha1').update(url).digest('hex') + (binary ? '.bin' : '.html'))
   if (existsSync(file)) return readFileSync(file)
@@ -108,7 +108,7 @@ function jsonLd(html: string): Record<string, unknown> | null {
   }
 }
 
-function parseQuestion(html: string): Parsed | null {
+export function parseQuestion(html: string): Parsed | null {
   const ld = jsonLd(html)
   const graph = (ld?.['@graph'] as Array<Record<string, any>> | undefined) ?? []
   const page = graph.find((n) => n['@type'] === 'QAPage')
@@ -145,7 +145,7 @@ function parseQuestion(html: string): Parsed | null {
  * worka. Rozstrzygają więc słowa kluczowe dopasowane do taksonomii z database/,
  * a kategorie serwisu służą tylko jako zapasowe wskazanie.
  */
-function classify(p: Parsed): string {
+export function classify(p: Parsed): string {
   const text = `${p.question} ${p.correct} ${p.wrong.join(' ')}`
   for (const [id, re] of KEYWORDS) if (re.test(text)) return id
   for (const c of p.categories) {
@@ -156,7 +156,7 @@ function classify(p: Parsed): string {
 }
 
 /** Poprawna odpowiedź nie może zawsze stać pod A — pozycja zależy od treści pytania. */
-function arrange(p: Parsed, id: string): { options: Option[]; correctId: string } {
+export function arrange(p: Parsed, id: string): { options: Option[]; correctId: string } {
   const letters = ['a', 'b', 'c', 'd']
   const slot = parseInt(id.slice(0, 2), 16) % 4
   const texts = [...p.wrong]
@@ -178,7 +178,7 @@ async function detectPages(): Promise<number> {
   return pages.length ? Math.max(...pages) : 1
 }
 
-async function collectUrls(pages: number): Promise<string[]> {
+export async function collectUrls(pages: number): Promise<string[]> {
   const urls = new Set<string>()
   for (let page = 1; page <= pages; page++) {
     const url = page === 1 ? `${LIST}/` : `${LIST}/page/${page}/`
@@ -288,4 +288,4 @@ async function main(): Promise<void> {
   console.log([...counts.entries()].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}:${n}`).join('  '))
 }
 
-void main()
+if (require.main === module) void main()
