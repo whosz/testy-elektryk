@@ -8,7 +8,7 @@ files:
   - package.json
 win:
   target: nsis
-  icon: resources/icon.ico
+  icon: resources/icon.png
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true

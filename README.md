@@ -43,12 +43,19 @@ a renderer nigdy go nie widzi.
 
 ## Instalator Windows
 
+Na Windows:
+
 ```bash
 npm run build:win     # release/Elektryk Quiz Setup x.y.z.exe
 ```
 
+Z Linuksa albo macOS budowanie instalatora wymaga wine. Prościej wziąć go z CI: każdy push na
+`main` uruchamia workflow **Build**, który składa instalator na `windows-latest` i wrzuca go jako
+artefakt. Tag `vX.Y.Z` dokłada instalator do wydania na GitHubie.
+
 Instalator nie jest podpisany cyfrowo, więc przy pierwszym uruchomieniu SmartScreen pokaże
-ostrzeżenie: „Więcej informacji → Uruchom mimo to".
+ostrzeżenie: „Więcej informacji → Uruchom mimo to". Dane użytkownika leżą poza katalogiem
+instalacji, więc aktualizacja aplikacji ich nie rusza.
 
 ## Pozostałe polecenia
 
