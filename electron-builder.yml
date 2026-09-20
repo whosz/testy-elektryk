@@ -1,0 +1,17 @@
+appId: pl.whosz.elektrykquiz
+productName: Elektryk Quiz
+directories:
+  output: release
+  buildResources: resources
+files:
+  - out/**
+  - package.json
+win:
+  target: nsis
+  icon: resources/icon.ico
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  shortcutName: Elektryk Quiz

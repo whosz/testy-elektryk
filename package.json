@@ -1,0 +1,46 @@
+{
+  "name": "elektryk-quiz",
+  "version": "1.0.0",
+  "description": "Nauka do egzaminu zawodowego ELE.02 / ELE.05",
+  "main": "./out/main/index.js",
+  "author": "whosz",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "tsc --noEmit -p tsconfig.json && electron-vite build",
+    "build:win": "npm run build && electron-builder --win --config electron-builder.yml",
+    "test": "vitest run",
+    "import": "tsx scripts/import-cli.ts",
+    "seed": "tsx scripts/extract-informator.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "electron-updater": "^6.3.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/node": "^22.10.0",
+    "@types/papaparse": "^5.3.15",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^4.7.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^5.0.0",
+    "lucide-react": "^0.544.0",
+    "mammoth": "^1.8.0",
+    "papaparse": "^5.4.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
+  }
+}

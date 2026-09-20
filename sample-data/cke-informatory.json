@@ -1,0 +1,1618 @@
+{
+  "id": "cke-informatory",
+  "name": "Informatory CKE — przykładowe zadania",
+  "createdAt": "2026-09-20T10:16:04.130Z",
+  "sourceFileName": "database/info/*.pdf",
+  "categories": [
+    "BHP",
+    "PP",
+    "PE",
+    "ELN",
+    "SCH",
+    "INST",
+    "OSPRZ",
+    "OSW",
+    "POZ",
+    "ZAB",
+    "POM",
+    "MASZ",
+    "URZ",
+    "EKSP",
+    "JOZ",
+    "ORG"
+  ],
+  "questions": [
+    {
+      "id": "f0ae656a50ac",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którą czynność należy wykonać w pierwszej kolejności podczas uziemiania przenośnym uziemiaczem do linii napowietrznych niskiego napięcia takim jak przedstawiony na rysunku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dokręcić zacisk uziemiacza do uziomu.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wbić sondę uziemiającą w ziemię na głębokość 1 m.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Sprawdzić brak napięcia w uziemianych przewodach.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Założyć zaciski fazowe na przewody zapewniając styk.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Sprawdzić brak napięcia w uziemianych przewodach.",
+      "explanation": null,
+      "category": "BHP",
+      "unit": "ELE.02.1",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "953f145a9829",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Jak należy postępować z osobą, która po porażeniu prądem elektrycznym jest przytomna i dobrze się czuje?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Należy jak najszybciej zawieźć ją do lekarza.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Należy zabronić jej wykonywania dalszej pracy w tym dniu.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Można podać jej środki przeciwbólowe w razie pojawienia się bólu.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Pozwolić jej chwilę odpocząć przed przystąpieniem do dalszej pracy.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Należy jak najszybciej zawieźć ją do lekarza.",
+      "explanation": null,
+      "category": "PP",
+      "unit": "ELE.02.1",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "9685e0b602af",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "W oprawie oświetleniowej należy wymienić uszkodzony kondensator o parametrach 9 µF / 230 VAC / 50 Hz. Dobierz parametry kondensatorów spośród dostępnych i określ sposób ich połączenia, w celu wymiany uszkodzonego.\n\nDostępne kondensatory (po 2 szt.): 10 µF / 100 VAC / 50 Hz 18 µF / 100 VAC / 50 Hz 2,0 µF / 230 VAC / 50 Hz 4,0 µF / 230 VAC / 50 Hz 4,5 µF / 230 VAC / 50 Hz",
+      "options": [
+        {
+          "id": "a",
+          "text": "18 µF i połączyć szeregowo.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "4,5 µF i połączyć szeregowo.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "18 µF i połączyć równolegle.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "4,5 µF i połączyć równolegle.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "4,5 µF i połączyć równolegle.",
+      "explanation": null,
+      "category": "PE",
+      "unit": "ELE.02.2",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "9d77a88926df",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Na rysunku przedstawiono schemat żarówki zasilanej ze sterownika prądu przemiennego. Przy jakim kącie wysterowania tyrystorów żarówka będzie świecić najjaśniej?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0°",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "45°",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "60°",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "90°",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "0°",
+      "explanation": null,
+      "category": "OSW",
+      "unit": "ELE.02.2",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "84191c42ea10",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "W jaki sposób należy włączyć do układu pomiarowego obwód prądowy i obwód napięciowy elektronicznego jednofazowego licznika energii elektrycznej?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Obwód prądowy i obwód napięciowy szeregowo.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Obwód prądowy i obwód napięciowy równolegle.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Obwód prądowy szeregowo a obwód napięciowy równolegle.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Obwód prądowy równolegle a obwód napięciowy szeregowo.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Obwód prądowy szeregowo a obwód napięciowy równolegle.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.02.2",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "86befc9a54e0",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Ile wynosi wartość mocy biernej w symetrycznym układzie trójfazowym przedstawionym na rysunku, jeżeli watomierz wskazuje 100 W?",
+      "options": [
+        {
+          "id": "a",
+          "text": "100 var",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "173 var",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "300 var",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "519 var",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "173 var",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.02.2",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "f7fa2e49fa4d",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Ochrona przeciwporażeniowa przy uszkodzeniu w oprawie oświetleniowej II klasy ochronności pracującej w sieci TN-S powinna być realizowana przez",
+      "options": [
+        {
+          "id": "a",
+          "text": "zastosowanie podwójnej izolacji.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "zasilanie z transformatora separacyjnego.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "połączenie obudowy z przewodem ochronnym sieci.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "zastosowanie napięcia zasilającego o obniżonej wartości.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "zastosowanie podwójnej izolacji.",
+      "explanation": null,
+      "category": "POZ",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "a58431bdfb95",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "W którym układzie sieciowym instalację trójfazową można wykonać przewodem trójżyłowym?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IT",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "TN-S",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "TN-C",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "TN-C-S",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "IT",
+      "explanation": null,
+      "category": "INST",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "c0e393522180",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Do którego typu źródeł światła zalicza się lampę przedstawioną na rysunku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Żarowych.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Rtęciowych.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Indukcyjnych.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Elektroluminescencyjnych.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "Elektroluminescencyjnych.",
+      "explanation": null,
+      "category": "INST",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "678291bcffbd",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Przyrządy przedstawione na rysunku służą do",
+      "options": [
+        {
+          "id": "a",
+          "text": "pomiaru parametrów oświetlenia.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "pomiaru prędkości obrotowej wału silnika.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "lokalizacji przewodów w instalacji elektrycznej.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "bezdotykowego pomiaru rezystancji przewodów.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "lokalizacji przewodów w instalacji elektrycznej.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "d317e72bcb55",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Na filmie przedstawiono badanie parametrów wyłącznika różnicowoprądowego o prądzie różnicowym ∆I = 30 mA, przeprowadzone miernikiem MPI-530. Przyczyną pojawienia się ostrzeżenia „!” jest",
+      "options": [
+        {
+          "id": "a",
+          "text": "uszkodzenie przyrządu pomiarowego.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "wybór niewłaściwego zakresu pomiarowego.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "uszkodzenie badanego wyłącznika różnicowoprądowego.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "nieprawidłowe podłączenie przyrządu pomiarowego do instalacji.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "wybór niewłaściwego zakresu pomiarowego.",
+      "explanation": null,
+      "category": "POZ",
+      "unit": "ELE.02.3",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "565d20aee6a6",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Który z wymienionych silników charakteryzuje się możliwością sterowania obrotem wirnika o zadany kąt?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Krokowy.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Repulsyjny.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Histerezowy.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Reduktorowy.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Krokowy.",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.02.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "7ad0886e193a",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Z którego wzoru należy skorzystać obliczając wartość znamionowego natężenia prądu jednofazowego silnika prądu przemiennego? Pn\n\nU n  n U n   n  cos  n 3  U n  n  cos n",
+      "options": [
+        {
+          "id": "a",
+          "text": "In =",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "In =",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "In =",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "In =",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "In =",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.02.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "c41d674752ad",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "W jaki sposób będzie sterowane urządzenie elektryczne za pomocą przekaźnika czasowego, którego przebiegi czasowe przedstawiono na rysunku, jeżeli nastawiono funkcję B?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Załączane z opóźnieniem.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wyłączane z opóźnieniem.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Załączane z opóźnieniem – cyklicznie.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Wyłączane z opóźnieniem – cyklicznie.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Załączane z opóźnieniem.",
+      "explanation": null,
+      "category": "URZ",
+      "unit": "ELE.02.4",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "0e09eba3fa9e",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Na podstawie przedstawionego schematu, przy wyłączonych łącznikach, można wykonać pomiar",
+      "options": [
+        {
+          "id": "a",
+          "text": "stanu izolacji przewodów.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "stanu izolacji uzwojeń silnika.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "asymetrii napięcia zasilającego.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "skuteczności samoczynnego wyłączenia napięcia.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "stanu izolacji przewodów.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.02.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "18797367997b",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "During another attempt to switch on the device shown in the picture, it switches itself off automatically after about 40 seconds. Give the most probable cause for the device to function. Während der erneuten Probe der Schaltung des auf dem Bild dargestellten Gerätes folgt nach etwa 40 Sekunden seine automatische Abschaltung. Finde die höchstwahrscheinliche Ursache dieser Situation.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Przeciążenie w obwodzie.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Zwarcie przewodów L i N.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Zwarcie przewodów L i PE.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Upływ prądu do uziemienia.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Przeciążenie w obwodzie.",
+      "explanation": null,
+      "category": "INST",
+      "unit": "ELE.02.5",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "6a4e5b6c9c33",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Przed dopuszczeniem do pracy kierujący zespołem pracowników powinien bezwzględnie omówić:\n\nbezpośrednim sąsiedztwie, warunki i metody bezpiecznego wykonania pracy. sąsiedztwie, warunki i metody bezpiecznej likwidacji strefy pracy. czynności zawodowych na stanowisku pracy. wykonania pracy.",
+      "options": [
+        {
+          "id": "a",
+          "text": "zakres prac do wykonania, sposób przygotowania strefy pracy, występujące zagrożenia w strefie pracy i jej",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "otrzymane polecenie pracy, zakres prac do wykonania, występujące zagrożenia w strefie pracy i jej bezpośrednim",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "występujące zagrożenia w strefie pracy i jej bezpośrednim sąsiedztwie, konsekwencje niewłaściwego wykonania",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "zakres prac do wykonania, sposób przygotowania strefy pracy, czas na wykonanie pracy, warunki i metody bezpiecznego",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "zakres prac do wykonania, sposób przygotowania strefy pracy, występujące zagrożenia w strefie pracy i jej",
+      "explanation": null,
+      "category": "ORG",
+      "unit": "ELE.02.6",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "6b19dec12183",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Które z wymienionych zadań nie należy do obowiązków członka zespołu pracowników?\n\nzgodnie z wymogami instrukcji pracy lub pojawieniem się nieprzewidzianego zagrożenia.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wykonywanie pracy zgodnie z instrukcją oraz poleceniami i wskazówkami kierującego zespołem.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wydawanie poleceń innym członkom zespołu w sytuacji, gdy nie ma kontaktu z kierującym zespołem.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Stosowanie narzędzi, sprzętu i wyposażenia osobistego wymaganego przy wykonywaniu danego rodzaju pracy.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Powiadomienie kierującego zespołem o konieczności przerwania pracy w przypadku braku możliwości jej wykonania",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Wydawanie poleceń innym członkom zespołu w sytuacji, gdy nie ma kontaktu z kierującym zespołem.",
+      "explanation": null,
+      "category": "OSPRZ",
+      "unit": "ELE.02.6",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "031c5bb79487",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Pisemne polecenie na pracę przy urządzeniach elektrycznych musi określać",
+      "options": [
+        {
+          "id": "a",
+          "text": "zastosowane środki ochrony przeciwporażeniowej.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "materiały i narzędzia potrzebne do wykonania pracy.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "zasady postępowania przy ratowaniu osób porażonych prądem.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "zakres oraz przewidywany czas rozpoczęcia i zakończenia wykonywanej pracy.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "zakres oraz przewidywany czas rozpoczęcia i zakończenia wykonywanej pracy.",
+      "explanation": null,
+      "category": "POZ",
+      "unit": "ELE.05.1",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "7731d0be2777",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Który z wymienionych środków ostrożności nie jest konieczny w celu bezpiecznego wykonania przyłącza budynku do linii napowietrznej wyłączonej spod napięcia?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Uziemienie wyłączonej linii.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Wykonywanie pracy zespołowo.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Stosowanie sprzętu izolacyjnego.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Ogrodzenie miejsca wykonywania pracy.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Stosowanie sprzętu izolacyjnego.",
+      "explanation": null,
+      "category": "ORG",
+      "unit": "ELE.05.1",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "c7bc841f6653",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Jaką wartość napięcia wskaże woltomierz włączony w obwód, którego schemat przedstawiono na rysunku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2,5 V",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "5,0 V",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "7,5 V",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "10,0 V",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "5,0 V",
+      "explanation": null,
+      "category": "PE",
+      "unit": "ELE.05.2",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "db5adc7e994a",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Które elementy elektroniczne przedstawiono na rysunku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tyrystory.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Termistory.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Tensometry.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Termoelementy.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Tensometry.",
+      "explanation": null,
+      "category": "ELN",
+      "unit": "ELE.05.2",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "239d5e448bc2",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "W układzie pomiarowym, którego schemat przedstawiono na rysunku, amperomierz wskazuje 3 A, watomierz wskazuje 1 200 W, a przekładnik prądowy ma przekładnię 20/5. Jaka jest rzeczywista wartość natężenia prądu płynącego w obwodzie oraz mocy odbiornika?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 A, 1 200 W",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "3 A, 4 800 W",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "12 A, 1 200 W",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "12 A, 4 800 W",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "12 A, 4 800 W",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.2",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "d385a2544060",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Przewód o jakim przekroju należy dobrać do zasilania odbiornika jednofazowego o parametrach: Sn = 4,6 kVA i Un = 230 V, stosując kryterium obciążalności prądowej na podstawie danych przedstawionych w tabeli?\n\nObciążalność",
+      "options": [
+        {
+          "id": "a",
+          "text": "1,5 mm2",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "2,5 mm2",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "4,0 mm2",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "6,0 mm2",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "2,5 mm2",
+      "explanation": null,
+      "category": "INST",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "d034e70bbf2e",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którą z wymienionych czynności należy wykonać podczas oględzin instalacji elektrycznej budynku mieszkalnego przed oddaniem go do użytku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pomiar rezystancji izolacji instalacji elektrycznej.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Sprawdzenie samoczynnego wyłączenia zasilania.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Sprawdzenie właściwego doboru przekroju przewodów.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Próbę ciągłości przewodów ochronnych i połączeń wyrównawczych.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Sprawdzenie właściwego doboru przekroju przewodów.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "34cb32f1f700",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którą czynność kontroli stanu technicznego instalacji elektrycznej przedstawiono na filmie?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sprawdzenie impedancji pętli zwarcia.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Sprawdzenie stanu izolacji przewodów.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Sprawdzenie ciągłości przewodów ochronnych.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Sprawdzenie parametrów wyłącznika różnicowoprądowego.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "Sprawdzenie parametrów wyłącznika różnicowoprądowego.",
+      "explanation": null,
+      "category": "POZ",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "5dba226609de",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Określ przyczynę uszkodzenia w puszce instalacyjnej przedstawionej na rysunku.\n\nzasilania.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zbyt małe odległości między przewodami.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Poluzowane połączenia przewodów w puszce.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Zbyt duża rezystancja uziemienia ochronnego budynku.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Przerwa w przewodzie neutralno-ochronnym od strony",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Poluzowane połączenia przewodów w puszce.",
+      "explanation": null,
+      "category": "POZ",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "e0da5d6e7bac",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Określ maksymalną wartość impedancji pętli zwarcia obwodu o napięciu 230/400 V, aby wyłącznik instalacyjny nadprądowy C10 stanowił skuteczną ochronę przeciwporażeniową.",
+      "options": [
+        {
+          "id": "a",
+          "text": "0,4 Ω",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "2,3 Ω",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "4,6 Ω",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "7,7 Ω",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "2,3 Ω",
+      "explanation": null,
+      "category": "POZ",
+      "unit": "ELE.05.3",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "581028da6ea4",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Określ znamionowy cykl pracy silnika elektrycznego o parametrach: Pn = 10 kW, S3 25%.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Obciążenie mocą 10 kW przez 2,5 minuty, a następnie wyłączenie na 7,5 minuty.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Obciążenie mocą 10 kW przez 7,5 minuty, a następnie wyłączenie na 2,5 minuty.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Obciążenie mocą 2,5 kW przez 2,5 minuty, a następnie obciążenie mocą 7,5 kW przez 7,5 minuty.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Obciążenie mocą 2,5 kW przez 7,5 minuty, a następnie obciążenie mocą 7,5 kW przez 2,5 minuty.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Obciążenie mocą 10 kW przez 2,5 minuty, a następnie wyłączenie na 7,5 minuty.",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "9f542fa8a068",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Przedstawiony na rysunku schemat blokowy przekształtnika zasilającego silnik indukcyjny klatkowy umożliwia regulację prędkości obrotowej przez zmianę",
+      "options": [
+        {
+          "id": "a",
+          "text": "poślizgu.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "liczby par biegunów.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "rezystancji w obwodzie wirnika.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "częstotliwości wraz ze zmianą napięcia zasilającego.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "d"
+      ],
+      "answerText": "częstotliwości wraz ze zmianą napięcia zasilającego.",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "ddb98f57e476",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Która z wymienionych czynności jest związana z prowadzeniem ruchu elektrycznego urządzenia napędowego należącego do IV grupy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pomiar napięcia zasilającego urządzenie.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Zatrzymanie urządzenia w stanie awaryjnym.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Wymiana uszkodzonego podzespołu urządzenia.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Sprawdzenie nastawy zabezpieczenia przeciążeniowego.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Zatrzymanie urządzenia w stanie awaryjnym.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "556940d79423",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Do pomiaru którego z wymienionych parametrów maszyn i urządzeń elektrycznych przygotowany jest przyrząd przedstawiony na rysunku?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Prądu sterującego tyrystorem mocy.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Prądu rozruchu silnika szeregowego.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Prądu wzbudzenia silnika pierścieniowego.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Prądu pobieranego z sieci przez spawarkę transformatorową.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Prądu rozruchu silnika szeregowego.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "edc64bb01ecb",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Wartość rezystancji pomiędzy zaciskami: A1-A2 D1-D2 E1-E2 A1-PE D1-PE E1-PE 0,8 Ω 0,9 Ω 4,7 Ω 123,1 MΩ 102,5 MΩ 166,6 MΩ Na podstawie wyników pomiarów zamieszczonych w tabeli określ stan techniczny silnika prądu stałego średniej mocy.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zwarcie międzyzwojowe w uzwojeniu bocznikowym.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Przebicie izolacji uzwojenia bocznikowego do obudowy.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Pogorszony stan połączeń uzwojenia twornika w tabliczce zaciskowej.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Pogorszony stan izolacji między uzwojeniem szeregowym, a obudową.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Zwarcie międzyzwojowe w uzwojeniu bocznikowym.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "a2d461c8d330",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Spośród wymienionych czynników wskaż przyczynę skokowego zwiększenia się prędkości obrotowej pracującego ze stałym obciążeniem silnika, którego układ zasilania przedstawiono na schemacie.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Zwarcie w rezystorze regulacyjnym.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Przerwa w rezystorze regulacyjnym.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Spadek napięcia zasilającego obwód twornika.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Podskok napięcia zasilającego obwód wzbudzenia.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "a"
+      ],
+      "answerText": "Zwarcie w rezystorze regulacyjnym.",
+      "explanation": null,
+      "category": "MASZ",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [
+        "needs_image"
+      ],
+      "reviewNote": "Zadanie z informatora odwołuje się do rysunku/filmu — dołącz obrazek albo ucz się w trybie Nauka.",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "c417c22965b0",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którym z wymienionych wyłączników nadprądowych należy zabezpieczyć obwód zasilania trójfazowego silnika klatkowego o parametrach znamionowych: PN = 11 kW, UN = 400 V, cos φ = 0,73, η = 80%?",
+      "options": [
+        {
+          "id": "a",
+          "text": "S303 C20",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "S303 C25",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "S303 C32",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "S303 C40",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "S303 C32",
+      "explanation": null,
+      "category": "ZAB",
+      "unit": "ELE.05.4",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "2afa40b1d24b",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "The measuring device shown in the picture allows direct measurement of Das im Bild gezeigte Messgerät ermöglicht eine direkte Messung",
+      "options": [
+        {
+          "id": "a",
+          "text": "napięcia.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "pojemności.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "prędkości obrotowej.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "momentu obrotowego.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "prędkości obrotowej.",
+      "explanation": null,
+      "category": "JOZ",
+      "unit": "ELE.05.5",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "d5b0559131de",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Którą czynność przy lokalizacji uszkodzeń można wykonywać w czasie pracy instalacji, maszyn i urządzeń elektrycznych w strefach zagrożonych wybuchem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wymianę źródeł światła.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Otwieranie obudów urządzeń.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Pomiar temperatury powierzchni obudów silników.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Dokręcanie poluzowanych śrub w osłonach urządzeń.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "c"
+      ],
+      "answerText": "Pomiar temperatury powierzchni obudów silników.",
+      "explanation": null,
+      "category": "POM",
+      "unit": "ELE.05.6",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    },
+    {
+      "id": "0e71e63383ab",
+      "setId": "cke-informatory",
+      "sourceNumber": "",
+      "type": "single_choice",
+      "question": "Które prace związane z eksploatacją urządzeń elektrycznych należą do zadań pracowników obsługi tych urządzeń?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Optymalizacja czasu pracy.",
+          "source": "original"
+        },
+        {
+          "id": "b",
+          "text": "Uruchamianie i zatrzymywanie.",
+          "source": "original"
+        },
+        {
+          "id": "c",
+          "text": "Przeglądy wymagające demontażu.",
+          "source": "original"
+        },
+        {
+          "id": "d",
+          "text": "Oględziny wymagające demontażu.",
+          "source": "original"
+        }
+      ],
+      "correctOptionIds": [
+        "b"
+      ],
+      "answerText": "Uruchamianie i zatrzymywanie.",
+      "explanation": null,
+      "category": "EKSP",
+      "unit": "ELE.05.7",
+      "difficulty": 2,
+      "flags": [],
+      "reviewNote": "",
+      "image": null,
+      "createdAt": "2026-09-20T10:16:04.130Z"
+    }
+  ]
+}
