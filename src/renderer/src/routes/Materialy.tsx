@@ -1,14 +1,23 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { ExternalLink, Play } from 'lucide-react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useStore } from '@/store'
 import { categoryName } from '@shared/categories'
-import { youtubeEmbed, type ContentVideo } from '@shared/content'
+import { VIDEO_GROUPS, youtubeEmbed, type ContentVideo } from '@shared/content'
 
 export default function MaterialyPage(): React.JSX.Element {
   const videos = useStore((s) => s.videos)
+
+  const groups = useMemo(
+    () =>
+      VIDEO_GROUPS.map((g) => ({ ...g, videos: videos.filter((v) => v.group === g.id) })).filter(
+        (g) => g.videos.length > 0
+      ),
+    [videos]
+  )
 
   return (
     <div className="space-y-4">
@@ -20,15 +29,23 @@ export default function MaterialyPage(): React.JSX.Element {
         </p>
       </div>
 
-      {videos.length === 0 && (
-        <p className="text-sm text-muted-foreground">Brak nagrań na liście.</p>
-      )}
+      {groups.length === 0 && <p className="text-sm text-muted-foreground">Brak nagrań na liście.</p>}
 
-      <div className="space-y-4">
-        {videos.map((video) => (
-          <VideoCard key={video.id} video={video} />
+      {/* Pierwsza zakładka rozwinięta domyślnie, żeby coś było widać od razu; reszta na klik. */}
+      <Accordion type="multiple" defaultValue={[groups[0]?.id ?? '']}>
+        {groups.map((g) => (
+          <AccordionItem key={g.id} value={g.id}>
+            <AccordionTrigger className="text-base font-medium">
+              {g.label} <span className="text-muted-foreground">({g.videos.length})</span>
+            </AccordionTrigger>
+            <AccordionContent className="space-y-4 pt-1">
+              {g.videos.map((video) => (
+                <VideoCard key={video.id} video={video} />
+              ))}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </div>
   )
 }
@@ -43,7 +60,10 @@ function VideoCard({ video }: { video: ContentVideo }): React.JSX.Element {
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div className="min-w-0">
             <CardTitle className="text-base">{video.title}</CardTitle>
-            <CardDescription>{video.channel}</CardDescription>
+            <CardDescription>
+              {video.channel}
+              {video.durationMin > 0 && ` · ${video.durationMin} min`}
+            </CardDescription>
           </div>
           {video.category && <Badge variant="outline">{categoryName(video.category)}</Badge>}
         </div>

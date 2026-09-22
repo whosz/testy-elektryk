@@ -5,13 +5,25 @@ import { z } from 'zod'
  * i nagrania bez wydawania nowego .exe ani .apk — pytania mają stabilne ID,
  * więc dołożenie ich nie kasuje postępów.
  */
+/** Kolejność i etykiety zakładek na ekranie Materiały. */
+export const VIDEO_GROUPS = [
+  { id: 'wyklady', label: 'Wykłady' },
+  { id: 'montaz', label: 'Przykłady montażu' },
+  { id: 'dodatkowe', label: 'Dodatkowe' }
+] as const
+
+export type VideoGroup = (typeof VIDEO_GROUPS)[number]['id']
+
 export const ContentVideoSchema = z.object({
   id: z.string(),
   title: z.string(),
   channel: z.string(),
   url: z.string(),
   category: z.string(),
-  note: z.string().default('')
+  note: z.string().default(''),
+  // stare lokalne dane sprzed tego pola trafiają do „Dodatkowe" zamiast się wywalać
+  group: z.enum(['wyklady', 'montaz', 'dodatkowe']).default('dodatkowe'),
+  durationMin: z.number().int().nonnegative().default(0)
 })
 
 export const ContentSetRefSchema = z.object({

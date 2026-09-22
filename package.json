@@ -1,6 +1,6 @@
 {
   "name": "elektryk-quiz",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Nauka do egzaminu zawodowego ELE.02 / ELE.05",
   "main": "./out/main/index.js",
   "author": "whosz",

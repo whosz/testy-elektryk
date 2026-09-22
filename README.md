@@ -22,7 +22,8 @@ Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](dat
 - **Statystyki** — skuteczność według kategorii, najsłabsze pytania, historia egzaminów.
 - **Import przez Claude** — TXT/MD/CSV/DOCX lub wklejony tekst, szacunek kosztu przed startem,
   raport rozbieżności, ekran przeglądu z edytorem, cache po hashu.
-- **Materiały wideo** — lista nagrań z YouTube, odtwarzanie oficjalnym odtwarzaczem.
+- **Materiały wideo** — lista nagrań z YouTube w trzech rozwijanych sekcjach
+  (Wykłady, Przykłady montażu, Dodatkowe), odtwarzanie oficjalnym odtwarzaczem.
   Aplikacja trzyma wyłącznie odnośniki, nie kopiuje cudzych nagrań.
 - **Aktualizacje materiałów** — nowe pytania, rysunki i nagrania dochodzą bez instalowania
   aplikacji od nowa.
