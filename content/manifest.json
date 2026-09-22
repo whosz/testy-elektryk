@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "updatedAt": "2026-09-20T20:07:49.029Z",
+  "version": 7,
+  "updatedAt": "2026-09-22T18:13:20.200Z",
   "sets": [
     {
       "id": "cke-informatory",
@@ -832,6 +832,14 @@
       "channel": "Krzysztof Gnyra",
       "url": "https://www.youtube.com/watch?v=edskCSCBXHM",
       "category": "PE",
+      "note": ""
+    },
+    {
+      "id": "zz2j6MayglM",
+      "title": "cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD",
+      "channel": "technik elektryk",
+      "url": "https://www.youtube.com/watch?v=zz2j6MayglM",
+      "category": "Montaż instalacji",
       "note": ""
     }
   ]

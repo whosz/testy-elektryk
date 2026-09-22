@@ -21,5 +21,15 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     url: 'https://www.youtube.com/watch?v=edskCSCBXHM',
     category: 'PE',
     note: ''
+  },
+  {
+    id: 'zz2j6MayglM',
+    title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
+    channel: 'technik elektryk',
+    url: 'https://www.youtube.com/watch?v=zz2j6MayglM',
+    // wolne tagowanie tekstem, nie z taksonomii CATEGORIES — categoryName()
+    // zwraca nieznany id bez zmian, więc badge pokaże dokładnie ten tekst
+    category: 'Montaż instalacji',
+    note: ''
   }
 ]
