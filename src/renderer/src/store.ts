@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { api } from './api'
 import { fetchManifest } from './updates'
+import { checkForUpdate, type AvailableUpdate } from './appUpdate'
 import { BUNDLED_CONTENT_VERSION, type ContentManifest, type ContentVideo } from '@shared/content'
 import { BUNDLED_VIDEOS } from '@shared/videos'
 import { DEFAULT_SETTINGS } from '@shared/schema'
@@ -20,7 +21,10 @@ interface State {
   contentVersion: number
   videos: ContentVideo[]
   update: { manifest: ContentManifest | null; checking: boolean; error: string | null }
+  /** Nowe wydanie aplikacji (nie materiałów) — instalator/APK, wymaga nowego pliku. */
+  appUpdate: AvailableUpdate | null
   checkContent: (quiet?: boolean) => Promise<void>
+  checkAppUpdate: () => Promise<void>
   refresh: () => Promise<void>
   saveSet: (set: QuestionSet) => Promise<void>
   removeSet: (id: string) => Promise<void>
@@ -41,6 +45,11 @@ export const useStore = create<State>((set, get) => ({
   contentVersion: BUNDLED_CONTENT_VERSION,
   videos: BUNDLED_VIDEOS,
   update: { manifest: null, checking: false, error: null },
+  appUpdate: null,
+
+  checkAppUpdate: async () => {
+    set({ appUpdate: await checkForUpdate() })
+  },
 
   refresh: async () => {
     const [sets, progress, exams, settings, content] = await Promise.all([

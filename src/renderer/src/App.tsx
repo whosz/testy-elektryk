@@ -51,13 +51,23 @@ const NAV: Array<{
 
 export default function App(): React.JSX.Element {
   const refresh = useStore((s) => s.refresh)
+  const loading = useStore((s) => s.loading)
+  const hasQuestions = useStore((s) => s.questions.length > 0)
+  // Przed pierwszym pobraniem materiałów żaden inny ekran nie ma czym pracować —
+  // zamiast pokazywać dziewięć pustych zakładek, zostają tylko Start i Ustawienia
+  // (na desktopie w bocznym menu). Na telefonie znika cały dolny pasek — Ustawienia
+  // są wtedy dostępne przez hamburger na ekranie Start, tak jak reszta ekranów
+  // dla zalogowanego stanu.
+  const onboarding = !loading && !hasQuestions
+  const nav = onboarding ? NAV.filter((n) => n.to === '/' || n.to === '/settings') : NAV
 
   useEffect(() => {
     void (async () => {
       await refresh()
       // ciche sprawdzenie przy starcie; brak sieci nie może niczego blokować
-      const { settings, checkContent } = useStore.getState()
+      const { settings, checkContent, checkAppUpdate } = useStore.getState()
       if (settings.autoCheckContent) void checkContent(true)
+      void checkAppUpdate()
     })()
   }, [refresh])
 
@@ -71,7 +81,7 @@ export default function App(): React.JSX.Element {
             <p className="text-xs text-muted-foreground">ELE.02 · ELE.05</p>
           </div>
           <nav className="space-y-0.5">
-            {NAV.map(({ to, label, icon: Icon }) => (
+            {nav.map(({ to, label, icon: Icon }) => (
               <NavLink
                 key={to}
                 to={to}
@@ -107,24 +117,31 @@ export default function App(): React.JSX.Element {
             </Routes>
           </div>
         </main>
-        <nav className="fixed inset-x-0 bottom-0 z-20 grid grid-cols-6 border-t bg-sidebar/95 backdrop-blur md:hidden">
-          {NAV.filter((n) => n.mobile).map(({ to, label, icon: Icon, short }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === '/'}
-              className={({ isActive }) =>
-                cn(
-                  'flex flex-col items-center gap-0.5 px-0.5 py-2 text-[10px] leading-tight transition-colors',
-                  isActive ? 'font-medium text-primary' : 'text-muted-foreground'
-                )
-              }
-            >
-              <Icon className="size-5" />
-              {short ?? label}
-            </NavLink>
-          ))}
-        </nav>
+        {/* Przed pierwszym pobraniem materiałów nawigacja na dole nie ma dokąd prowadzić —
+            Ustawienia są wtedy dostępne przez hamburger na ekranie Start. */}
+        {!onboarding && (
+          <nav
+            className="fixed inset-x-0 bottom-0 z-20 grid border-t bg-sidebar/95 backdrop-blur md:hidden"
+            style={{ gridTemplateColumns: `repeat(${nav.filter((n) => n.mobile).length}, minmax(0, 1fr))` }}
+          >
+            {nav.filter((n) => n.mobile).map(({ to, label, icon: Icon, short }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === '/'}
+                className={({ isActive }) =>
+                  cn(
+                    'flex flex-col items-center gap-0.5 px-0.5 py-2 text-[10px] leading-tight transition-colors',
+                    isActive ? 'font-medium text-primary' : 'text-muted-foreground'
+                  )
+                }
+              >
+                <Icon className="size-5" />
+                {short ?? label}
+              </NavLink>
+            ))}
+          </nav>
+        )}
       </div>
       <Toaster position="bottom-right" />
     </HashRouter>

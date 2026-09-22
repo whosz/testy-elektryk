@@ -11,7 +11,7 @@ import { api, isDesktop } from '@/api'
 import { useStore } from '@/store'
 import { applyTheme, readTheme, type Theme } from '@/theme'
 import { applyContent, fetchManifest, prefetchAllImages, type ApplyProgress } from '@/updates'
-import { checkForUpdate, downloadAndInstall, isAndroid, type AvailableUpdate, type DownloadProgress } from '@/appUpdate'
+import { downloadAndInstall, isAndroid, type DownloadProgress } from '@/appUpdate'
 import { Progress } from '@/components/ui/progress'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { DEFAULT_CONTENT_BASE } from '@shared/content'
@@ -28,10 +28,18 @@ export default function SettingsPage(): React.JSX.Element {
   const [theme, setTheme] = useState<Theme>(readTheme)
   const [applying, setApplying] = useState<ApplyProgress | null>(null)
   const [prefetching, setPrefetching] = useState<ApplyProgress | null>(null)
-  const [appUpdate, setAppUpdate] = useState<AvailableUpdate | null>(null)
   const [appUpdateProgress, setAppUpdateProgress] = useState<DownloadProgress | null>(null)
   const [appUpdateNeedsPermission, setAppUpdateNeedsPermission] = useState(false)
-  const { contentVersion, update, checkContent, refresh: reloadAll, sets, videos } = useStore()
+  const {
+    contentVersion,
+    update,
+    checkContent,
+    refresh: reloadAll,
+    sets,
+    videos,
+    appUpdate,
+    checkAppUpdate
+  } = useStore()
   const channels = [...new Set(videos.map((v) => v.channel).filter(Boolean))]
   const [hasKey, setHasKey] = useState(false)
   const [testing, setTesting] = useState(false)
@@ -47,11 +55,6 @@ export default function SettingsPage(): React.JSX.Element {
     mq.addEventListener('change', sync)
     return () => mq.removeEventListener('change', sync)
   }, [theme])
-
-  useEffect(() => {
-    if (!isAndroid) return
-    void checkForUpdate().then(setAppUpdate)
-  }, [])
 
   const startAppUpdate = async (): Promise<void> => {
     if (!appUpdate) return
@@ -71,12 +74,13 @@ export default function SettingsPage(): React.JSX.Element {
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Ustawienia</h1>
 
-      {isAndroid && appUpdate && (
+      {appUpdate && (
         <Card>
           <CardHeader>
             <CardTitle className="text-base">Aktualizacja aplikacji</CardTitle>
             <CardDescription>
-              Dostępna wersja {appUpdate.version} ({Math.round(appUpdate.size / 1048576)} MB).
+              Dostępna wersja {appUpdate.version}
+              {isAndroid && ` (${Math.round(appUpdate.size / 1048576)} MB)`}.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
@@ -88,14 +92,33 @@ export default function SettingsPage(): React.JSX.Element {
                 </AlertDescription>
               </Alert>
             )}
-            <Button disabled={appUpdateProgress !== null} onClick={() => void startAppUpdate()}>
-              {appUpdateProgress
-                ? appUpdateProgress.status === 'downloading'
-                  ? `Pobieram… ${appUpdateProgress.pct}%`
-                  : 'Otwieram instalator…'
-                : `Pobierz i zainstaluj wersję ${appUpdate.version}`}
+            {isAndroid ? (
+              <div className="flex flex-wrap items-center gap-2">
+                <Button disabled={appUpdateProgress !== null} onClick={() => void startAppUpdate()}>
+                  {appUpdateProgress
+                    ? appUpdateProgress.status === 'downloading'
+                      ? `Pobieram… ${appUpdateProgress.pct}%`
+                      : 'Otwieram instalator…'
+                    : `Pobierz i zainstaluj wersję ${appUpdate.version}`}
+                </Button>
+                {appUpdateProgress?.status === 'downloading' && <Progress value={appUpdateProgress.pct} />}
+              </div>
+            ) : (
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground">
+                  Windows nie ma wbudowanej instalacji — pobierz i uruchom nowy instalator ręcznie
+                  ze strony wydania.
+                </p>
+                <Button asChild>
+                  <a href={appUpdate.pageUrl} target="_blank" rel="noreferrer">
+                    Otwórz stronę pobierania
+                  </a>
+                </Button>
+              </div>
+            )}
+            <Button variant="ghost" size="sm" onClick={() => void checkAppUpdate()}>
+              Sprawdź ponownie
             </Button>
-            {appUpdateProgress?.status === 'downloading' && <Progress value={appUpdateProgress.pct} />}
           </CardContent>
         </Card>
       )}

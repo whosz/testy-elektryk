@@ -20,7 +20,10 @@ const REPO = 'whosz/testy-elektryk'
 
 export interface AvailableUpdate {
   version: string
-  url: string
+  /** Strona wydania na GitHubie — zawsze, do "zobacz co nowego" i do ręcznego pobrania na Windows. */
+  pageUrl: string
+  /** Bezpośredni plik do pobrania przez wbudowany instalator. Tylko Android — Windows nie ma autoinstalacji. */
+  downloadUrl: string | null
   size: number
 }
 
@@ -36,19 +39,30 @@ function isNewer(remote: string, local: string): boolean {
   return false
 }
 
-/** Brak sieci albo brak APK w wydaniu nie jest błędem wartym pokazywania — po prostu nic nie ma. */
+/**
+ * Sprawdza najnowsze wydanie na GitHubie, niezależnie od platformy. Na Androidzie
+ * zwraca też bezpośredni link do APK (do wbudowanego pobierania); na Windows tylko
+ * stronę wydania — tam instalator trzeba pobrać i uruchomić ręcznie.
+ * Brak sieci albo brak pasującego pliku w wydaniu nie jest błędem wartym pokazywania.
+ */
 export async function checkForUpdate(): Promise<AvailableUpdate | null> {
-  if (!isAndroid) return null
   try {
-    const [info, res] = await Promise.all([
-      AppUpdate.getAppInfo(),
-      fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { cache: 'no-store' })
-    ])
+    const localVersion = isAndroid ? (await AppUpdate.getAppInfo()).versionName : __APP_VERSION__
+    const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { cache: 'no-store' })
     if (!res.ok) return null
-    const release = (await res.json()) as { tag_name: string; assets: Array<{ name: string; browser_download_url: string; size: number }> }
-    const apk = release.assets.find((a) => a.name.endsWith('.apk'))
-    if (!apk || !isNewer(release.tag_name, info.versionName)) return null
-    return { version: release.tag_name, url: apk.browser_download_url, size: apk.size }
+    const release = (await res.json()) as {
+      tag_name: string
+      html_url: string
+      assets: Array<{ name: string; browser_download_url: string; size: number }>
+    }
+    if (!isNewer(release.tag_name, localVersion)) return null
+
+    if (isAndroid) {
+      const apk = release.assets.find((a) => a.name.endsWith('.apk'))
+      if (!apk) return null
+      return { version: release.tag_name, pageUrl: release.html_url, downloadUrl: apk.browser_download_url, size: apk.size }
+    }
+    return { version: release.tag_name, pageUrl: release.html_url, downloadUrl: null, size: 0 }
   } catch {
     return null
   }
@@ -71,6 +85,7 @@ export async function downloadAndInstall(
   update: AvailableUpdate,
   onProgress: (p: DownloadProgress) => void
 ): Promise<'installing' | 'needs-permission'> {
+  if (!update.downloadUrl) throw new Error('Brak pliku do pobrania dla tej platformy')
   const { granted } = await AppUpdate.checkInstallPermission()
   if (!granted) {
     onProgress({ status: 'permission', pct: 0 })
@@ -78,7 +93,7 @@ export async function downloadAndInstall(
     return 'needs-permission'
   }
 
-  const { downloadId } = await AppUpdate.startDownload({ url: update.url })
+  const { downloadId } = await AppUpdate.startDownload({ url: update.downloadUrl })
   for (;;) {
     const s = await AppUpdate.getDownloadStatus({ downloadId })
     if (s.status === 'complete') break
