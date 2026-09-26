@@ -27,6 +27,16 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     durationMin: 0
   },
   {
+    id: 'sFfg7k_VFOw',
+    title: 'MiUE.1. Maszyny i urządzenia elektryczne. Urządzenia elektryczne, część 1.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=sFfg7k_VFOw',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',
