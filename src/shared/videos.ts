@@ -37,6 +37,17 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     durationMin: 0
   },
   {
+    id: 'i5D-5dgdIVc',
+    title:
+      'MiUE.2. Urządzenia c.d: Przekaźniki bistabilne. Wyłączniki nadprądowe. Wyłączniki różnicowo-prądowe.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=i5D-5dgdIVc',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',
