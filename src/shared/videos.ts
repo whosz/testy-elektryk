@@ -48,6 +48,16 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     durationMin: 0
   },
   {
+    id: 'u-RJVm9mGOQ',
+    title: 'MiUE.3. Przekaźniki, ograniczniki, liczniki, styczniki, wyłączniki. Układy połączeń styczników.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=u-RJVm9mGOQ',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',

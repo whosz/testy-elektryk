@@ -1,6 +1,6 @@
 {
-  "version": 10,
-  "updatedAt": "2026-09-28T08:08:28.917Z",
+  "version": 11,
+  "updatedAt": "2026-10-01T11:22:20.206Z",
   "sets": [
     {
       "id": "cke-informatory",
@@ -853,6 +853,16 @@
       "title": "MiUE.2. Urządzenia c.d: Przekaźniki bistabilne. Wyłączniki nadprądowe. Wyłączniki różnicowo-prądowe.",
       "channel": "Krzysztof Gnyra",
       "url": "https://www.youtube.com/watch?v=i5D-5dgdIVc",
+      "category": "URZ",
+      "note": "",
+      "group": "wyklady",
+      "durationMin": 0
+    },
+    {
+      "id": "u-RJVm9mGOQ",
+      "title": "MiUE.3. Przekaźniki, ograniczniki, liczniki, styczniki, wyłączniki. Układy połączeń styczników.",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=u-RJVm9mGOQ",
       "category": "URZ",
       "note": "",
       "group": "wyklady",
