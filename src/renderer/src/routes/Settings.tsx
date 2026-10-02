@@ -30,6 +30,7 @@ export default function SettingsPage(): React.JSX.Element {
   const [prefetching, setPrefetching] = useState<ApplyProgress | null>(null)
   const [appUpdateProgress, setAppUpdateProgress] = useState<DownloadProgress | null>(null)
   const [appUpdateNeedsPermission, setAppUpdateNeedsPermission] = useState(false)
+  const [appUpdateChecking, setAppUpdateChecking] = useState(false)
   const {
     contentVersion,
     update,
@@ -74,54 +75,68 @@ export default function SettingsPage(): React.JSX.Element {
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Ustawienia</h1>
 
-      {appUpdate && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Aktualizacja aplikacji</CardTitle>
-            <CardDescription>
-              Dostępna wersja {appUpdate.version}
-              {isAndroid && ` (${Math.round(appUpdate.size / 1048576)} MB)`}.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {appUpdateNeedsPermission && (
-              <Alert>
-                <AlertDescription>
-                  Android wymaga zgody na instalację spoza Sklepu Play dla tej aplikacji.
-                  Otworzyliśmy ustawienia — po włączeniu zgody wróć i kliknij jeszcze raz.
-                </AlertDescription>
-              </Alert>
-            )}
-            {isAndroid ? (
-              <div className="flex flex-wrap items-center gap-2">
-                <Button disabled={appUpdateProgress !== null} onClick={() => void startAppUpdate()}>
-                  {appUpdateProgress
-                    ? appUpdateProgress.status === 'downloading'
-                      ? `Pobieram… ${appUpdateProgress.pct}%`
-                      : 'Otwieram instalator…'
-                    : `Pobierz i zainstaluj wersję ${appUpdate.version}`}
-                </Button>
-                {appUpdateProgress?.status === 'downloading' && <Progress value={appUpdateProgress.pct} />}
-              </div>
-            ) : (
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  Windows nie ma wbudowanej instalacji — pobierz i uruchom nowy instalator ręcznie
-                  ze strony wydania.
-                </p>
-                <Button asChild>
-                  <a href={appUpdate.pageUrl} target="_blank" rel="noreferrer">
-                    Otwórz stronę pobierania
-                  </a>
-                </Button>
-              </div>
-            )}
-            <Button variant="ghost" size="sm" onClick={() => void checkAppUpdate()}>
-              Sprawdź ponownie
-            </Button>
-          </CardContent>
-        </Card>
-      )}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Aktualizacja aplikacji</CardTitle>
+          <CardDescription>
+            {appUpdate
+              ? `Dostępna wersja ${appUpdate.version}${
+                  isAndroid ? ` (${Math.round(appUpdate.size / 1048576)} MB)` : ''
+                }.`
+              : 'Masz najnowszą wersję aplikacji.'}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {appUpdateNeedsPermission && (
+            <Alert>
+              <AlertDescription>
+                Android wymaga zgody na instalację spoza Sklepu Play dla tej aplikacji.
+                Otworzyliśmy ustawienia — po włączeniu zgody wróć i kliknij jeszcze raz.
+              </AlertDescription>
+            </Alert>
+          )}
+          {appUpdate && isAndroid && (
+            <div className="flex flex-wrap items-center gap-2">
+              <Button disabled={appUpdateProgress !== null} onClick={() => void startAppUpdate()}>
+                {appUpdateProgress
+                  ? appUpdateProgress.status === 'downloading'
+                    ? `Pobieram… ${appUpdateProgress.pct}%`
+                    : 'Otwieram instalator…'
+                  : `Pobierz i zainstaluj wersję ${appUpdate.version}`}
+              </Button>
+              {appUpdateProgress?.status === 'downloading' && <Progress value={appUpdateProgress.pct} />}
+            </div>
+          )}
+          {appUpdate && !isAndroid && (
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">
+                Windows nie ma wbudowanej instalacji — pobierz i uruchom nowy instalator ręcznie
+                ze strony wydania.
+              </p>
+              <Button asChild>
+                <a href={appUpdate.pageUrl} target="_blank" rel="noreferrer">
+                  Otwórz stronę pobierania
+                </a>
+              </Button>
+            </div>
+          )}
+          <Button
+            variant={appUpdate ? 'ghost' : 'secondary'}
+            size={appUpdate ? 'sm' : 'default'}
+            disabled={appUpdateChecking}
+            onClick={async () => {
+              setAppUpdateChecking(true)
+              try {
+                await checkAppUpdate()
+              } finally {
+                setAppUpdateChecking(false)
+              }
+            }}
+          >
+            {appUpdateChecking ? 'Sprawdzam…' : 'Sprawdź ponownie'}
+          </Button>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
