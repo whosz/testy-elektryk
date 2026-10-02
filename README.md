@@ -6,6 +6,21 @@ którą Claude zamienia na ustrukturyzowaną bazę.
 
 Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](database/).
 
+## Pobierz
+
+[![Najnowsze wydanie](https://img.shields.io/github/v/release/whosz/testy-elektryk)](https://github.com/whosz/testy-elektryk/releases/latest)
+
+Gotowe pliki na stronie [najnowszego wydania](https://github.com/whosz/testy-elektryk/releases/latest):
+
+| Plik | Dla kogo |
+|---|---|
+| `Elektryk Quiz Setup x.y.z.exe` | Windows, zwykła instalacja |
+| `Elektryk-Quiz-portable-x.y.z.exe` | Windows, bez instalacji — jeden plik, działa z pendrive'a |
+| `Elektryk-Quiz-x.y.z.apk` | Android |
+
+Aplikacja sama sprawdza przy starcie, czy jest nowsza wersja (Ustawienia → Aktualizacja
+aplikacji), więc po pierwszej instalacji ręczne wracanie na tę stronę nie jest potrzebne.
+
 ## Co potrafi
 
 - **Powtórki na dziś** — SM-2 z limitem nowych kart i przeplataniem kategorii.
