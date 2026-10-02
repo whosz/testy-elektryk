@@ -42,7 +42,7 @@ const NAV: Array<{
   { to: '/learn', label: 'Nauka', icon: BookOpen, mobile: true },
   { to: '/exam', label: 'Egzamin', icon: GraduationCap, mobile: true },
   { to: '/errors', label: 'Błędy', icon: TriangleAlert, mobile: true },
-  { to: '/materialy', label: 'Materiały', icon: Video, mobile: true, short: 'Wideo' },
+  { to: '/materialy', label: 'Materiały', icon: Video, mobile: true },
   { to: '/stats', label: 'Statystyki', icon: BarChart3, mobile: false },
   { to: '/sets', label: 'Zestawy', icon: Layers, mobile: false },
   { to: '/import', label: 'Import', icon: FileDown, mobile: false },

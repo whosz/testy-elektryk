@@ -9,10 +9,11 @@
  * użytkownicy dostawaliby powiadomienie o aktualizacji bez powodu.
  */
 import { createHash } from 'crypto'
-import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'fs'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { ContentManifestSchema, type ContentManifest } from '../src/shared/content'
 import { BUNDLED_VIDEOS } from '../src/shared/videos'
+import { BUNDLED_PDFS } from '../src/shared/pdfs'
 import { QuestionSetSchema } from '../src/shared/schema'
 
 const ROOT = resolve(__dirname, '..')
@@ -25,6 +26,19 @@ const SETS = [
   { id: 'zawodowe-ele05', source: 'sample-data/zawodowe-ele05.json', images: 'sample-data/images/zawodowe-ele05' }
 ]
 
+// Surowe pliki leżą lokalnie w database/materialy/ (poza gitem — za duże, żeby
+// trzymać je w dwóch miejscach) i stąd trafiają do content/pdfs/ pod krótkim ID.
+const PDFS = [
+  {
+    id: 'praktyczny-start-elektryka',
+    source: 'database/materialy/Ebook- Praktyczny start elektryka - Elektrotechniczni.pl.pdf'
+  },
+  {
+    id: 'symbole-graficzne-pn-en-60617',
+    source: 'database/materialy/RT4_Zalacznik_ELEKTRYKA_Symbole_graficzne-_wg_PN-EN-60617.pdf'
+  }
+]
+
 function main(): void {
   const previous: ContentManifest | null = existsSync(resolve(OUT, 'manifest.json'))
     ? ContentManifestSchema.parse(JSON.parse(readFileSync(resolve(OUT, 'manifest.json'), 'utf8')))
@@ -32,6 +46,7 @@ function main(): void {
 
   rmSync(resolve(OUT, 'sets'), { recursive: true, force: true })
   rmSync(resolve(OUT, 'images'), { recursive: true, force: true })
+  rmSync(resolve(OUT, 'pdfs'), { recursive: true, force: true })
   mkdirSync(resolve(OUT, 'sets'), { recursive: true })
 
   const hash = createHash('sha256')
@@ -70,6 +85,30 @@ function main(): void {
     })
   }
 
+  const pdfs: ContentManifest['pdfs'] = []
+  for (const entry of PDFS) {
+    const from = resolve(ROOT, entry.source)
+    if (!existsSync(from)) {
+      console.log(`  pomijam PDF ${entry.id}: brak pliku ${entry.source}`)
+      continue
+    }
+    mkdirSync(resolve(OUT, 'pdfs'), { recursive: true })
+    const to = resolve(OUT, 'pdfs', `${entry.id}.pdf`)
+    copyFileSync(from, to)
+    hash.update(readFileSync(from))
+
+    const meta = BUNDLED_PDFS.find((p) => p.id === entry.id)
+    pdfs.push({
+      id: entry.id,
+      title: meta?.title ?? entry.id,
+      author: meta?.author ?? '',
+      url: `pdfs/${entry.id}.pdf`,
+      // rzeczywisty rozmiar pliku, nie ręcznie wpisana liczba w pdfs.ts
+      sizeMB: Math.round((statSync(to).size / 1048576) * 10) / 10,
+      note: meta?.note ?? ''
+    })
+  }
+
   hash.update(JSON.stringify(BUNDLED_VIDEOS))
   const fingerprint = hash.digest('hex').slice(0, 16)
 
@@ -83,7 +122,8 @@ function main(): void {
     version,
     updatedAt: changed || !previous ? new Date().toISOString() : previous.updatedAt,
     sets,
-    videos: BUNDLED_VIDEOS
+    videos: BUNDLED_VIDEOS,
+    pdfs
   }
 
   writeFileSync(resolve(OUT, 'manifest.json'), JSON.stringify(manifest, null, 2))
@@ -92,6 +132,7 @@ function main(): void {
   console.log(`Materiały wersja ${version}${changed ? ' (zawartość się zmieniła)' : ' (bez zmian)'}`)
   for (const s of sets) console.log(`  ${s.id}: ${s.questions} pytań, ${s.images.length} rysunków`)
   console.log(`  nagrania: ${manifest.videos.length}`)
+  console.log(`  pdf: ${manifest.pdfs.length}`)
 }
 
 main()

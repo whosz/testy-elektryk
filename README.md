@@ -22,11 +22,12 @@ Specyfikacja: [PLAN.md](PLAN.md). Baza wiedzy i informatory CKE: [database/](dat
 - **Statystyki** — skuteczność według kategorii, najsłabsze pytania, historia egzaminów.
 - **Import przez Claude** — TXT/MD/CSV/DOCX lub wklejony tekst, szacunek kosztu przed startem,
   raport rozbieżności, ekran przeglądu z edytorem, cache po hashu.
-- **Materiały wideo** — lista nagrań z YouTube w trzech rozwijanych sekcjach
-  (Wykłady, Przykłady montażu, Dodatkowe), odtwarzanie oficjalnym odtwarzaczem.
-  Aplikacja trzyma wyłącznie odnośniki, nie kopiuje cudzych nagrań.
-- **Aktualizacje materiałów** — nowe pytania, rysunki i nagrania dochodzą bez instalowania
-  aplikacji od nowa.
+- **Materiały** — nagrania wideo z YouTube w rozwijanych sekcjach (Wykłady, Przykłady
+  montażu, Dodatkowe) plus dokumenty PDF, wszystko w jednej zakładce. Wideo odtwarza się
+  oficjalnym odtwarzaczem, PDF otwiera się w przeglądarce — aplikacja trzyma wyłącznie
+  odnośniki, nie kopiuje cudzych materiałów.
+- **Aktualizacje materiałów** — nowe pytania, rysunki, nagrania i dokumenty dochodzą bez
+  instalowania aplikacji od nowa.
 
 ## Źródła materiałów
 
@@ -101,9 +102,10 @@ wgranie tego samego zestawu nie kasuje postępów ani puli błędów.
 Struktura po stronie serwera (`content/` w tym repozytorium):
 
 ```
-manifest.json          # wersja, lista zestawów i nagrań
+manifest.json          # wersja, lista zestawów, nagrań i dokumentów PDF
 sets/<id>.json         # QuestionSet
 images/<id>/*.png      # rysunki do pytań
+pdfs/<id>.pdf          # dokumenty — skopiowane z database/materialy/ (poza gitem, za duże)
 ```
 
 ```bash

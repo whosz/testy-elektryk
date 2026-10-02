@@ -22,3 +22,7 @@ database/egzaminy/ele02/zadowode-edu-pl/
 # Katalog roboczy importera — te same pliki są serwowane z content/,
 # więc nie trzymamy w repozytorium dwóch kopii.
 sample-data/images/
+
+# Surowe PDF-y do materiałów: build-content.ts kopiuje je do content/pdfs/,
+# nie trzymamy dwóch kopii tego samego 30 MB pliku w historii repo.
+database/materialy/

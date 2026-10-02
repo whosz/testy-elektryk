@@ -2,8 +2,9 @@ import { create } from 'zustand'
 import { api } from './api'
 import { fetchManifest } from './updates'
 import { checkForUpdate, type AvailableUpdate } from './appUpdate'
-import { BUNDLED_CONTENT_VERSION, type ContentManifest, type ContentVideo } from '@shared/content'
+import { BUNDLED_CONTENT_VERSION, type ContentManifest, type ContentPdf, type ContentVideo } from '@shared/content'
 import { BUNDLED_VIDEOS } from '@shared/videos'
+import { BUNDLED_PDFS } from '@shared/pdfs'
 import { DEFAULT_SETTINGS } from '@shared/schema'
 import { applyErrorPool, applyStats, newCard } from '@shared/errorPool'
 import { sm2, maxInterval, type Grade } from '@shared/sm2'
@@ -20,6 +21,7 @@ interface State {
   /** Materiały pobrane z serwera; przed pierwszą aktualizacją to wersja wbudowana. */
   contentVersion: number
   videos: ContentVideo[]
+  pdfs: ContentPdf[]
   update: { manifest: ContentManifest | null; checking: boolean; error: string | null }
   /** Nowe wydanie aplikacji (nie materiałów) — instalator/APK, wymaga nowego pliku. */
   appUpdate: AvailableUpdate | null
@@ -44,6 +46,7 @@ export const useStore = create<State>((set, get) => ({
   loading: true,
   contentVersion: BUNDLED_CONTENT_VERSION,
   videos: BUNDLED_VIDEOS,
+  pdfs: BUNDLED_PDFS,
   update: { manifest: null, checking: false, error: null },
   appUpdate: null,
 
@@ -68,7 +71,8 @@ export const useStore = create<State>((set, get) => ({
       questions: full.flatMap((s) => s.questions),
       loading: false,
       contentVersion: Math.max(content.version, BUNDLED_CONTENT_VERSION),
-      videos: content.videos.length ? content.videos : BUNDLED_VIDEOS
+      videos: content.videos.length ? content.videos : BUNDLED_VIDEOS,
+      pdfs: content.pdfs.length ? content.pdfs : BUNDLED_PDFS
     })
   },
 
@@ -83,7 +87,8 @@ export const useStore = create<State>((set, get) => ({
         await api.content.set({
           version: contentVersion,
           checkedAt: new Date().toISOString(),
-          videos: get().videos
+          videos: get().videos,
+          pdfs: get().pdfs
         })
       }
     } catch (err) {

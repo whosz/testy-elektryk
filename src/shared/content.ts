@@ -26,6 +26,16 @@ export const ContentVideoSchema = z.object({
   durationMin: z.number().int().nonnegative().default(0)
 })
 
+/** PDF publikowany przez content-server (ścieżka względna, np. "pdfs/plik.pdf") — nie wbudowany w aplikację, bo takie pliki ważą dziesiątki MB. */
+export const ContentPdfSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  author: z.string().default(''),
+  url: z.string(),
+  sizeMB: z.number().nonnegative().default(0),
+  note: z.string().default('')
+})
+
 export const ContentSetRefSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -38,16 +48,19 @@ export const ContentManifestSchema = z.object({
   version: z.number().int().positive(),
   updatedAt: z.string(),
   sets: z.array(ContentSetRefSchema).default([]),
-  videos: z.array(ContentVideoSchema).default([])
+  videos: z.array(ContentVideoSchema).default([]),
+  pdfs: z.array(ContentPdfSchema).default([])
 })
 
 export const LocalContentSchema = z.object({
   version: z.number().int().nonnegative().default(0),
   checkedAt: z.string().nullable().default(null),
-  videos: z.array(ContentVideoSchema).default([])
+  videos: z.array(ContentVideoSchema).default([]),
+  pdfs: z.array(ContentPdfSchema).default([])
 })
 
 export type ContentVideo = z.infer<typeof ContentVideoSchema>
+export type ContentPdf = z.infer<typeof ContentPdfSchema>
 export type ContentSetRef = z.infer<typeof ContentSetRefSchema>
 export type ContentManifest = z.infer<typeof ContentManifestSchema>
 export type LocalContent = z.infer<typeof LocalContentSchema>

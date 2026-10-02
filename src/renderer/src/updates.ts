@@ -2,7 +2,7 @@ import { ContentManifestSchema, type ContentManifest } from '@shared/content'
 import { QuestionSetSchema } from '@shared/schema'
 import { api } from './api'
 
-const joinUrl = (base: string, path: string): string =>
+export const joinUrl = (base: string, path: string): string =>
   `${base.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`
 
 async function fetchJson(url: string): Promise<unknown> {
@@ -87,7 +87,8 @@ export async function applyContent(
   await api.content.set({
     version: manifest.version,
     checkedAt: new Date().toISOString(),
-    videos: manifest.videos
+    videos: manifest.videos,
+    pdfs: manifest.pdfs
   })
 
   return { added, updated, images }

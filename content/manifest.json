@@ -1,6 +1,6 @@
 {
-  "version": 11,
-  "updatedAt": "2026-10-01T11:22:20.206Z",
+  "version": 13,
+  "updatedAt": "2026-10-02T12:01:52.227Z",
   "sets": [
     {
       "id": "cke-informatory",
@@ -977,6 +977,34 @@
       "note": "",
       "group": "dodatkowe",
       "durationMin": 43
+    },
+    {
+      "id": "wVu2jdGVnhk",
+      "title": "Webinary RST",
+      "channel": "RST - uziemienia i ochrona przed przepięciami",
+      "url": "https://www.youtube.com/watch?v=wVu2jdGVnhk",
+      "category": "POZ",
+      "note": "",
+      "group": "dodatkowe",
+      "durationMin": 0
+    }
+  ],
+  "pdfs": [
+    {
+      "id": "praktyczny-start-elektryka",
+      "title": "Praktyczny start elektryka",
+      "author": "Elektrotechniczni.pl",
+      "url": "pdfs/praktyczny-start-elektryka.pdf",
+      "sizeMB": 29.3,
+      "note": ""
+    },
+    {
+      "id": "symbole-graficzne-pn-en-60617",
+      "title": "Symbole graficzne elektryczne wg PN-EN 60617",
+      "author": "",
+      "url": "pdfs/symbole-graficzne-pn-en-60617.pdf",
+      "sizeMB": 0.4,
+      "note": ""
     }
   ]
 }

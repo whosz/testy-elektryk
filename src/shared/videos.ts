@@ -171,5 +171,15 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     note: '',
     group: 'dodatkowe',
     durationMin: 43
+  },
+  {
+    id: 'wVu2jdGVnhk',
+    title: 'Webinary RST',
+    channel: 'RST - uziemienia i ochrona przed przepięciami',
+    url: 'https://www.youtube.com/watch?v=wVu2jdGVnhk',
+    category: 'POZ',
+    note: '',
+    group: 'dodatkowe',
+    durationMin: 0
   }
 ]

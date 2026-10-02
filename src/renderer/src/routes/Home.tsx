@@ -112,7 +112,7 @@ export default function HomePage(): React.JSX.Element {
           </p>
 
           <Card className="mt-8 w-full max-w-sm text-left">
-            <CardContent className="space-y-4 pt-6">
+            <CardContent className="space-y-4">
               <FeatureRow icon={HelpCircle} text="Blisko 2000 pytań z kluczem odpowiedzi ze źródła" />
               <FeatureRow icon={ImageIcon} text="Rysunki i schematy do zadań, które ich wymagają" />
               <FeatureRow icon={VideoIcon} text="Nagrania wideo z wykładami i przykładami montażu" />
