@@ -58,6 +58,16 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     durationMin: 0
   },
   {
+    id: '4F9HBXiG_gg',
+    title: 'MiUE.4. Sterowniki oświetlenia, Przekaźniki, Ograniczniki poboru mocy.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=4F9HBXiG_gg',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',

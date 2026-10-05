@@ -1,6 +1,6 @@
 {
-  "version": 13,
-  "updatedAt": "2026-10-02T12:01:52.227Z",
+  "version": 14,
+  "updatedAt": "2026-10-05T10:40:44.287Z",
   "sets": [
     {
       "id": "cke-informatory",
@@ -863,6 +863,16 @@
       "title": "MiUE.3. Przekaźniki, ograniczniki, liczniki, styczniki, wyłączniki. Układy połączeń styczników.",
       "channel": "Krzysztof Gnyra",
       "url": "https://www.youtube.com/watch?v=u-RJVm9mGOQ",
+      "category": "URZ",
+      "note": "",
+      "group": "wyklady",
+      "durationMin": 0
+    },
+    {
+      "id": "4F9HBXiG_gg",
+      "title": "MiUE.4. Sterowniki oświetlenia, Przekaźniki, Ograniczniki poboru mocy.",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=4F9HBXiG_gg",
       "category": "URZ",
       "note": "",
       "group": "wyklady",
