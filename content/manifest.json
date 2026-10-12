@@ -1,6 +1,6 @@
 {
-  "version": 14,
-  "updatedAt": "2026-10-05T10:40:44.287Z",
+  "version": 15,
+  "updatedAt": "2026-10-12T17:22:02.436Z",
   "sets": [
     {
       "id": "cke-informatory",
@@ -879,10 +879,30 @@
       "durationMin": 0
     },
     {
+      "id": "zzBcPYTRsnU",
+      "title": "MiUE.5. Technika świetlna.",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=zzBcPYTRsnU",
+      "category": "URZ",
+      "note": "",
+      "group": "wyklady",
+      "durationMin": 0
+    },
+    {
       "id": "zz2j6MayglM",
       "title": "cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD",
       "channel": "technik elektryk",
       "url": "https://www.youtube.com/watch?v=zz2j6MayglM",
+      "category": "Montaż instalacji",
+      "note": "",
+      "group": "montaz",
+      "durationMin": 0
+    },
+    {
+      "id": "enb8RibdbQE",
+      "title": "M-EP.2. Podłączanie zabezpieczenia różnicowoprądowego i nadprądowego obwodu oświetlenia.",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=enb8RibdbQE",
       "category": "Montaż instalacji",
       "note": "",
       "group": "montaz",
@@ -994,6 +1014,16 @@
       "channel": "RST - uziemienia i ochrona przed przepięciami",
       "url": "https://www.youtube.com/watch?v=wVu2jdGVnhk",
       "category": "POZ",
+      "note": "",
+      "group": "dodatkowe",
+      "durationMin": 0
+    },
+    {
+      "id": "5eoIz7g0L2U",
+      "title": "LinkedIn i Twoja przyszłość zawodowa – jak budować profil, kompetencje i przewagę na rynku pracy?",
+      "channel": "Krzysztof Gnyra",
+      "url": "https://www.youtube.com/watch?v=5eoIz7g0L2U",
+      "category": "",
       "note": "",
       "group": "dodatkowe",
       "durationMin": 0
