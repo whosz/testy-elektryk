@@ -78,12 +78,52 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     durationMin: 0
   },
   {
+    id: '1mTbquZs8IA',
+    title: 'RT-el.1. Rysunek techniczny elektryczny, część 1.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=1mTbquZs8IA',
+    category: 'SCH',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
+    id: 'ON3_a6zdZeI',
+    title: 'MiUE.6 Oświetlenie, wpływ na zdrowie człowieka. Oświetlenie awaryjne, uliczne i na obsz. kolejowych',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=ON3_a6zdZeI',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
+    id: 'U3ahL2lv48o',
+    title: 'RTel.2. Rodzaje rysunku elektrycznego. Czytanie schematów elektrycznych.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=U3ahL2lv48o',
+    category: 'SCH',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',
     url: 'https://www.youtube.com/watch?v=zz2j6MayglM',
     // wolne tagowanie tekstem, nie z taksonomii CATEGORIES — categoryName()
     // zwraca nieznany id bez zmian, więc badge pokaże dokładnie ten tekst
+    category: 'Montaż instalacji',
+    note: '',
+    group: 'montaz',
+    durationMin: 0
+  },
+  {
+    id: 'l0ubyk-ltMs',
+    title: 'M-EP.1. Montaż instalacji, maszyn i urządzeń elektrycznych, część 1. Połączenia elektryczne.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=l0ubyk-ltMs',
     category: 'Montaż instalacji',
     note: '',
     group: 'montaz',
@@ -217,6 +257,26 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     title: 'LinkedIn i Twoja przyszłość zawodowa – jak budować profil, kompetencje i przewagę na rynku pracy?',
     channel: 'Krzysztof Gnyra',
     url: 'https://www.youtube.com/watch?v=5eoIz7g0L2U',
+    category: '',
+    note: '',
+    group: 'dodatkowe',
+    durationMin: 0
+  },
+  {
+    id: 'lmtsaCMSNYc',
+    title: 'Rynek pracy się zmienia – jak zadbać o swoją zawodową przyszłość?',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=lmtsaCMSNYc',
+    category: '',
+    note: '',
+    group: 'dodatkowe',
+    durationMin: 0
+  },
+  {
+    id: '3PznIAOQn3E',
+    title: 'Spotkanie inauguracyjne',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=3PznIAOQn3E',
     category: '',
     note: '',
     group: 'dodatkowe',
