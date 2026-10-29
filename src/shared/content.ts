@@ -23,7 +23,9 @@ export const ContentVideoSchema = z.object({
   note: z.string().default(''),
   // stare lokalne dane sprzed tego pola trafiają do „Dodatkowe" zamiast się wywalać
   group: z.enum(['wyklady', 'montaz', 'dodatkowe']).default('dodatkowe'),
-  durationMin: z.number().int().nonnegative().default(0)
+  durationMin: z.number().int().nonnegative().default(0),
+  // data publikacji „RRRR-MM-DD", puste gdy nieznana — pozwala sortować od najnowszych
+  date: z.string().default('')
 })
 
 /** PDF publikowany przez content-server (ścieżka względna, np. "pdfs/plik.pdf") — nie wbudowany w aplikację, bo takie pliki ważą dziesiątki MB. */

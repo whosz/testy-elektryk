@@ -23,6 +23,7 @@ export default function MaterialyPage(): React.JSX.Element {
         <div className="space-y-4">
           {videos
             .filter((v) => v.group === g.id)
+            .sort((a, b) => (b.date || '0000').localeCompare(a.date || '0000'))
             .map((video) => (
               <VideoCard key={video.id} video={video} />
             ))}
@@ -76,6 +77,12 @@ export default function MaterialyPage(): React.JSX.Element {
   )
 }
 
+// "RRRR-MM-DD" -> "DD.MM.RRRR", jak na stronie kursu
+function formatDate(date: string): string {
+  const [y, m, d] = date.split('-')
+  return `${d}.${m}.${y}`
+}
+
 function VideoCard({ video }: { video: ContentVideo }): React.JSX.Element {
   // odtwarzacz wczytuje się dopiero po kliknięciu, więc samo wejście na ekran nic nie pobiera
   const [playing, setPlaying] = useState(false)
@@ -89,6 +96,7 @@ function VideoCard({ video }: { video: ContentVideo }): React.JSX.Element {
             <CardDescription>
               {video.channel}
               {video.durationMin > 0 && ` · ${video.durationMin} min`}
+              {video.date && ` · ${formatDate(video.date)}`}
             </CardDescription>
           </div>
           {video.category && <Badge variant="outline">{categoryName(video.category)}</Badge>}

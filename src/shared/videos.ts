@@ -14,7 +14,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'PE',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-09-16'
   },
   {
     id: 'edskCSCBXHM',
@@ -24,7 +25,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'PE',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-09-18'
   },
   {
     id: 'sFfg7k_VFOw',
@@ -34,7 +36,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'URZ',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-09-23'
   },
   {
     id: 'i5D-5dgdIVc',
@@ -45,7 +48,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'URZ',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-09-25'
   },
   {
     id: 'u-RJVm9mGOQ',
@@ -55,7 +59,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'URZ',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-09-30'
   },
   {
     id: '4F9HBXiG_gg',
@@ -65,7 +70,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'URZ',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-10-02'
   },
   {
     id: 'zzBcPYTRsnU',
@@ -75,7 +81,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'URZ',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-10-07'
   },
   {
     id: '1mTbquZs8IA',
@@ -85,7 +92,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'SCH',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-10-09'
   },
   {
     id: 'ON3_a6zdZeI',
@@ -95,7 +103,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'URZ',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-10-14'
   },
   {
     id: 'U3ahL2lv48o',
@@ -105,7 +114,41 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'SCH',
     note: '',
     group: 'wyklady',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-10-16'
+  },
+  {
+    id: 'bnp9dpwNH3Y',
+    title: 'MiUE.7. Pytania z egzaminu pisemnego.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=bnp9dpwNH3Y',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-10-21'
+  },
+  {
+    id: 'KNjTq6RFuno',
+    title: 'RTel.3. Rysunek techniczny elektryczny, część 3.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=KNjTq6RFuno',
+    category: 'SCH',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-10-23'
+  },
+  {
+    id: 'PSWafcDY_to',
+    title: 'MiUE.8. Pytania z egzaminu pisemnego, część 2.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=PSWafcDY_to',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-10-28'
   },
   {
     id: 'zz2j6MayglM',
@@ -117,7 +160,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'Montaż instalacji',
     note: '',
     group: 'montaz',
-    durationMin: 0
+    durationMin: 0,
+    date: ''
   },
   {
     id: 'l0ubyk-ltMs',
@@ -127,7 +171,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'Montaż instalacji',
     note: '',
     group: 'montaz',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-09-21'
   },
   {
     id: 'enb8RibdbQE',
@@ -137,7 +182,19 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'Montaż instalacji',
     note: '',
     group: 'montaz',
-    durationMin: 0
+    durationMin: 0,
+    date: '2026-10-05'
+  },
+  {
+    id: 'l91k2itqHcQ',
+    title: 'M-EP.3. Podłączanie gniazda i pomiar prądu miernikiem cęgowym.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=l91k2itqHcQ',
+    category: 'Montaż instalacji',
+    note: '',
+    group: 'montaz',
+    durationMin: 0,
+    date: '2026-10-19'
   },
 
   // Akademia Sukcesu Zawodowego — kompetencje miękkie, poza taksonomią elektryczną,
@@ -150,7 +207,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 43
+    durationMin: 43,
+    date: ''
   },
   {
     id: 'Em4R4FD8SCM',
@@ -160,7 +218,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 40
+    durationMin: 40,
+    date: ''
   },
   {
     id: '_c-NiCs0I5w',
@@ -170,7 +229,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 44
+    durationMin: 44,
+    date: ''
   },
   {
     id: '-sP9PN9Pc_Y',
@@ -180,7 +240,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 60
+    durationMin: 60,
+    date: ''
   },
   {
     id: 'n7BHYkA0VnE',
@@ -190,7 +251,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 46
+    durationMin: 46,
+    date: ''
   },
   {
     id: 'Gw7UP5sgoz8',
@@ -200,7 +262,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 40
+    durationMin: 40,
+    date: ''
   },
   {
     id: 'osDxitZW8Ys',
@@ -210,7 +273,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 40
+    durationMin: 40,
+    date: ''
   },
   {
     id: 'aw8LTazB9lU',
@@ -220,7 +284,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 30
+    durationMin: 30,
+    date: ''
   },
   {
     id: '4m8ccND4vf8',
@@ -230,7 +295,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 39
+    durationMin: 39,
+    date: ''
   },
   {
     id: '-OmioQoBY0I',
@@ -240,7 +306,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 43
+    durationMin: 43,
+    date: ''
   },
   {
     id: 'wVu2jdGVnhk',
@@ -250,27 +317,8 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: 'POZ',
     note: '',
     group: 'dodatkowe',
-    durationMin: 0
-  },
-  {
-    id: '5eoIz7g0L2U',
-    title: 'LinkedIn i Twoja przyszłość zawodowa – jak budować profil, kompetencje i przewagę na rynku pracy?',
-    channel: 'Krzysztof Gnyra',
-    url: 'https://www.youtube.com/watch?v=5eoIz7g0L2U',
-    category: '',
-    note: '',
-    group: 'dodatkowe',
-    durationMin: 0
-  },
-  {
-    id: 'lmtsaCMSNYc',
-    title: 'Rynek pracy się zmienia – jak zadbać o swoją zawodową przyszłość?',
-    channel: 'Krzysztof Gnyra',
-    url: 'https://www.youtube.com/watch?v=lmtsaCMSNYc',
-    category: '',
-    note: '',
-    group: 'dodatkowe',
-    durationMin: 0
+    durationMin: 0,
+    date: ''
   },
   {
     id: '3PznIAOQn3E',
@@ -280,6 +328,40 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     category: '',
     note: '',
     group: 'dodatkowe',
-    durationMin: 0
+    durationMin: 0,
+    date: ''
+  },
+  {
+    id: '5eoIz7g0L2U',
+    title: 'LinkedIn i Twoja przyszłość zawodowa – jak budować profil, kompetencje i przewagę na rynku pracy?',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=5eoIz7g0L2U',
+    category: '',
+    note: '',
+    group: 'dodatkowe',
+    durationMin: 0,
+    date: '2026-10-06'
+  },
+  {
+    id: 'lmtsaCMSNYc',
+    title: '#2. Rynek pracy się zmienia – jak zadbać o swoją zawodową przyszłość?',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=lmtsaCMSNYc',
+    category: '',
+    note: '',
+    group: 'dodatkowe',
+    durationMin: 0,
+    date: '2026-10-13'
+  },
+  {
+    id: 'Vov6VKYNeV8',
+    title: '#3. Jak nie odpuścić? Motywacja i wytrwałość w realizacji celu.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=Vov6VKYNeV8',
+    category: '',
+    note: '',
+    group: 'dodatkowe',
+    durationMin: 0,
+    date: '2026-10-20'
   }
 ]
