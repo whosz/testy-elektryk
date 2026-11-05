@@ -151,6 +151,39 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     date: '2026-10-28'
   },
   {
+    id: 'p0oSKgDlaeM',
+    title: 'RT.4. Rysunek techniczny maszynowy.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=p0oSKgDlaeM',
+    category: 'SCH',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-10-30'
+  },
+  {
+    id: 'ZUR7O-3vT94',
+    title: 'MiUE.9. Urządzenia elektryczne, część 9.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=ZUR7O-3vT94',
+    category: 'URZ',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-11-04'
+  },
+  {
+    id: '25l0p-KrkQI',
+    title: 'WODOR.1. Technologie wodorowe, część 1.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=25l0p-KrkQI',
+    category: 'Technologie wodorowe',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-11-04'
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',
@@ -195,6 +228,17 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     group: 'montaz',
     durationMin: 0,
     date: '2026-10-19'
+  },
+  {
+    id: 'CopOclc-Wtc',
+    title: 'M-EP.4. Podłączenie wyłączników różnicowoprądowych.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=CopOclc-Wtc',
+    category: 'Montaż instalacji',
+    note: '',
+    group: 'montaz',
+    durationMin: 0,
+    date: '2026-11-02'
   },
 
   // Akademia Sukcesu Zawodowego — kompetencje miękkie, poza taksonomią elektryczną,
