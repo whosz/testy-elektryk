@@ -184,6 +184,40 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     date: '2026-11-04'
   },
   {
+    id: 'uArVo48bP5U',
+    title: 'WODOR.2. Technologie wodorowe, część 2.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=uArVo48bP5U',
+    category: 'Technologie wodorowe',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-11-05'
+  },
+  {
+    id: 'yZOo2PbPonM',
+    title: 'BHP.1. Bezpieczeństwo i higiena pracy, część 1.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=yZOo2PbPonM',
+    category: 'BHP',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-11-06'
+  },
+  {
+    id: 'tcxx4cDbWD4',
+    title:
+      'BHP.2. Ergonomia. Zagrożenia w środowisku pracy. Ocena ryzyka. Wypadki w pracy i choroby zawodowe.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=tcxx4cDbWD4',
+    category: 'BHP',
+    note: '',
+    group: 'wyklady',
+    durationMin: 0,
+    date: '2026-11-13'
+  },
+  {
     id: 'zz2j6MayglM',
     title: 'cz.1 Instalacje elektryczne - kurs elektryk - Złączki instalacyjne, montaż wyłącznika RCD',
     channel: 'technik elektryk',
@@ -239,6 +273,17 @@ export const BUNDLED_VIDEOS: ContentVideo[] = [
     group: 'montaz',
     durationMin: 0,
     date: '2026-11-02'
+  },
+  {
+    id: '17yrfXh7qjE',
+    title: 'M-EP.5. Wyłączniki RCD i zanik przewodu neutralnego.',
+    channel: 'Krzysztof Gnyra',
+    url: 'https://www.youtube.com/watch?v=17yrfXh7qjE',
+    category: 'Montaż instalacji',
+    note: '',
+    group: 'montaz',
+    durationMin: 0,
+    date: '2026-11-09'
   },
 
   // Akademia Sukcesu Zawodowego — kompetencje miękkie, poza taksonomią elektryczną,
